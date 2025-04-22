@@ -10,7 +10,7 @@ var rng := RandomNumberGenerator.new() # randomizer
 @onready var player_hp: Label = $Display/MarginContainer/PlayerHP
 @onready var enemy_hp: Label = $Display/MarginContainer2/EnemyHP
 
-var problem_active: bool
+var problem_active: bool # This is a placeholder for the problem generator
 var problem_start_time: int
 
 func _ready() -> void: # executes once, at the start of the match
@@ -22,7 +22,7 @@ func _ready() -> void: # executes once, at the start of the match
 func _on_generate_problem_timeout() -> void:
 	problem_active = true # generate a problem here then start the solve timer
 	solve_timer.start()
-	problem_start_time = Time.get_ticks_msec()
+	problem_start_time = Time.get_ticks_msec() # gets the time at which the solve timer started and the problem generated
 
 func _on_timer_for_solving_timeout() -> void:
 	if problem_active:
@@ -32,7 +32,8 @@ func _on_timer_for_solving_timeout() -> void:
 		prob_timer.start(rng.randi_range(2, 4))
 
 func _process(_delta: float) -> void:
-	if problem_active and Input.is_action_just_pressed("ans"):
+	if problem_active and Input.is_action_just_pressed("ans"): # Input action is just a placeholder
+		# this gets the elapsed time since the start of the solve timer by subtracting the start time from current time
 		var elapsed_time = (Time.get_ticks_msec() - problem_start_time) / 1000.0 # convert to seconds, since this is in millisesconds
 		
 		if elapsed_time <= 3.0: # if player solves in under 3 secs, crit damage
