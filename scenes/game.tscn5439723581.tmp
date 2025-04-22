@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://m1bw1se5msyc"]
+
+[ext_resource type="Script" uid="uid://ntpvtw05nsma" path="res://scripts/game.gd" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://0hbumsywhqpv" path="res://scenes/player.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://bu2rkxosafol5" path="res://scenes/enemy.tscn" id="2_lnu2h"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_lnu2h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 79.0
+offset_bottom = 42.0
+size_flags_horizontal = 4
+
+[node name="PlayerHP" type="Label" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "100"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_right = 15
+
+[node name="EnemyHP" type="Label" parent="CanvasLayer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "100"
+horizontal_alignment = 1
+
+[node name="ProblemTimers" type="Node" parent="."]
+
+[node name="Generate Problem" type="Timer" parent="ProblemTimers"]
+wait_time = 4.0
+one_shot = true
+
+[node name="Timer for Solving" type="Timer" parent="ProblemTimers"]
+wait_time = 8.0
+one_shot = true
+
+[node name="Player" parent="." instance=ExtResource("1_yqjtg")]
+position = Vector2(169, 646)
+scale = Vector2(2, 2)
+
+[node name="Enemy" parent="." instance=ExtResource("2_lnu2h")]
+position = Vector2(946, 646)
+scale = Vector2(2, 2)
+
+[connection signal="timeout" from="ProblemTimers/Generate Problem" to="." method="_on_generate_problem_timeout"]
+[connection signal="timeout" from="ProblemTimers/Timer for Solving" to="." method="_on_timer_for_solving_timeout"]
