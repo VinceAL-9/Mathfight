@@ -346,7 +346,7 @@ tracks/6/keys = {
 
 [sub_resource type="Animation" id="Animation_hqns4"]
 resource_name = "Enemy_Kill_Character"
-length = 3.5
+length = 3.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -355,10 +355,10 @@ tracks/0/path = NodePath("Enemy:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.0666666, 0.0666667, 0.2, 0.350558, 0.513836, 0.677113, 0.840391, 0.999003, 1.14829, 1.31156, 1.49817, 1.66144, 1.74542, 1.85271, 1.93333, 2.03333, 2.1, 2.2, 2.26667, 2.36667, 2.43333, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.136902, 0.166667, 0.2, 0.233333, 0.266667, 0.925695, 0.966667, 1.03333, 1.11208, 1.21938, 1.3, 1.4, 1.46667, 1.56667, 1.63333, 1.73333, 1.8, 1.83333, 2.00357, 2.03333, 2.06667, 2.1, 2.7, 2.74097, 2.77431),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 23, 24, 25, 26, 27, 28, 24, 25, 26, 26, 46, 47, 48, 49, 50, 51, 52, 53, 55, 56, 57]
+"values": [46, 101, 102, 103, 108, 109, 108, 107, 46, 47, 48, 49, 50, 51, 52, 53, 55, 56, 57, 101, 102, 109, 108, 108, 107, 46]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -367,7 +367,7 @@ tracks/1/path = NodePath("Enemy:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.51, 2.9, 3.5),
+"times": PackedFloat32Array(0.466667, 0.966667, 2.3, 2.73333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(946, 555), Vector2(280, 555), Vector2(280, 555), Vector2(946, 555)]
@@ -379,7 +379,7 @@ tracks/2/path = NodePath("Character1:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.23333, 2.3824, 2.55929, 2.68525, 2.80654, 2.94183, 3.07711),
+"times": PackedFloat32Array(0, 1.69346, 1.84253, 2.01942, 2.14538, 2.26667, 2.40196, 2.53724),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [6, 6, 13, 7, 8, 9, 10, 11]
@@ -391,10 +391,10 @@ tracks/3/path = NodePath("Weapon1:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = false
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.57512, 2.71507, 2.83636, 2.99498, 3.1116),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2.04222, 2.15567, 2.43661, 2.77158),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(169, 528), Vector2(164, 545), Vector2(176, 569), Vector2(175, 585), Vector2(175, 585), Vector2(189, 591)]
+"values": [Vector2(176, 576), Vector2(165, 588), Vector2(172, 601), Vector2(179, 604), Vector2(187, 606)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -418,7 +418,19 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(169, 528)]
+"values": [Vector2(169, 575)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Enemy:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.956276, 2.30155, 2.73916),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_kdubu"]
