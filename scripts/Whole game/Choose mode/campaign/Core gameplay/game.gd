@@ -51,7 +51,8 @@ func _on_timer_for_solving_timeout() -> void:
 		
 		if player_health <= 0:
 			anim.play("player_death") # death animation for player
-			end_game()
+			enemy_sprite.play("idle")
+			await end_game_after_delay()
 			return
 			
 		problem_active = false
@@ -78,18 +79,26 @@ func _process(_delta: float) -> void:
 		
 		if enemy_health <= 0:
 			anim.play("enemy_death") # death animation for enemy
-			end_game()
+			player_sprite.play("idle")
+			await end_game_after_delay()
 			return
 		
 		solve_timer.stop() # stop the solve timer and start generate_problem timer
 		prob_timer.start(rng.randi_range(2, 4))
 		problem_active = false
 
-func end_game() -> void:
-	game_over = true # mark game as over
-	solve_timer.stop() # stop timers to avoid further input or problems
+func end_game_after_delay() -> void: # wait for a moment before ending the game
+	game_over = true # prevent further interaction
+	solve_timer.stop()
 	prob_timer.stop()
-	print("Game Over") # can be replaced with a UI popup or scene transition
+	
+	player_hp.queue_free() # remove hp displays from screen
+	enemy_hp.queue_free()
+	
+	await get_tree().create_timer(5.0).timeout # wait 5 seconds before final action
+
+	# Now show a Game Over screen or quit
+	print("Game Over") # Optional: Replace with UI or scene change
 		
 		
 		
