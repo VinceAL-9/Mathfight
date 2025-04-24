@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://tlqohuf6wcih"
-path="res://.godot/imported/488608958_670123645572749_4657947392874764840_n (1).png-dfc04862d769641d48736c469dad8353.ctex"
+path="res://.godot/imported/488608958_670123645572749_4657947392874764840_n (1).png-ae41deb2ca07b4cbed2fc103867f9402.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Main_screen/488608958_670123645572749_4657947392874764840_n (1).png"
-dest_files=["res://.godot/imported/488608958_670123645572749_4657947392874764840_n (1).png-dfc04862d769641d48736c469dad8353.ctex"]
+source_file="res://scenes/Whole game/Main_screen/488608958_670123645572749_4657947392874764840_n (1).png"
+dest_files=["res://.godot/imported/488608958_670123645572749_4657947392874764840_n (1).png-ae41deb2ca07b4cbed2fc103867f9402.ctex"]
 
 [params]
 

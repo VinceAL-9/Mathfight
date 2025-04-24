@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://m1bw1se5msyc"]
 
-[ext_resource type="Script" uid="uid://ntpvtw05nsma" path="res://scripts/Whole game/Main screen/Login/Main menu/Choose mode/campaign/Core gameplay/game.gd" id="1_pkyck"]
+[ext_resource type="Script" uid="uid://ntpvtw05nsma" path="res://scripts/Whole game/Main menu/Choose mode/campaign/Core gameplay/game.gd" id="1_pkyck"]
 [ext_resource type="PackedScene" uid="uid://bjofrf14vlhie" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/player_and_enemy.tscn" id="2_8fel7"]
 
 [node name="game" type="Node2D"]

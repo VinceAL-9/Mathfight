@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d301meeri7xvv"
-path="res://.godot/imported/10.png-f365b9c729a5ce359b36c77473e4c9ef.ctex"
+path="res://.godot/imported/10.png-686112411a5f0b4434c5b5b3064256b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Login/10.png"
-dest_files=["res://.godot/imported/10.png-f365b9c729a5ce359b36c77473e4c9ef.ctex"]
+source_file="res://scenes/Whole game/Login/10.png"
+dest_files=["res://.godot/imported/10.png-686112411a5f0b4434c5b5b3064256b5.ctex"]
 
 [params]
 

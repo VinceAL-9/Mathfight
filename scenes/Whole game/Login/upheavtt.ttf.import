@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://b2yytxp7gsmus"
-path="res://.godot/imported/upheavtt.ttf-dce5e1ac5bfe483ff164a2d01be5ddd2.fontdata"
+path="res://.godot/imported/upheavtt.ttf-6e98b4f8212f8f0f105ef5e60ffd0167.fontdata"
 
 [deps]
 
-source_file="res://Login/upheavtt.ttf"
-dest_files=["res://.godot/imported/upheavtt.ttf-dce5e1ac5bfe483ff164a2d01be5ddd2.fontdata"]
+source_file="res://scenes/Whole game/Login/upheavtt.ttf"
+dest_files=["res://.godot/imported/upheavtt.ttf-6e98b4f8212f8f0f105ef5e60ffd0167.fontdata"]
 
 [params]
 
