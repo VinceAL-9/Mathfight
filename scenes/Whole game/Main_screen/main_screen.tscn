@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://bg8ls8rhycn7r"]
 
 [ext_resource type="Script" uid="uid://drtcgf6sejr8s" path="res://Main_screen/main_screen.gd" id="1_pwwvs"]
-[ext_resource type="Texture2D" uid="uid://d301meeri7xvv" path="res://10.png" id="2_pkefv"]
-[ext_resource type="Texture2D" uid="uid://tlqohuf6wcih" path="res://488608958_670123645572749_4657947392874764840_n (1).png" id="3_amrgi"]
-[ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://upheavtt.ttf" id="4_qe8hs"]
+[ext_resource type="Texture2D" uid="uid://d301meeri7xvv" path="res://Login/10.png" id="2_pkefv"]
+[ext_resource type="Texture2D" uid="uid://tlqohuf6wcih" path="res://Main_screen/488608958_670123645572749_4657947392874764840_n (1).png" id="3_amrgi"]
+[ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://Login/upheavtt.ttf" id="4_qe8hs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywh4s"]
 texture = ExtResource("2_pkefv")
