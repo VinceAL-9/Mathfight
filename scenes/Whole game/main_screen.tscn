@@ -1,0 +1,94 @@
+[gd_scene load_steps=18 format=3 uid="uid://bg8ls8rhycn7r"]
+
+[ext_resource type="Script" uid="uid://drtcgf6sejr8s" path="res://scripts/Whole game/main_screen.gd" id="1_pwwvs"]
+[ext_resource type="Texture2D" uid="uid://d301meeri7xvv" path="res://assets/10.png" id="2_pkefv"]
+[ext_resource type="Texture2D" uid="uid://tlqohuf6wcih" path="res://assets/Main_screen/488608958_670123645572749_4657947392874764840_n (1).png" id="3_amrgi"]
+[ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="4_qe8hs"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ywh4s"]
+texture = ExtResource("2_pkefv")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ue4rx"]
+texture = ExtResource("3_amrgi")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kwhh3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4sclt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ywh4s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ue4rx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sjiej"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4sv2p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0osx7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_62wn8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sj757"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ups6l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7a4el"]
+
+[node name="Main Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pwwvs")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ywh4s")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 137.0
+offset_top = -53.0
+offset_right = -153.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ue4rx")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.356771
+anchor_top = 0.79784
+anchor_right = 0.643229
+anchor_bottom = 0.947531
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(1, 0.870588, 0.12549, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_qe8hs")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kwhh3")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4sclt")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ywh4s")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ue4rx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_sjiej")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_4sv2p")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0osx7")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_62wn8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sj757")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ups6l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7a4el")
+text = "Press to Start"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

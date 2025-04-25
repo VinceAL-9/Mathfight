@@ -1,0 +1,253 @@
+[gd_scene load_steps=19 format=3 uid="uid://3cmbc03ti6xe"]
+
+[ext_resource type="Script" uid="uid://suong8djaq8e" path="res://scripts/Whole game/main_menu.gd" id="1_8ln24"]
+[ext_resource type="Texture2D" uid="uid://cp02anuuk7fj6" path="res://assets/images/preview.png" id="2_rtw2f"]
+[ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="3_oa1go"]
+[ext_resource type="Texture2D" uid="uid://olixels6s1pw" path="res://assets/images/settings_3.png" id="4_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://cjswsidfopc0p" path="res://assets/images/start-button-normal.png" id="4_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://b4bhy5l20vtl" path="res://assets/images/mail.png" id="5_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://y5nx0u36ai5d" path="res://assets/images/start-button-on-hover.png" id="5_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://drode5ae7xs17" path="res://assets/images/list_bulleted.png" id="6_lgwnu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fj5cn"]
+texture = ExtResource("2_rtw2f")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iy58a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a6wx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sky72"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fj5cn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iy58a"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 0.788235)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbped"]
+bg_color = Color(0.185295, 0.185295, 0.185295, 1)
+corner_radius_top_left = 86
+corner_radius_top_right = 86
+corner_radius_bottom_right = 86
+corner_radius_bottom_left = 86
+
+[sub_resource type="Animation" id="Animation_jk1qb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_tbmy8"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5dd4i"]
+_data = {
+&"RESET": SubResource("Animation_jk1qb"),
+&"fade_out": SubResource("Animation_tbmy8")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ln24")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fj5cn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 135.0
+offset_right = 542.0
+offset_bottom = 449.0
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="StoreButton" type="Button" parent="Background/VBoxContainer"]
+modulate = Color(1, 1, 1, 0.941176)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.839216, 0.839216, 0.839216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.878431)
+theme_override_colors/font_pressed_color = Color(0.764706, 0.764706, 0.764706, 0.960784)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_oa1go")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iy58a")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6a6wx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sky72")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fj5cn")
+text = "STORE"
+alignment = 0
+
+[node name="AchievementsButton" type="Button" parent="Background/VBoxContainer"]
+modulate = Color(1, 1, 1, 0.941176)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.839216, 0.839216, 0.839216, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.878431)
+theme_override_colors/font_pressed_color = Color(0.764706, 0.764706, 0.764706, 0.960784)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_oa1go")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iy58a")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6a6wx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sky72")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fj5cn")
+text = "ACHIEVEMENTS"
+alignment = 0
+
+[node name="EquipmentButton" type="Button" parent="Background/VBoxContainer"]
+modulate = Color(1, 1, 1, 0.941176)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.839729, 0.83973, 0.839729, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.878431)
+theme_override_colors/font_pressed_color = Color(0.764706, 0.764706, 0.764706, 0.960784)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_oa1go")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iy58a")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6a6wx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sky72")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fj5cn")
+text = "EQUIPMENT"
+alignment = 0
+
+[node name="Header" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 122.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_iy58a")
+
+[node name="HeaderMenuContainer" type="HBoxContainer" parent="Header"]
+layout_mode = 0
+offset_left = 761.0
+offset_right = 1537.0
+offset_bottom = 256.0
+scale = Vector2(0.50353, 0.477716)
+
+[node name="SettingsButton" type="TextureButton" parent="Header/HeaderMenuContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_jk1qb")
+texture_pressed = ExtResource("4_jk1qb")
+texture_hover = ExtResource("4_jk1qb")
+texture_focused = ExtResource("4_jk1qb")
+
+[node name="NotificationsButton" type="TextureButton" parent="Header/HeaderMenuContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_5dd4i")
+texture_pressed = ExtResource("5_5dd4i")
+texture_hover = ExtResource("5_5dd4i")
+texture_focused = ExtResource("5_5dd4i")
+
+[node name="TasksButton" type="TextureButton" parent="Header/HeaderMenuContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_lgwnu")
+texture_pressed = ExtResource("6_lgwnu")
+texture_hover = ExtResource("6_lgwnu")
+texture_focused = ExtResource("6_lgwnu")
+
+[node name="ProfilePictureButton" type="Button" parent="Header"]
+layout_mode = 0
+offset_left = 36.0
+offset_right = 159.0
+offset_bottom = 123.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_kbped")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kbped")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kbped")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kbped")
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5dd4i")
+}
+
+[node name="PlayButton" type="TextureButton" parent="Transition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 827.0
+offset_top = 511.0
+offset_right = 1235.0
+offset_bottom = 801.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.201166, 0.306916)
+action_mode = 0
+texture_normal = ExtResource("4_tbmy8")
+texture_hover = ExtResource("5_jk1qb")
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Background/VBoxContainer/StoreButton" to="." method="_on_store_button_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/EquipmentButton" to="." method="_on_equipment_button_pressed"]
+[connection signal="pressed" from="Header/HeaderMenuContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Header/HeaderMenuContainer/NotificationsButton" to="." method="_on_notifications_button_pressed"]
+[connection signal="pressed" from="Header/HeaderMenuContainer/TasksButton" to="." method="_on_tasks_button_pressed"]
+[connection signal="pressed" from="Transition/PlayButton" to="." method="_on_play_button_pressed"]

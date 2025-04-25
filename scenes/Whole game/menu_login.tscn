@@ -1,0 +1,128 @@
+[gd_scene load_steps=9 format=3 uid="uid://cp733g6xxprji"]
+
+[ext_resource type="Script" uid="uid://bvcll0ol3dyjy" path="res://scripts/Whole game/menu_login.gd" id="1_xuj77"]
+[ext_resource type="Texture2D" uid="uid://d301meeri7xvv" path="res://assets/10.png" id="2_pncu6"]
+[ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="3_ei3sb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ye02"]
+texture = ExtResource("2_pncu6")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdf6b"]
+bg_color = Color(0.305882, 0.305882, 0.305882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wa71d"]
+bg_color = Color(0.169245, 0.169245, 0.169245, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ih0y"]
+bg_color = Color(0.168627, 0.168627, 0.168627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqcya"]
+bg_color = Color(0.168627, 0.168627, 0.168627, 1)
+
+[node name="Menu Login" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -58.0
+offset_right = -13.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xuj77")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -562.0
+offset_top = -267.0
+offset_right = 587.0
+offset_bottom = 377.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8ye02")
+metadata/_edit_lock_ = true
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -172.0
+offset_top = -82.0
+offset_right = 190.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hdf6b")
+
+[node name="Password" type="TextEdit" parent="."]
+layout_mode = 1
+offset_left = -150.0
+offset_top = 8.0
+offset_right = 108.0
+offset_bottom = 49.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_wa71d")
+placeholder_text = "Password"
+
+[node name="Username" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -53.0
+offset_right = 111.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_2ih0y")
+placeholder_text = "Username"
+
+[node name="Login" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.558
+offset_left = -150.0
+offset_top = 70.0
+offset_right = -76.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_ei3sb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qqcya")
+text = "Login"
+
+[node name="Signup" type="Button" parent="."]
+layout_mode = 0
+offset_left = -51.0
+offset_top = 69.0
+offset_right = 30.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("3_ei3sb")
+text = "Sign up"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -168.0
+offset_top = -152.0
+offset_right = 267.0
+offset_bottom = -77.0
+theme_override_fonts/normal_font = ExtResource("3_ei3sb")
+theme_override_font_sizes/normal_font_size = 33
+bbcode_enabled = true
+text = "Login"
+
+[connection signal="button_down" from="Login" to="." method="_on_login_button_down"]
+[connection signal="button_down" from="Signup" to="." method="_on_signup_button_down"]
