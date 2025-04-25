@@ -1,41 +1,72 @@
-[gd_scene load_steps=3 format=3 uid="uid://m1bw1se5msyc"]
+[gd_scene load_steps=7 format=3 uid="uid://m1bw1se5msyc"]
 
 [ext_resource type="Script" uid="uid://ntpvtw05nsma" path="res://scripts/Whole game/Choose mode/campaign/Core gameplay/game.gd" id="1_pkyck"]
 [ext_resource type="PackedScene" uid="uid://bjofrf14vlhie" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/player_and_enemy.tscn" id="2_8fel7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fel7"]
+bg_color = Color(0.234635, 0.211231, 0.371415, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkyck"]
+bg_color = Color(0.901961, 0.2, 0.415686, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_romq6"]
+bg_color = Color(0.235294, 0.211765, 0.372549, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2uef"]
+bg_color = Color(0.623529, 0.317647, 0.968627, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_pkyck")
 
 [node name="Display" type="CanvasLayer" parent="."]
 
-[node name="MarginContainer" type="MarginContainer" parent="Display"]
-offset_right = 51.0
+[node name="PlayerContainer" type="MarginContainer" parent="Display"]
+offset_right = 290.0
 offset_bottom = 42.0
 size_flags_horizontal = 0
 theme_override_constants/margin_left = 10
 
-[node name="PlayerHP" type="Label" parent="Display/MarginContainer"]
+[node name="PlayerHpBar" type="ProgressBar" parent="Display/PlayerContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
-text = "100"
-horizontal_alignment = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_8fel7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pkyck")
+value = 100.0
 
-[node name="MarginContainer2" type="MarginContainer" parent="Display"]
+[node name="EnemyContainer" type="MarginContainer" parent="Display"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -66.0
+offset_left = -290.0
 offset_bottom = 42.0
 grow_horizontal = 0
 theme_override_constants/margin_right = 15
 
-[node name="EnemyHP" type="Label" parent="Display/MarginContainer2"]
+[node name="EnemyHPBar" type="ProgressBar" parent="Display/EnemyContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
-text = "100"
-horizontal_alignment = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_romq6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p2uef")
+value = 100.0
+fill_mode = 1
 
 [node name="ProblemTimers" type="Node" parent="."]
 

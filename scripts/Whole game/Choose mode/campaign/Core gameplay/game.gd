@@ -9,15 +9,15 @@ var rng := RandomNumberGenerator.new() # randomizer
 @onready var prob_timer = $"ProblemTimers/Generate Problem" # time before generating next problem (initial: 3.5 secs, succeeding: 2-4 secs)
 @onready var solve_timer = $"ProblemTimers/Timer for Solving" # time the player has to solve a problem
 
-@onready var player_hp: Label = $Display/MarginContainer/PlayerHP
-@onready var enemy_hp: Label = $Display/MarginContainer2/EnemyHP
+@onready var player_hp: ProgressBar = $Display/PlayerContainer/PlayerHpBar
+@onready var enemy_hp: ProgressBar = $Display/EnemyContainer/EnemyHPBar
 
 # AnimatedSprite2d Nodes of player and enemy
 @onready var player_sprite: AnimatedSprite2D = $"Player and Enemy".get_node("Player")
 @onready var enemy_sprite: AnimatedSprite2D = $"Player and Enemy".get_node("Enemy")
 
 var problem_active: bool # This is a placeholder for the problem generator
-var problem_start_time: int
+var problem_start_time: int # for tracking elapsed time
 var game_over: bool = false # indicator whether this game is over
 var has_answered: bool = false # prevents input spamming
 
@@ -29,8 +29,8 @@ func _ready() -> void: # executes once, at the start of the match
 	prob_timer.start()
 
 func update_health_ui() -> void:
-	player_hp.text = str(player_health)
-	enemy_hp.text = str(enemy_health)
+	player_hp.value = player_health
+	enemy_hp.value = enemy_health
 
 func _on_generate_problem_timeout() -> void:
 	problem_active = true # generate a problem here then start the solve timer
