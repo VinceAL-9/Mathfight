@@ -59,7 +59,7 @@ anchor_right = 1.0
 offset_left = -290.0
 offset_bottom = 42.0
 grow_horizontal = 0
-theme_override_constants/margin_right = 15
+theme_override_constants/margin_right = 10
 
 [node name="EnemyHPBar" type="ProgressBar" parent="Display/EnemyContainer"]
 layout_mode = 2
@@ -71,7 +71,7 @@ fill_mode = 1
 [node name="ProblemTimers" type="Node" parent="."]
 
 [node name="Generate Problem" type="Timer" parent="ProblemTimers"]
-wait_time = 3.5
+wait_time = 6.5
 one_shot = true
 
 [node name="Timer for Solving" type="Timer" parent="ProblemTimers"]

@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://03d5d3tsunf1"]
+
+[ext_resource type="Script" uid="uid://bglpysv87irj1" path="res://scripts/Whole game/Choose mode/campaign/Core gameplay/core_gameplay.gd" id="1_e06vs"]
+[ext_resource type="PackedScene" uid="uid://m1bw1se5msyc" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/game.tscn" id="1_g6o5k"]
+[ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="3_phasa"]
+
+[node name="Core Gameplay" type="Node2D"]
+script = ExtResource("1_e06vs")
+
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="ReadyContainer" type="MarginContainer" parent="Interface"]
+z_index = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -11.5
+offset_right = 46.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ready" type="Label" parent="Interface/ReadyContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.682353, 0.611765, 0.839216, 1)
+theme_override_fonts/font = ExtResource("3_phasa")
+theme_override_font_sizes/font_size = 50
+text = "Get Ready..."
+horizontal_alignment = 1
+
+[node name="DarkOverlay" type="ColorRect" parent="Interface"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.368627)
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="game" parent="." instance=ExtResource("1_g6o5k")]
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

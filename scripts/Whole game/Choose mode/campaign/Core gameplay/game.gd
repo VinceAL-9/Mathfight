@@ -6,9 +6,10 @@ var enemy_health: int = 100
 var rng := RandomNumberGenerator.new() # randomizer
 
 @onready var anim: AnimationPlayer = $"Player and Enemy".get_node("AnimationPlayer") # animation player for the animations
-@onready var prob_timer = $"ProblemTimers/Generate Problem" # time before generating next problem (initial: 3.5 secs, succeeding: 2-4 secs)
+@onready var prob_timer = $"ProblemTimers/Generate Problem" # time before generating next problem (initial: 6.5 secs (counting the start delay), succeeding: 2-4 secs)
 @onready var solve_timer = $"ProblemTimers/Timer for Solving" # time the player has to solve a problem
 
+@onready var display: CanvasLayer = $Display
 @onready var player_hp: ProgressBar = $Display/PlayerContainer/PlayerHpBar
 @onready var enemy_hp: ProgressBar = $Display/EnemyContainer/EnemyHPBar
 
@@ -89,8 +90,7 @@ func end_game_after_delay() -> void: # wait for a moment before ending the game
 	solve_timer.stop()
 	prob_timer.stop()
 	
-	player_hp.queue_free() # remove hp displays from screen
-	enemy_hp.queue_free()
+	display.queue_free() # remove every UI element from screen
 	
 	await get_tree().create_timer(5.0).timeout # wait 5 seconds before final action
 
