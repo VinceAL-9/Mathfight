@@ -40,7 +40,7 @@ horizontal_alignment = 1
 [node name="ProblemTimers" type="Node" parent="."]
 
 [node name="Generate Problem" type="Timer" parent="ProblemTimers"]
-wait_time = 3.0
+wait_time = 3.5
 one_shot = true
 
 [node name="Timer for Solving" type="Timer" parent="ProblemTimers"]

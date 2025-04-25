@@ -6,7 +6,7 @@ var enemy_health: int = 100
 var rng := RandomNumberGenerator.new() # randomizer
 
 @onready var anim: AnimationPlayer = $"Player and Enemy".get_node("AnimationPlayer") # animation player for the animations
-@onready var prob_timer = $"ProblemTimers/Generate Problem" # time before generating next problem (initial: 3 secs, succeeding: 2-4 secs)
+@onready var prob_timer = $"ProblemTimers/Generate Problem" # time before generating next problem (initial: 3.5 secs, succeeding: 2-4 secs)
 @onready var solve_timer = $"ProblemTimers/Timer for Solving" # time the player has to solve a problem
 
 @onready var player_hp: Label = $Display/MarginContainer/PlayerHP
@@ -22,9 +22,6 @@ var game_over: bool = false # indicator whether this game is over
 var has_answered: bool = false # prevents input spamming
 
 func _ready() -> void: # executes once, at the start of the match
-	# set positions of the player and enemy sprites
-	player_sprite.position = Vector2(169, 280) 
-	enemy_sprite.position = Vector2(946, 259)
 	
 	update_health_ui() # sets initial health display
 	
@@ -44,7 +41,7 @@ func _on_generate_problem_timeout() -> void:
 func _on_timer_for_solving_timeout() -> void:
 	if problem_active and not has_answered: # prevent double triggers if answer was already given
 		anim.play("enemy_attack") # play the animation with a bit of delay to sync with damage
-		await get_tree().create_timer(1.3).timeout
+		await get_tree().create_timer(1.5).timeout
 		
 		player_health -= 10
 		update_health_ui()
