@@ -1,0 +1,312 @@
+[gd_scene load_steps=10 format=3 uid="uid://tebj2ifw0ndr"]
+
+[ext_resource type="Script" uid="uid://dbpia2lo5d0ai" path="res://Unpacking Folder/Script/new_script.gd" id="1_df6lo"]
+[ext_resource type="FontFile" uid="uid://bydb56m61wcli" path="res://Unpacking Folder/Assests/upheavtt.ttf" id="2_77e74"]
+[ext_resource type="Texture2D" uid="uid://cea784rj83t5m" path="res://Unpacking Folder/Assests/keydesignhover.png" id="3_mkocj"]
+[ext_resource type="Texture2D" uid="uid://b2q624puu7qib" path="res://Unpacking Folder/Assests/keydesignpressed.png" id="4_tna2v"]
+[ext_resource type="Texture2D" uid="uid://c6uhw501l5wvn" path="res://Unpacking Folder/Assests/Keydesign.png" id="5_f851v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gnjq6"]
+font_size = 50
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8t13d"]
+texture = ExtResource("3_mkocj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_se432"]
+texture = ExtResource("4_tna2v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_msmor"]
+texture = ExtResource("5_f851v")
+
+[node name="Keyboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_df6lo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+color = Color(0.111197, 0.111197, 0.111197, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+text = "5"
+label_settings = SubResource("LabelSettings_gnjq6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 7
+
+[node name="Button1" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "1"
+
+[node name="Button2" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "2"
+
+[node name="Button3" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "3"
+
+[node name="Buttonbackspace" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "<-"
+
+[node name="Buttonplus" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "+"
+
+[node name="Buttonminus" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "-"
+
+[node name="Buttonx" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "x"
+
+[node name="Button4" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "4"
+
+[node name="Button5" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "5"
+
+[node name="Button6" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "6"
+
+[node name="Button0" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "0"
+
+[node name="Buttondivide" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "÷"
+
+[node name="Buttonmultiply" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "*"
+
+[node name="Buttony" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "y"
+
+[node name="Button7" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "7"
+
+[node name="Button8" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "8"
+
+[node name="Button9" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "9"
+
+[node name="ButtonOK" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "OK"
+
+[node name="Buttonsqrt" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "√"
+
+[node name="Buttonraised" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "a^"
+
+[node name="Buttonparenthesis" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = "()"
+
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonbackspace" to="." method="_on_buttonbackspace_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonplus" to="." method="_on_buttonplus_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonminus" to="." method="_on_buttonminus_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonx" to="." method="_on_buttonx_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button0" to="." method="_on_button_0_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttondivide" to="." method="_on_buttondivide_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonmultiply" to="." method="_on_buttonmultiply_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttony" to="." method="_on_buttony_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/ButtonOK" to="." method="_on_button_ok_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonsqrt" to="." method="_on_buttonsqrt_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonraised" to="." method="_on_buttonraised_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonparenthesis" to="." method="_on_buttonparenthesis_pressed"]
