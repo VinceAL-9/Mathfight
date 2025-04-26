@@ -1,22 +1,22 @@
 [gd_scene load_steps=10 format=3 uid="uid://tebj2ifw0ndr"]
 
-[ext_resource type="Script" uid="uid://dbpia2lo5d0ai" path="res://Unpacking Folder/Script/new_script.gd" id="1_df6lo"]
-[ext_resource type="FontFile" uid="uid://bydb56m61wcli" path="res://Unpacking Folder/Assests/upheavtt.ttf" id="2_77e74"]
-[ext_resource type="Texture2D" uid="uid://cea784rj83t5m" path="res://Unpacking Folder/Assests/keydesignhover.png" id="3_mkocj"]
-[ext_resource type="Texture2D" uid="uid://b2q624puu7qib" path="res://Unpacking Folder/Assests/keydesignpressed.png" id="4_tna2v"]
-[ext_resource type="Texture2D" uid="uid://c6uhw501l5wvn" path="res://Unpacking Folder/Assests/Keydesign.png" id="5_f851v"]
+[ext_resource type="Script" uid="uid://dbpia2lo5d0ai" path="res://scripts/Whole game/Choose mode/campaign/Core gameplay/keyboard.gd" id="1_ssikh"]
+[ext_resource type="FontFile" uid="uid://bydb56m61wcli" path="res://assets/KeyboardAssets/upheavtt.ttf" id="2_qfr70"]
+[ext_resource type="Texture2D" uid="uid://cea784rj83t5m" path="res://assets/KeyboardAssets/keydesignhover.png" id="3_7egs6"]
+[ext_resource type="Texture2D" uid="uid://b2q624puu7qib" path="res://assets/KeyboardAssets/keydesignpressed.png" id="4_hcxtj"]
+[ext_resource type="Texture2D" uid="uid://c6uhw501l5wvn" path="res://assets/KeyboardAssets/Keydesign.png" id="5_x3a55"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gnjq6"]
 font_size = 50
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8t13d"]
-texture = ExtResource("3_mkocj")
+texture = ExtResource("3_7egs6")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_se432"]
-texture = ExtResource("4_tna2v")
+texture = ExtResource("4_hcxtj")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_msmor"]
-texture = ExtResource("5_f851v")
+texture = ExtResource("5_x3a55")
 
 [node name="Keyboard" type="Control"]
 layout_mode = 3
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_df6lo")
+script = ExtResource("1_ssikh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -46,7 +46,7 @@ color = Color(0.111197, 0.111197, 0.111197, 1)
 [node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 text = "5"
 label_settings = SubResource("LabelSettings_gnjq6")
@@ -62,7 +62,7 @@ columns = 7
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -73,7 +73,7 @@ text = "1"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -84,7 +84,7 @@ text = "2"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -95,7 +95,7 @@ text = "3"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -106,7 +106,7 @@ text = "<-"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -117,7 +117,7 @@ text = "+"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -128,7 +128,7 @@ text = "-"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -139,7 +139,7 @@ text = "x"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -150,7 +150,7 @@ text = "4"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -161,7 +161,7 @@ text = "5"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -172,7 +172,7 @@ text = "6"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -183,7 +183,7 @@ text = "0"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -194,7 +194,7 @@ text = "÷"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -205,7 +205,7 @@ text = "*"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -216,7 +216,7 @@ text = "y"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -227,7 +227,7 @@ text = "7"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -238,7 +238,7 @@ text = "8"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -249,7 +249,7 @@ text = "9"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -260,7 +260,7 @@ text = "OK"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -271,7 +271,7 @@ text = "√"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
@@ -282,7 +282,7 @@ text = "a^"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_77e74")
+theme_override_fonts/font = ExtResource("2_qfr70")
 theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
