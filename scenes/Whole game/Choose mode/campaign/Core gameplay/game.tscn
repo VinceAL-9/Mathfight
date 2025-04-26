@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://m1bw1se5msyc"]
+[gd_scene load_steps=9 format=3 uid="uid://m1bw1se5msyc"]
 
 [ext_resource type="Script" uid="uid://ntpvtw05nsma" path="res://scripts/Whole game/Choose mode/campaign/Core gameplay/game.gd" id="1_pkyck"]
 [ext_resource type="PackedScene" uid="uid://bjofrf14vlhie" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/player_and_enemy.tscn" id="2_8fel7"]
 [ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="2_pkyck"]
+[ext_resource type="PackedScene" uid="uid://tebj2ifw0ndr" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/keyboard.tscn" id="3_romq6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fel7"]
 bg_color = Color(0.234635, 0.211231, 0.371415, 1)
@@ -70,6 +71,9 @@ theme_override_styles/background = SubResource("StyleBoxFlat_romq6")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p2uef")
 value = 100.0
 fill_mode = 1
+
+[node name="Keyboard" parent="Display" instance=ExtResource("3_romq6")]
+offset_top = 147.0
 
 [node name="ProblemTimers" type="Node" parent="."]
 
