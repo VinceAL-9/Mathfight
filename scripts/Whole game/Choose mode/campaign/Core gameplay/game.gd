@@ -46,14 +46,15 @@ func _on_generate_problem_timeout() -> void:
 
 func _on_timer_for_solving_timeout() -> void:
 	if problem_active and not has_answered: # prevent double triggers if answer was already given
+		# RESET the keyboard 
+		keyboard.reset_input()
+		
 		anim.play("enemy_attack") # play the animation with a bit of delay to sync with damage
 		await get_tree().create_timer(1.5).timeout
 		
 		player_health -= 10
 		update_health_ui()
 		
-		# RESET the keyboard 
-		keyboard.reset_input()
 		
 		if player_health <= 0:
 			anim.play("player_death") # death animation for player
