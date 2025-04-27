@@ -87,5 +87,6 @@ one_shot = true
 
 [node name="Player and Enemy" parent="." instance=ExtResource("2_8fel7")]
 
+[connection signal="answer_submitted" from="Display/Keyboard" to="." method="_on_keyboard_answer_submitted"]
 [connection signal="timeout" from="ProblemTimers/Generate Problem" to="." method="_on_generate_problem_timeout"]
 [connection signal="timeout" from="ProblemTimers/Timer for Solving" to="." method="_on_timer_for_solving_timeout"]

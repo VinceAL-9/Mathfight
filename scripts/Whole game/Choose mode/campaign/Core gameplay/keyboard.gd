@@ -4,11 +4,13 @@ extends Node
 @onready var label = $VBoxContainer/MarginContainer/Label
 
 # constants
-const ANSWER := "x²+12x-32"  # The correct answer to match when OK is pressed
 const SUPERSCRIPT_MAP := {
 	"0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴",
 	"5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹"
 }
+
+# signal for answer submission
+signal answer_submitted(answer_text: String)
 
 # variables
 var next_char_superscript: bool = false  # Whether the next digit should be superscript
@@ -156,15 +158,16 @@ func _on_button_ok_pressed() -> void:
 	typing_enabled = false
 	
 	# Compares the typed answer with the correct answer
-	if label.text == ANSWER:
-		label.text = "Nice Job!"
-		label.add_theme_color_override("font_color", Color.GREEN)
-	else:
-		label.text = "Skill Issue"
-		label.add_theme_color_override("font_color", Color.RED)
+	emit_signal("answer_submitted", label.text)
 	
-	# Wait a moment, then reset the states
-	await get_tree().create_timer(1.5).timeout
+	label.text = ""
+	label.remove_theme_color_override("font_color")
+	next_char_superscript = false
+	sqrt_open = false
+	parenthesis_open = false
+	typing_enabled = true
+
+func reset_input() -> void: # call this function to manually reset keyboard input
 	label.text = ""
 	label.remove_theme_color_override("font_color")
 	next_char_superscript = false
