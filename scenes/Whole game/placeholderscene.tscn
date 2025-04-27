@@ -3,10 +3,13 @@
 [ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="1_1j55e"]
 [ext_resource type="Script" uid="uid://buvnxccxlde16" path="res://scripts/Whole game/placeholderscene.gd" id="1_gtgrm"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_gtgrm")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = -14.0
 offset_top = 567.0
 offset_right = 1266.0
@@ -28,6 +31,7 @@ theme_override_font_sizes/font_size = 20
 text = "(errors if no scene in the prompt)"
 
 [node name="CampaignTest" type="Button" parent="."]
+layout_mode = 0
 offset_left = 540.0
 offset_top = 553.0
 offset_right = 815.0
@@ -37,6 +41,7 @@ theme_override_font_sizes/font_size = 24
 text = "Campaign Select"
 
 [node name="MainMenu" type="Button" parent="."]
+layout_mode = 0
 offset_left = 540.0
 offset_top = 481.0
 offset_right = 815.0

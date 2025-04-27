@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://mbk6s6yg8d7g"]
 
-[ext_resource type="Script" uid="uid://ddpj0a1h52nix" path="res://scripts/Whole game/Choose mode/campaign/campaign_select.gd" id="1_oafh1"]
-[ext_resource type="Texture2D" uid="uid://ckd1q4w1tfm04" path="res://assets/images/city.png" id="2_oxcbj"]
-[ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="3_fymsp"]
+[ext_resource type="Script" uid="uid://ddpj0a1h52nix" path="res://scripts/Whole game/Choose mode/campaign/campaign_select.gd" id="1_gi77u"]
+[ext_resource type="Texture2D" uid="uid://ckd1q4w1tfm04" path="res://assets/images/city.png" id="2_7caoh"]
+[ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="3_sc65a"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rrvjj"]
-texture = ExtResource("2_oxcbj")
+texture = ExtResource("2_7caoh")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a344e"]
 
@@ -131,7 +131,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_oafh1")
+script = ExtResource("1_gi77u")
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 1
@@ -159,7 +159,7 @@ theme_override_colors/font_hover_color = Color(0.0705882, 0.0705882, 0.0705882, 
 theme_override_colors/font_color = Color(0, 0, 0, 0.85098)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 0.85098)
 theme_override_colors/font_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
-theme_override_fonts/font = ExtResource("3_fymsp")
+theme_override_fonts/font = ExtResource("3_sc65a")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a344e")
 theme_override_styles/hover = SubResource("StyleBoxFlat_a344e")
@@ -184,7 +184,7 @@ theme_override_colors/font_hover_color = Color(0.0705882, 0.0705882, 0.0705882, 
 theme_override_colors/font_color = Color(0, 0, 0, 0.85098)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 0.85098)
 theme_override_colors/font_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
-theme_override_fonts/font = ExtResource("3_fymsp")
+theme_override_fonts/font = ExtResource("3_sc65a")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a344e")
 theme_override_styles/hover = SubResource("StyleBoxFlat_a344e")
@@ -209,7 +209,7 @@ theme_override_colors/font_hover_color = Color(0.0705882, 0.0705882, 0.0705882, 
 theme_override_colors/font_color = Color(0, 0, 0, 0.85098)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 0.85098)
 theme_override_colors/font_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
-theme_override_fonts/font = ExtResource("3_fymsp")
+theme_override_fonts/font = ExtResource("3_sc65a")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a344e")
 theme_override_styles/hover = SubResource("StyleBoxFlat_a344e")
@@ -234,7 +234,7 @@ theme_override_colors/font_hover_color = Color(0.0705882, 0.0705882, 0.0705882, 
 theme_override_colors/font_color = Color(0, 0, 0, 0.85098)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 0.85098)
 theme_override_colors/font_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
-theme_override_fonts/font = ExtResource("3_fymsp")
+theme_override_fonts/font = ExtResource("3_sc65a")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a344e")
 theme_override_styles/hover = SubResource("StyleBoxFlat_a344e")
@@ -259,7 +259,7 @@ theme_override_colors/font_hover_color = Color(0.0705882, 0.0705882, 0.0705882, 
 theme_override_colors/font_color = Color(0, 0, 0, 0.85098)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 0.85098)
 theme_override_colors/font_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
-theme_override_fonts/font = ExtResource("3_fymsp")
+theme_override_fonts/font = ExtResource("3_sc65a")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a344e")
 theme_override_styles/hover = SubResource("StyleBoxFlat_a344e")
@@ -284,7 +284,7 @@ theme_override_colors/font_hover_color = Color(0.0705882, 0.0705882, 0.0705882, 
 theme_override_colors/font_color = Color(0, 0, 0, 0.85098)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 0.85098)
 theme_override_colors/font_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
-theme_override_fonts/font = ExtResource("3_fymsp")
+theme_override_fonts/font = ExtResource("3_sc65a")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a344e")
 theme_override_styles/hover = SubResource("StyleBoxFlat_a344e")
