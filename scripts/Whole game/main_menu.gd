@@ -5,7 +5,7 @@ extends Control
 func _on_play_button_pressed() -> void:
 	transition.play("fade_out")
 	await get_tree().create_timer(0.8).timeout
-	Functions.load_screen_to_scene1("res://scenes/Whole game/placeholderscene.tscn")
+	get_tree().change_scene_to_file("res://scenes/Whole game/Choose mode/mode_select.tscn")
 	print("button is pressed")
 
 

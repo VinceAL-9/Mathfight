@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://3cmbc03ti6xe"]
+[gd_scene load_steps=20 format=3 uid="uid://3cmbc03ti6xe"]
 
 [ext_resource type="Script" uid="uid://suong8djaq8e" path="res://scripts/Whole game/main_menu.gd" id="1_8ln24"]
 [ext_resource type="Texture2D" uid="uid://cp02anuuk7fj6" path="res://assets/images/preview.png" id="2_rtw2f"]
@@ -84,9 +84,37 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_qj8ya"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.933333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5dd4i"]
 _data = {
 &"RESET": SubResource("Animation_jk1qb"),
+&"fade_in": SubResource("Animation_qj8ya"),
 &"fade_out": SubResource("Animation_tbmy8")
 }
 

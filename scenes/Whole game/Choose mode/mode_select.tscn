@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://btmi37hjpqehn"]
+[gd_scene load_steps=13 format=3 uid="uid://btmi37hjpqehn"]
 
 [ext_resource type="Script" uid="uid://3gmpb23vx0xc" path="res://scripts/Whole game/Choose mode/mode_select.gd" id="1_tfdo1"]
 [ext_resource type="Texture2D" uid="uid://dbkt778ajwqw3" path="res://assets/images/49eacdc1-1e21-48b0-a532-a83170cfcb37.jpg" id="2_we06t"]
@@ -10,6 +10,94 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgshs"]
 texture = ExtResource("2_we06t")
+
+[sub_resource type="Animation" id="Animation_tfdo1"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition2/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition2/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.966667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_we06t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition2/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition2/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0onc7"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition2/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition2/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0onc7"]
+_data = {
+&"RESET": SubResource("Animation_we06t"),
+&"fade_in": SubResource("Animation_tfdo1"),
+&"fade_out": SubResource("Animation_0onc7")
+}
 
 [node name="Mode_select" type="Control"]
 layout_mode = 3
@@ -34,42 +122,56 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_rgshs")
-metadata/_edit_lock_ = true
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="TextureButton" type="TextureButton" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.07
 anchor_bottom = 0.12
-offset_left = 14.0
-offset_top = 68.0
-offset_right = 1053.36
-offset_bottom = 1650.24
+offset_left = 19.0
+offset_top = 72.0
+offset_right = 1058.36
+offset_bottom = 1654.24
 scale = Vector2(0.307881, 0.274761)
 texture_normal = ExtResource("3_0onc7")
 
-[node name="TextureButton2" type="TextureButton" parent="."]
+[node name="TextureButton2" type="TextureButton" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.07
 anchor_bottom = 0.12
-offset_left = 390.0
-offset_top = 65.0
-offset_right = 1429.36
-offset_bottom = 1371.24
+offset_left = 395.0
+offset_top = 69.0
+offset_right = 1434.36
+offset_bottom = 1375.24
 scale = Vector2(0.325062, 0.339102)
 texture_normal = ExtResource("4_tfdo1")
 texture_hover = ExtResource("5_we06t")
 
-[node name="TextureButton3" type="TextureButton" parent="."]
+[node name="TextureButton3" type="TextureButton" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.07
 anchor_bottom = 0.12
-offset_left = 790.0
-offset_top = 64.0
-offset_right = 1829.36
-offset_bottom = 1360.24
+offset_left = 795.0
+offset_top = 68.0
+offset_right = 1834.36
+offset_bottom = 1364.24
 scale = Vector2(0.308319, 0.343731)
 texture_normal = ExtResource("6_0onc7")
 texture_hover = ExtResource("7_sxdyp")
+
+[node name="Transition2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0onc7")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Transition2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Panel/TextureButton" to="." method="_on_texture_button_pressed"]

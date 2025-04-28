@@ -4,6 +4,8 @@ extends Control
 
 func _ready():
 	transition1.play("fade_in")
+	await get_tree().create_timer(0.8).timeout
+	
 
 func _on_back_button_pressed() -> void:
 	print("button exit")
