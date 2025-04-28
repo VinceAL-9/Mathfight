@@ -128,7 +128,8 @@ func _process(_delta: float) -> void:
 		# Change color based on time left
 		if time_left <= 2.0:
 			solve_timer_display.add_theme_color_override("font_color", Color.RED)
-
+		else:
+			solve_timer_display.add_theme_color_override("font_color", Color.YELLOW)
 func end_game_after_delay() -> void: # wait for a moment before ending the game
 	game_over = true # prevent further interaction
 	solve_timer.stop()
