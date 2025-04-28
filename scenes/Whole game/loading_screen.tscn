@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bpp6vgnsvi5r5"]
 
 [ext_resource type="Texture2D" uid="uid://bqgqwgrbg4rgt" path="res://assets/Main_screen/11-modified.png" id="1_5s5s0"]
-[ext_resource type="Script" uid="uid://i1jjtgeyi3s1" path="res://scenes/Whole game/loading_screen.gd" id="1_jx0id"]
+[ext_resource type="Script" uid="uid://i1jjtgeyi3s1" path="res://scripts/Whole game/loading_screen.gd" id="1_jx0id"]
 [ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="2_jx0id"]
 
 [sub_resource type="Animation" id="Animation_v3o5u"]
