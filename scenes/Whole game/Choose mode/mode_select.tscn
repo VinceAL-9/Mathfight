@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://btmi37hjpqehn"]
+[gd_scene load_steps=14 format=3 uid="uid://btmi37hjpqehn"]
 
 [ext_resource type="Script" uid="uid://3gmpb23vx0xc" path="res://scripts/Whole game/Choose mode/mode_select.gd" id="1_tfdo1"]
 [ext_resource type="Texture2D" uid="uid://dbkt778ajwqw3" path="res://assets/images/49eacdc1-1e21-48b0-a532-a83170cfcb37.jpg" id="2_we06t"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://k0k2y1lv3n3r" path="res://assets/images/2c289e67-ff21-42ca-b9b3-4d55e71e47e6.jpg" id="5_we06t"]
 [ext_resource type="Texture2D" uid="uid://dnifvmdgfck2y" path="res://assets/images/ae3e69ee-db87-4437-a764-5029f56d06fb (1).jpg" id="6_0onc7"]
 [ext_resource type="Texture2D" uid="uid://bmveh16gnmpf7" path="res://assets/images/f078cd7f-8587-4fab-bb23-5e41f3f9f275.jpg" id="7_sxdyp"]
+[ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="8_we06t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgshs"]
 texture = ExtResource("2_we06t")
@@ -160,6 +161,36 @@ offset_bottom = 1364.24
 scale = Vector2(0.308319, 0.343731)
 texture_normal = ExtResource("6_0onc7")
 texture_hover = ExtResource("7_sxdyp")
+
+[node name="TextEdit" type="TextEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 536.0
+offset_right = 394.0
+offset_bottom = 645.0
+theme_override_fonts/font = ExtResource("8_we06t")
+theme_override_font_sizes/font_size = 55
+text = "Campaign"
+
+[node name="TextEdit3" type="TextEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 915.0
+offset_top = 537.0
+offset_right = 1081.0
+offset_bottom = 646.0
+theme_override_fonts/font = ExtResource("8_we06t")
+theme_override_font_sizes/font_size = 55
+text = "pvp"
+
+[node name="TextEdit2" type="TextEdit" parent="Panel"]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 537.0
+offset_right = 791.0
+offset_bottom = 646.0
+theme_override_fonts/font = ExtResource("8_we06t")
+theme_override_font_sizes/font_size = 55
+text = "infinite"
 
 [node name="Transition2" type="AnimationPlayer" parent="."]
 libraries = {

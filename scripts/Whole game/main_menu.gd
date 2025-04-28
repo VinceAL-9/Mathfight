@@ -1,8 +1,11 @@
 extends Control
 
 @onready var transition = $Transition
+@onready var v_box_container = $Background/VBoxContainer
+
 
 func _ready():
+	$Options.visible = false
 	transition.play("fade_in")
 	await get_tree().create_timer(1).timeout
 
@@ -27,7 +30,15 @@ func _on_equipment_button_pressed() -> void:
 
 
 func _on_settings_button_pressed() -> void:
-	pass # Replace with function body.
+	$Options.visible = not $Options.visible
+	v_box_container.visible = not v_box_container.visible
+		
+ 
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on == true:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 
 func _on_notifications_button_pressed() -> void:

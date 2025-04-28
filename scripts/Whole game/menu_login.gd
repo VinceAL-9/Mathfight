@@ -1,12 +1,15 @@
 extends Control
 
+@onready var password_field = $LoginContainer/InputContainer/Password
 @onready var transition = $Transition
 var stored_username := ""
 var stored_password_hash := ""
 var is_signing_up := false
+var password_vissable := false
 
 func _ready():
 	transition.play("fade_in")
+	password_field.secret = true
 	
 func _on_signup_button_down() -> void:
 	if !is_signing_up:
