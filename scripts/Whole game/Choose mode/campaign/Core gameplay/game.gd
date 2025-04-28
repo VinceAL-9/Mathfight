@@ -124,6 +124,10 @@ func _process(_delta: float) -> void:
 		var time_left = (solve_timer_end_time - Time.get_ticks_msec()) / 1000.0
 		time_left = max(time_left, 0) # avoid showing negative numbers
 		solve_timer_display.text = str("%.1f" % time_left) # show with 1 decimal place
+		
+		# Change color based on time left
+		if time_left <= 2.0:
+			solve_timer_display.add_theme_color_override("font_color", Color.RED)
 
 func end_game_after_delay() -> void: # wait for a moment before ending the game
 	game_over = true # prevent further interaction
