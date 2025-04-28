@@ -2,9 +2,13 @@ extends Control
 
 @onready var transition = $Transition
 
+func _ready():
+	transition.play("fade_in")
+	await get_tree().create_timer(1).timeout
+
 func _on_play_button_pressed() -> void:
 	transition.play("fade_out")
-	await get_tree().create_timer(0.8).timeout
+	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://scenes/Whole game/Choose mode/mode_select.tscn")
 	print("button is pressed")
 
