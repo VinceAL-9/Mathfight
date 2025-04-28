@@ -2,7 +2,7 @@ extends Node
 
 # UI Node
 @onready var label = $VBoxContainer/MarginContainer/Label
-
+@onready var button_sfx: AudioStreamPlayer = $Button_SFX
 # constants
 const SUPERSCRIPT_MAP := {
 	"0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴",
@@ -27,6 +27,9 @@ func _ready() -> void:
 	typing_enabled = true
 
 func key_pressed(character) -> void:
+	if button_sfx:
+		button_sfx.play()
+	
 	# Prevent typing if typing is disabled
 	if not typing_enabled:
 		return
@@ -81,6 +84,9 @@ func _on_button_0_pressed() -> void:
 	key_pressed(0)
 
 func _on_button_backspace_pressed() -> void:
+	if button_sfx:
+		button_sfx.play()
+	
 	# Allow backspace only if typing is allowed
 	if not typing_enabled:
 		return
@@ -134,6 +140,8 @@ func _on_button_sqrt_pressed() -> void:
 	
 
 func _on_button_raised_pressed() -> void:
+	if button_sfx:
+		button_sfx.play()
 	# Activates superscript mode for next character
 	if typing_enabled:
 		next_char_superscript = true
@@ -150,6 +158,9 @@ func _on_button_parenthesis_pressed() -> void:
 	parenthesis_open = not parenthesis_open
 
 func _on_button_ok_pressed() -> void:
+	if button_sfx:
+		button_sfx.play()
+	
 	# prevent spam clicking OK
 	if not typing_enabled:
 		return
