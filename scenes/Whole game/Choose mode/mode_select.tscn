@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://btmi37hjpqehn"]
+[gd_scene load_steps=15 format=3 uid="uid://btmi37hjpqehn"]
 
 [ext_resource type="Script" uid="uid://3gmpb23vx0xc" path="res://scripts/Whole game/Choose mode/mode_select.gd" id="1_tfdo1"]
 [ext_resource type="Texture2D" uid="uid://dbkt778ajwqw3" path="res://assets/images/49eacdc1-1e21-48b0-a532-a83170cfcb37.jpg" id="2_we06t"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dnifvmdgfck2y" path="res://assets/images/ae3e69ee-db87-4437-a764-5029f56d06fb (1).jpg" id="6_0onc7"]
 [ext_resource type="Texture2D" uid="uid://bmveh16gnmpf7" path="res://assets/images/f078cd7f-8587-4fab-bb23-5e41f3f9f275.jpg" id="7_sxdyp"]
 [ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="8_we06t"]
+[ext_resource type="AudioStream" uid="uid://codinsjriyrkh" path="res://Unpacking/ButtonSfx.mp3" id="9_0onc7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgshs"]
 texture = ExtResource("2_we06t")
@@ -204,5 +205,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Button_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_0onc7")
 
 [connection signal="pressed" from="Panel/TextureButton" to="." method="_on_texture_button_pressed"]

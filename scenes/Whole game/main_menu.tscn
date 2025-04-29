@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://3cmbc03ti6xe"]
+[gd_scene load_steps=26 format=3 uid="uid://3cmbc03ti6xe"]
 
 [ext_resource type="Script" uid="uid://suong8djaq8e" path="res://scripts/Whole game/main_menu.gd" id="1_8ln24"]
 [ext_resource type="Texture2D" uid="uid://cp02anuuk7fj6" path="res://assets/images/preview.png" id="2_rtw2f"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://y5nx0u36ai5d" path="res://assets/images/start-button-on-hover.png" id="5_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://drode5ae7xs17" path="res://assets/images/list_bulleted.png" id="6_lgwnu"]
 [ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="9_3w3uy"]
+[ext_resource type="AudioStream" uid="uid://codinsjriyrkh" path="res://Unpacking/ButtonSfx.mp3" id="10_nyucq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fj5cn"]
 texture = ExtResource("2_rtw2f")
@@ -341,6 +342,11 @@ offset_bottom = 166.0
 theme_override_fonts/font = ExtResource("9_3w3uy")
 theme_override_font_sizes/font_size = 31
 text = "Fullscreen"
+
+[node name="Button_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_nyucq")
+volume_db = 2.0
+mix_target = 2
 
 [connection signal="button_down" from="Background/VBoxContainer/StoreButton" to="." method="_on_store_button_button_down"]
 [connection signal="pressed" from="Background/VBoxContainer/StoreButton" to="." method="_on_store_button_pressed"]

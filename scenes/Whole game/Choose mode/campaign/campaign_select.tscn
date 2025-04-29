@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://mbk6s6yg8d7g"]
+[gd_scene load_steps=14 format=3 uid="uid://mbk6s6yg8d7g"]
 
 [ext_resource type="Script" uid="uid://ddpj0a1h52nix" path="res://scripts/Whole game/Choose mode/campaign/campaign_select.gd" id="1_gi77u"]
 [ext_resource type="Texture2D" uid="uid://ckd1q4w1tfm04" path="res://assets/images/city.png" id="2_7caoh"]
 [ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="3_sc65a"]
+[ext_resource type="AudioStream" uid="uid://codinsjriyrkh" path="res://Unpacking/ButtonSfx.mp3" id="4_7caoh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rrvjj"]
 texture = ExtResource("2_7caoh")
@@ -304,6 +305,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Button_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7caoh")
 
 [connection signal="pressed" from="Background/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Background/Button2" to="." method="_on_button_2_pressed"]

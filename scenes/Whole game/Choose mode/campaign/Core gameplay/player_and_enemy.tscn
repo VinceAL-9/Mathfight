@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://bjofrf14vlhie"]
+[gd_scene load_steps=120 format=3 uid="uid://bjofrf14vlhie"]
 
 [ext_resource type="Texture2D" uid="uid://djmtdvgmpbcei" path="res://assets/sprites/Free 3 Cyberpunk Sprites Pixel Art/1 Biker/Biker_attack3.png" id="1_1ae87"]
 [ext_resource type="Texture2D" uid="uid://childg1vaa23e" path="res://assets/Assetspack/Character1.png" id="2_88lo6"]
@@ -7,6 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://byoxge2id3fbs" path="res://assets/sprites/Characters with melee/1 Characters/1 Biker/retreat.png" id="4_b8fdy"]
 [ext_resource type="Texture2D" uid="uid://dyyrrud7ek0qo" path="res://assets/sprites/Characters with melee/1 Characters/1 Biker/Run.png" id="5_xtiyc"]
 [ext_resource type="Texture2D" uid="uid://cp8ou11yh36a6" path="res://assets/sprites/Enemy/NightBorne.png" id="6_turfo"]
+[ext_resource type="AudioStream" uid="uid://bw2wo68sefopj" path="res://Unpacking/running-14658.mp3" id="8_tm7a1"]
+[ext_resource type="AudioStream" uid="uid://bryb4k80p6qu3" path="res://Unpacking/galactic-whip-fk_prod-105763.mp3" id="9_enkvm"]
+[ext_resource type="AudioStream" uid="uid://dnx71pq0jlyo3" path="res://Unpacking/game-over-arcade-6435.mp3" id="10_i1ghr"]
+[ext_resource type="AudioStream" uid="uid://b782ra1xcun6c" path="res://Unpacking/player-hurt-2-236675.mp3" id="11_30lgb"]
+[ext_resource type="AudioStream" uid="uid://u4n3hhury13d" path="res://Unpacking/enemy_hurt_c_08-102842.mp3" id="12_fe3rf"]
+[ext_resource type="AudioStream" uid="uid://f1mcd2gdb3af" path="res://Unpacking/teleport-90137.mp3" id="13_fhiw5"]
+[ext_resource type="AudioStream" uid="uid://csn6ca1fxmgyp" path="res://Unpacking/lightsaber-1-14787.mp3" id="14_fprsg"]
+[ext_resource type="AudioStream" uid="uid://cv82dhvw4lncj" path="res://Unpacking/enemy-explode-2-236688.mp3" id="15_imaam"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_turfo"]
 atlas = ExtResource("1_1ae87")
@@ -914,6 +922,55 @@ tracks/5/keys = {
 "update": 0,
 "values": [0.7]
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/Bot_Teleport")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.69,
+"start_offset": 0.08,
+"stream": ExtResource("13_fhiw5")
+}, {
+"end_offset": 0.69,
+"start_offset": 0.08,
+"stream": ExtResource("13_fhiw5")
+}],
+"times": PackedFloat32Array(0.0333333, 1)
+}
+tracks/6/use_blend = true
+tracks/7/type = "audio"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimationPlayer/Bot_Attack")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": [{
+"end_offset": 1.68,
+"start_offset": 0.41,
+"stream": ExtResource("14_fprsg")
+}],
+"times": PackedFloat32Array(0.866667)
+}
+tracks/7/use_blend = true
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AnimationPlayer/Character_Hurt")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_30lgb")
+}],
+"times": PackedFloat32Array(0.966667)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="Animation" id="Animation_88lo6"]
 resource_name = "enemy_death"
@@ -942,6 +999,21 @@ tracks/1/keys = {
 "update": 0,
 "values": [0, 23]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Bot_Death")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.46,
+"start_offset": 0.0,
+"stream": ExtResource("15_imaam")
+}],
+"times": PackedFloat32Array(0.0666667)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_1ae87"]
 resource_name = "player_attack"
@@ -1018,10 +1090,59 @@ tracks/5/keys = {
 "update": 0,
 "values": [1.5]
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimationPlayer/Character_Running")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 1.69,
+"start_offset": 0.0,
+"stream": ExtResource("8_tm7a1")
+}, {
+"end_offset": 2.02,
+"start_offset": 0.0,
+"stream": ExtResource("8_tm7a1")
+}],
+"times": PackedFloat32Array(0, 1.7)
+}
+tracks/6/use_blend = true
+tracks/7/type = "audio"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimationPlayer/Character_Attack")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": [{
+"end_offset": 1.4,
+"start_offset": 0.0,
+"stream": ExtResource("9_enkvm")
+}],
+"times": PackedFloat32Array(1.2)
+}
+tracks/7/use_blend = true
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AnimationPlayer/Bot_Hurt")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("12_fe3rf")
+}],
+"times": PackedFloat32Array(1.33333)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="Animation" id="Animation_kskrk"]
 resource_name = "player_death"
-length = 0.3
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1046,6 +1167,21 @@ tracks/1/keys = {
 "update": 0,
 "values": [0, 5]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Character_Death")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.57,
+"start_offset": 0.3,
+"stream": ExtResource("10_i1ghr")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6e656"]
 _data = {
@@ -1078,3 +1214,21 @@ libraries = {
 &"": SubResource("AnimationLibrary_6e656")
 }
 speed_scale = 1.5
+
+[node name="Character_Running" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="Character_Attack" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="Character_Death" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="Character_Hurt" type="AudioStreamPlayer" parent="AnimationPlayer"]
+volume_db = 1.0
+pitch_scale = 0.7
+
+[node name="Bot_Hurt" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="Bot_Teleport" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="Bot_Attack" type="AudioStreamPlayer" parent="AnimationPlayer"]
+
+[node name="Bot_Death" type="AudioStreamPlayer" parent="AnimationPlayer"]
