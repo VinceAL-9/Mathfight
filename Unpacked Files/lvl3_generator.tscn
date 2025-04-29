@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://ny7x80gklppk"]
+
+[ext_resource type="Script" uid="uid://di5upwiyx0v22" path="res://lvl_3_generator.gd" id="1_vbhy5"]
+
+[node name="Lvl3Generator" type="Node2D"]
+script = ExtResource("1_vbhy5")
+
+[node name="MainTimer" type="Timer" parent="."]
+
+[node name="Back" type="Button" parent="."]
+offset_left = 391.0
+offset_top = 452.0
+offset_right = 867.0
+offset_bottom = 586.0
+theme_override_font_sizes/font_size = 60
+text = "Previous Scene  "
+
+[node name="Level3_prob" type="Label" parent="."]
+offset_left = 353.0
+offset_top = 255.0
+offset_right = 864.0
+offset_bottom = 424.0
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+
+[node name="counter" type="Label" parent="."]
+offset_left = 236.0
+offset_top = 107.0
+offset_right = 1004.0
+offset_bottom = 358.0
+pivot_offset = Vector2(-801, -72)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 90
+text = "Your in this scene
+"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="MainTimer" to="." method="_on_main_timer_timeout"]

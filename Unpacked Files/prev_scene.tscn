@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3j8hgrm6xb25"]
+
+[ext_resource type="Script" uid="uid://b4yxj2gsoepa7" path="res://prev_scene.gd" id="1_tn6on"]
+
+[node name="TestMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tn6on")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.504
+anchor_bottom = 0.525
+offset_left = -244.0
+offset_top = -275.0
+offset_right = 239.392
+offset_bottom = -159.2
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 90
+text = "lvl 1 Scn."
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.504
+anchor_bottom = 0.525
+offset_left = -233.0
+offset_top = -75.0
+offset_right = 250.392
+offset_bottom = 53.7
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 90
+text = "lvl 2 Scn."
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.504
+anchor_bottom = 0.525
+offset_left = -237.0
+offset_top = 135.0
+offset_right = 246.392
+offset_bottom = 263.7
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 90
+text = "lvl 3 Scn."
+
+[connection signal="pressed" from="Button" to="." method="_on_level1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_level2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_level3_pressed"]
