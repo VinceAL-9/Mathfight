@@ -117,7 +117,7 @@ position = Vector2(864, 216)
 position = Vector2(864, 216)
 
 [node name="Lvl3Generator" parent="." instance=ExtResource("8_ghigu")]
-position = Vector2(805, 216)
+position = Vector2(864, 216)
 
 [connection signal="answer_submitted" from="Display/Keyboard" to="." method="_on_keyboard_answer_submitted"]
 [connection signal="timeout" from="ProblemTimers/Generate Problem" to="." method="_on_generate_problem_timeout"]

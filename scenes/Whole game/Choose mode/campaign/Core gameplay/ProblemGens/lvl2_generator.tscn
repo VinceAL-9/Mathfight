@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://knmke0had48s"]
+
+[ext_resource type="Script" uid="uid://c06q0tliaf363" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/ProblemGens/lvl_2_generator.gd" id="1_lhlxu"]
+[ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="2_dsa6s"]
+
+[node name="Lvl2Generator" type="Node2D"]
+script = ExtResource("1_lhlxu")
+
+[node name="ProblemLabel" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.980392, 0, 0.933333, 1)
+theme_override_fonts/font = ExtResource("2_dsa6s")
+theme_override_font_sizes/font_size = 25
+text = "problem"
+horizontal_alignment = 1

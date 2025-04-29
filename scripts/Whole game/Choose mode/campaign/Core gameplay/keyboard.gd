@@ -108,36 +108,18 @@ func _on_buttonx_pressed() -> void:
 	key_pressed("x")
 
 
-func _on_buttondivide_pressed() -> void:
-	key_pressed("÷")
+func _on_buttonequal_pressed() -> void:
+	key_pressed("=")
 
-
-func _on_buttonmultiply_pressed() -> void:
-	key_pressed("*")
+func _on_buttongreaterthan_pressed() -> void:
+	key_pressed(">")
+	
+func _on_buttonlessthan_pressed() -> void:
+	key_pressed("<")
 
 
 func _on_buttony_pressed() -> void:
 	key_pressed("y")
-
-
-
-func _on_button_sqrt_pressed() -> void:
-	# Prevent sqrt toggling if typing is disabled
-	if not typing_enabled:
-		return
-	
-	# Toggles sqrt expression: inserts "√(" and later ")"
-	if sqrt_open:
-		# Close the sqrt first if it's open
-		key_pressed(")")
-		sqrt_open = false
-	elif parenthesis_open:
-		key_pressed(")")
-		parenthesis_open = false
-	else:
-		key_pressed("√(")
-		parenthesis_open = true
-	
 
 func _on_button_raised_pressed() -> void:
 	if button_sfx:

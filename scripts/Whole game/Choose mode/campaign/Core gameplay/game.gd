@@ -14,6 +14,14 @@ var rng := RandomNumberGenerator.new() # randomizer
 @onready var enemy_hp: ProgressBar = $Display/EnemyContainer/EnemyHPBar
 @onready var solve_timer_display: Label = $Display/SolveTimerContainer/SolveTimerDisplay
 
+# problem generators and their displays
+@onready var level_1_generator: Node2D = $Level_1Generator 
+@onready var problem_display_1: Label = $Level_1Generator.get_node("ProblemLabel") 
+@onready var lvl_2_generator: Node2D = $Lvl2Generator
+@onready var problem_display_2: Label = $Lvl2Generator.get_node("ProblemLabel")
+@onready var lvl_3_generator: Node2D = $Lvl3Generator
+@onready var problem_display_3: Label = $Lvl3Generator.get_node("ProblemLabel")
+
 
 # AnimatedSprite2d Nodes of player and enemy
 @onready var player_sprite: AnimatedSprite2D = $"Player and Enemy".get_node("Player")
@@ -42,6 +50,8 @@ func update_health_ui() -> void:
 	enemy_hp.value = enemy_health
 
 func _on_generate_problem_timeout() -> void:
+	lvl_3_generator.generate_problem()
+	problem_display_3.visible = true # display problem and generate it 
 	problem_active = true # generate a problem here then start the solve timer
 	has_answered = false # allow answering again for the new problem
 	solve_timer.start()
@@ -57,7 +67,9 @@ func _on_timer_for_solving_timeout() -> void:
 		# RESET the keyboard 
 		keyboard.reset_input()
 		
+		
 		solve_timer_display.visible = false
+		problem_display_3.visible = false
 		
 		anim.play("enemy_attack") # play the animation with a bit of delay to sync with damage
 		await get_tree().create_timer(1.5).timeout
@@ -83,9 +95,10 @@ func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where
 	has_answered = true # lock in answer to prevent re-pressing
 	
 	# Compare the submitted answer
-	if answer_text == "x²+12x-32":
-		# hide the timer after correct answer
+	if answer_text == lvl_3_generator.get_current_answer():
+		# hide the timer and problem display after correct answer
 		solve_timer_display.visible = false
+		problem_display_3.visible = false
 		
 		# this gets the elapsed time since the start of the solve timer by subtracting the start time from current time
 		var elapsed_time = (Time.get_ticks_msec() - problem_start_time) / 1000.0 # convert to seconds, since this is in milliseconds

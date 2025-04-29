@@ -180,7 +180,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
 theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
 text = "0"
 
-[node name="Buttondivide" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="Buttongreaterthan" type="Button" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -189,9 +189,9 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
 theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
-text = "÷"
+text = ">"
 
-[node name="Buttonmultiply" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="Buttonlessthan" type="Button" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -200,7 +200,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
 theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
-text = "*"
+text = "<"
 
 [node name="Buttony" type="Button" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -257,7 +257,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
 theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
 text = "OK"
 
-[node name="Buttonsqrt" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="Buttonequal" type="Button" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -266,7 +266,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
 theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
-text = "√"
+text = "="
 
 [node name="Buttonraised" type="Button" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -305,13 +305,13 @@ volume_db = -10.0
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button5" to="." method="_on_button_5_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button6" to="." method="_on_button_6_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button0" to="." method="_on_button_0_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/Buttondivide" to="." method="_on_buttondivide_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonmultiply" to="." method="_on_buttonmultiply_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttongreaterthan" to="." method="_on_buttongreaterthan_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonlessthan" to="." method="_on_buttonlessthan_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Buttony" to="." method="_on_buttony_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button7" to="." method="_on_button_7_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button8" to="." method="_on_button_8_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button9" to="." method="_on_button_9_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/ButtonOK" to="." method="_on_button_ok_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonsqrt" to="." method="_on_button_sqrt_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonequal" to="." method="_on_buttonequal_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Buttonraised" to="." method="_on_button_raised_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Buttonparenthesis" to="." method="_on_button_parenthesis_pressed"]

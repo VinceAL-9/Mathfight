@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b3j8hgrm6xb25"]
 
-[ext_resource type="Script" uid="uid://b4yxj2gsoepa7" path="res://prev_scene.gd" id="1_tn6on"]
+[ext_resource type="Script" uid="uid://b4yxj2gsoepa7" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/ProblemGens/prev_scene.gd" id="1_tn6on"]
 
 [node name="TestMenu" type="Control"]
 layout_mode = 3
