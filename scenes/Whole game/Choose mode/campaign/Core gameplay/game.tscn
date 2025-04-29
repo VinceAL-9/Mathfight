@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://m1bw1se5msyc"]
+[gd_scene load_steps=10 format=3 uid="uid://m1bw1se5msyc"]
 
 [ext_resource type="Script" uid="uid://ntpvtw05nsma" path="res://scripts/Whole game/Choose mode/campaign/Core gameplay/game.gd" id="1_pkyck"]
 [ext_resource type="PackedScene" uid="uid://bjofrf14vlhie" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/player_and_enemy.tscn" id="2_8fel7"]
+[ext_resource type="FontFile" uid="uid://bydb56m61wcli" path="res://assets/KeyboardAssets/upheavtt.ttf" id="2_p2uef"]
 [ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="2_pkyck"]
 [ext_resource type="PackedScene" uid="uid://tebj2ifw0ndr" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/keyboard.tscn" id="3_romq6"]
 
@@ -41,6 +42,25 @@ border_color = Color(0, 0, 0, 1)
 script = ExtResource("1_pkyck")
 
 [node name="Display" type="CanvasLayer" parent="."]
+
+[node name="SolveTimerContainer" type="MarginContainer" parent="Display"]
+offset_left = 881.0
+offset_top = 148.0
+offset_right = 981.0
+offset_bottom = 188.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="SolveTimerDisplay" type="Label" parent="Display/SolveTimerContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_p2uef")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
 
 [node name="PlayerContainer" type="MarginContainer" parent="Display"]
 offset_right = 290.0

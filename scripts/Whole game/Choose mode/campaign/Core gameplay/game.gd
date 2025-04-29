@@ -12,6 +12,8 @@ var rng := RandomNumberGenerator.new() # randomizer
 @onready var display: CanvasLayer = $Display
 @onready var player_hp: ProgressBar = $Display/PlayerContainer/PlayerHpBar
 @onready var enemy_hp: ProgressBar = $Display/EnemyContainer/EnemyHPBar
+@onready var solve_timer_display: Label = $Display/SolveTimerContainer/SolveTimerDisplay
+
 
 # AnimatedSprite2d Nodes of player and enemy
 @onready var player_sprite: AnimatedSprite2D = $"Player and Enemy".get_node("Player")
@@ -25,6 +27,7 @@ var problem_active: bool # This is a placeholder for the problem generator
 var problem_start_time: int # for tracking elapsed time
 var game_over: bool = false # indicator whether this game is over
 var has_answered: bool = false # prevents input spamming
+var solve_timer_end_time: int # for displaying the solve timer every time a problem is generated
 
 func _ready() -> void: # executes once, at the start of the match
 	
@@ -42,12 +45,19 @@ func _on_generate_problem_timeout() -> void:
 	problem_active = true # generate a problem here then start the solve timer
 	has_answered = false # allow answering again for the new problem
 	solve_timer.start()
+	
+	# Set when the timer is expected to end
+	solve_timer_end_time = Time.get_ticks_msec() + int(solve_timer.wait_time * 1000)
+	solve_timer_display.visible = true
+	
 	problem_start_time = Time.get_ticks_msec() # gets the time at which the solve timer started and the problem generated
 
 func _on_timer_for_solving_timeout() -> void:
 	if problem_active and not has_answered: # prevent double triggers if answer was already given
 		# RESET the keyboard 
 		keyboard.reset_input()
+		
+		solve_timer_display.visible = false
 		
 		anim.play("enemy_attack") # play the animation with a bit of delay to sync with damage
 		await get_tree().create_timer(1.5).timeout
@@ -66,7 +76,6 @@ func _on_timer_for_solving_timeout() -> void:
 		prob_timer.start(rng.randi_range(2, 4))
 		has_answered = false
 
-
 func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where the input will take place
 	if game_over: return # skip logic if game is over
 	if not problem_active or has_answered: return
@@ -75,6 +84,9 @@ func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where
 	
 	# Compare the submitted answer
 	if answer_text == "x²+12x-32":
+		# hide the timer after correct answer
+		solve_timer_display.visible = false
+		
 		# this gets the elapsed time since the start of the solve timer by subtracting the start time from current time
 		var elapsed_time = (Time.get_ticks_msec() - problem_start_time) / 1000.0 # convert to seconds, since this is in milliseconds
 		
@@ -106,7 +118,18 @@ func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where
 func _process(_delta: float) -> void:
 	if game_over: return # skip logic if game is over
 	
-
+	if solve_timer.is_stopped():
+		solve_timer_display.visible = false
+	else:
+		var time_left = (solve_timer_end_time - Time.get_ticks_msec()) / 1000.0
+		time_left = max(time_left, 0) # avoid showing negative numbers
+		solve_timer_display.text = str("%.1f" % time_left) # show with 1 decimal place
+		
+		# Change color based on time left
+		if time_left <= 2.0:
+			solve_timer_display.add_theme_color_override("font_color", Color.RED)
+		else:
+			solve_timer_display.add_theme_color_override("font_color", Color.YELLOW)
 func end_game_after_delay() -> void: # wait for a moment before ending the game
 	game_over = true # prevent further interaction
 	solve_timer.stop()

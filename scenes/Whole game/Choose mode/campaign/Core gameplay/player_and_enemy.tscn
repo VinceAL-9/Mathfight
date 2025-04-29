@@ -1077,4 +1077,4 @@ autoplay = "idle"
 libraries = {
 &"": SubResource("AnimationLibrary_6e656")
 }
-speed_scale = 0.7
+speed_scale = 1.5

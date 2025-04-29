@@ -1,11 +1,18 @@
 extends Control
 
 @onready var transition = $Transition
+@onready var v_box_container = $Background/VBoxContainer
+
+
+func _ready():
+	$Options.visible = false
+	transition.play("fade_in")
+	await get_tree().create_timer(1).timeout
 
 func _on_play_button_pressed() -> void:
 	transition.play("fade_out")
-	await get_tree().create_timer(0.8).timeout
-	Functions.load_screen_to_scene1("res://scenes/Whole game/placeholderscene.tscn")
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file("res://scenes/Whole game/Choose mode/mode_select.tscn")
 	print("button is pressed")
 
 
@@ -23,7 +30,15 @@ func _on_equipment_button_pressed() -> void:
 
 
 func _on_settings_button_pressed() -> void:
-	pass # Replace with function body.
+	$Options.visible = not $Options.visible
+	v_box_container.visible = not v_box_container.visible
+		
+ 
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on == true:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 
 func _on_notifications_button_pressed() -> void:

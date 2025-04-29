@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Functions="*res://scripts/Whole game/functions.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 ans={

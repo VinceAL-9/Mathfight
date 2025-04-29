@@ -10,7 +10,7 @@ func _process(_delta):
 	if ResourceLoader.load_threaded_get_status(next_scene_path) == ResourceLoader.THREAD_LOAD_LOADED:
 		set_process(false)
 		transition.play("fade_in")
-		await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(1).timeout
 		var new_scene: PackedScene = ResourceLoader.load_threaded_get(next_scene_path)
 		transition.play("fade_out")
 		await get_tree().create_timer(1).timeout

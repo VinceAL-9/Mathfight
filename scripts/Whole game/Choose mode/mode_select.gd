@@ -1,5 +1,13 @@
 extends Control
 
+@onready var transition = $Transition2
 
-func _on_texture_button_button_down() -> void:
-	pass # Replace with function body.
+func _ready():
+	transition.play("fade_in")
+	await get_tree().create_timer(1).timeout
+	
+	
+func _on_texture_button_pressed() -> void:
+	transition.play("fade_out")
+	await get_tree().create_timer(1).timeout
+	Functions.load_screen_to_scene1("res://scenes/Whole game/Choose mode/campaign/campaign_select.tscn")

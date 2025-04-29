@@ -16,4 +16,3 @@ func _process(_delta):
 		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_packed(new_scene)
 		 
-	
