@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://tebj2ifw0ndr" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/keyboard.tscn" id="3_romq6"]
 [ext_resource type="Texture2D" uid="uid://58d6pbd8ffgy" path="res://assets/ui_icons/pause.png" id="5_fjdq2"]
 [ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="5_mbtbo"]
-[ext_resource type="Script" uid="uid://c2kdcyb23fqy3" path="res://scripts/Whole game/Choose mode/campaign/Core gameplay/pause_button.gd" id="6_ath4s"]
+[ext_resource type="Script" path="res://scripts/Whole game/Choose mode/campaign/Core gameplay/pause_button.gd" id="6_ath4s"]
 [ext_resource type="Texture2D" uid="uid://u0pfi6n4lf1f" path="res://assets/ui_icons/cross.png" id="8_f867p"]
 [ext_resource type="Texture2D" uid="uid://cyeiwgpao5b5e" path="res://assets/ui_icons/replay.png" id="9_0auvj"]
 [ext_resource type="AudioStream" uid="uid://brjrqukqrh6lq" path="res://assets/AudioAssets/wrong-47985.mp3" id="9_uqfip"]
@@ -229,6 +229,7 @@ theme_override_font_sizes/font_size = 26
 text = "Volume"
 
 [node name="VolumeSlider" type="HSlider" parent="Display/PausePopupFade/PauseContainer"]
+layout_mode = 0
 offset_left = 31.0
 offset_top = 137.0
 offset_right = 464.0
@@ -238,6 +239,7 @@ step = 0.1
 value = 1.0
 
 [node name="DisplayModeText" type="Label" parent="Display/PausePopupFade/PauseContainer"]
+layout_mode = 0
 offset_left = 35.0
 offset_top = 208.0
 offset_right = 292.0
