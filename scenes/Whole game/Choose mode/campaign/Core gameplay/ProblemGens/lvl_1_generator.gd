@@ -5,7 +5,6 @@ extends Control
 # Arrays for random elements
 var variables = ["x", "y"]  # Common variable letters
 var operators = ["+", "-"]  # Operators for expressions
-var superscripts = {2: "²", 3: "³", 4: "⁴", 5: "⁵"}  # Superscripts for exponents
 
 # Holds the latest problem and answer
 var current_problem: String
@@ -24,9 +23,6 @@ func random_variable():
 
 func random_operator():
 	return operators[randi() % operators.size()]
-
-func get_superscript(exponent):
-	return superscripts.get(exponent, "^" + str(exponent))
 
 # Generates and stores a new problem + its answer
 func generate_problem():

@@ -86,25 +86,6 @@ func _on_timer_for_solving_timeout() -> void:
 		prob_timer.start(rng.randi_range(2, 4))
 		has_answered = false
 
-func are_quadratic_factors_equivalent(ans1: String, ans2: String) -> bool: # for level 3, handles swapping of factors in quadratic equation
-	var pattern := r"\([^)]+\)"
-	var regex := RegEx.new()
-	regex.compile(pattern)
-
-	var matches1 := []
-	for match in regex.search_all(ans1):
-		matches1.append(match.get_string())
-
-	var matches2 := []
-	for match in regex.search_all(ans2):
-		matches2.append(match.get_string())
-
-	# Normalize: remove spaces and sort binomials
-	matches1.map(func(b): return b.strip_edges().replace(" ", "")).sort()
-	matches2.map(func(b): return b.strip_edges().replace(" ", "")).sort()
-
-	return matches1 == matches2
-
 func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where the input will take place
 	var current_ans = level_generator.get_current_answer()
 	if game_over: return # skip logic if game is over
@@ -113,7 +94,7 @@ func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where
 	has_answered = true # lock in answer to prevent re-pressing
 	
 	# Compare the submitted answer
-	if answer_text == current_ans or are_quadratic_factors_equivalent(answer_text, current_ans):
+	if answer_text in current_ans:
 		# hide the timer and problem display after correct answer
 		solve_timer_display.visible = false
 		level_generator.get_node("ProblemLabel").visible = false
@@ -124,7 +105,7 @@ func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where
 		anim.play("player_attack") # play the animation with a bit of delay to sync with damage
 		await get_tree().create_timer(1.0).timeout
 		
-		if elapsed_time <= 3.0: # if player solves in under 3 secs, enhance damage
+		if elapsed_time <= 6.5: # if player solves in under 6.5 secs, enhance damage
 			enemy_health -= rng.randi_range(15, 20)
 		else: # normal damage
 			enemy_health -= 10
@@ -159,7 +140,7 @@ func _process(_delta: float) -> void:
 		solve_timer_display.text = str("%.1f" % time_left) # show with 1 decimal place
 		
 		# Change color based on time left
-		if time_left <= 2.0:
+		if time_left <= 10.0:
 			solve_timer_display.add_theme_color_override("font_color", Color.RED)
 		else:
 			solve_timer_display.add_theme_color_override("font_color", Color.YELLOW)

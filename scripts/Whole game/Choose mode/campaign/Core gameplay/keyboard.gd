@@ -3,11 +3,7 @@ extends Control
 # UI Node
 @onready var label = $VBoxContainer/MarginContainer/Label
 @onready var button_sfx: AudioStreamPlayer = $Button_SFX
-# constants
-const SUPERSCRIPT_MAP := {
-	"0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴",
-	"5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹"
-}
+
 
 # signal for answer submission
 signal answer_submitted(answer_text: String)
@@ -34,15 +30,7 @@ func key_pressed(character) -> void:
 	
 	var char_str := str(character)
 
-	if next_char_superscript:
-		if char_str in SUPERSCRIPT_MAP:
-			label.text += SUPERSCRIPT_MAP[char_str]
-		else:
-			# Exit superscript mode if invalid input (e.g., letters or symbols)
-			next_char_superscript = false
-			label.text += char_str
-	else:
-		label.text += char_str
+	label.text += char_str
 
 func _on_button_1_pressed() -> void:
 	key_pressed(1)
@@ -125,7 +113,7 @@ func _on_button_raised_pressed() -> void:
 	if button_sfx:
 		button_sfx.play()
 	if typing_enabled:
-		next_char_superscript = !next_char_superscript  # toggle superscript mode
+		key_pressed("^")
 
 func _on_button_parenthesis_pressed() -> void:
 	if not typing_enabled:
