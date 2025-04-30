@@ -38,20 +38,20 @@ func generate_problem():
 
 			if law_type == 1:
 				# x² × x³ => x⁵
-				current_problem = "%s × %s" % [get_exponent(v, a), get_exponent(v, b)]
+				current_problem = "Simplify: %s × %s" % [get_exponent(v, a), get_exponent(v, b)]
 				current_answer = get_exponent(v, a + b)
 			elif law_type == 2:
 				# x⁴ / x² => x², or x³ / x² => x
 				var larger = max(a, b)
 				var smaller = min(a, b)
 				var result_exp = larger - smaller
-				current_problem = "%s / %s" % [get_exponent(v, larger), get_exponent(v, smaller)]
+				current_problem = "Simplify: %s / %s" % [get_exponent(v, larger), get_exponent(v, smaller)]
 				
 				# If result is exponent 1, just show the variable
 				current_answer = v if result_exp == 1 else get_exponent(v, result_exp)
 			else:
 				# (x²)³ => x⁶
-				current_problem = "(%s)%s" % [get_exponent(v, a), superscripts.get(b)]
+				current_problem = "Simplify: (%s)%s" % [get_exponent(v, a), superscripts.get(b)]
 				current_answer = get_exponent(v, a * b)
 
 		2:  # Simplifying expressions like 3x² + 2x² = 5x²

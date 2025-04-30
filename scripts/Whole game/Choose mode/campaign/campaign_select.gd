@@ -11,7 +11,7 @@ func _ready():
 func _on_back_button_pressed() -> void:
 	if button_sfx:
 		button_sfx.play()
-	print("button exit")
+	Functions.load_screen_to_scene2("res://scenes/Whole game/Choose mode/mode_select.tscn")
 
 func _on_button_pressed() -> void:
 	if button_sfx:
