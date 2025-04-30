@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://bg1maj5vb6l7e"]
+
+[ext_resource type="Texture2D" uid="uid://bdvsufla5yllv" path="res://assets/images/Pregame_background.png" id="1_sacj4"]
+[ext_resource type="Texture2D" uid="uid://cr0clsc7g3y4g" path="res://assets/sprites/free-exclusion-zone-tileset-pixel-art/1 Tiles/Tile_46.png" id="2_o4n67"]
+[ext_resource type="Texture2D" uid="uid://y5nx0u36ai5d" path="res://assets/images/start-button-on-hover.png" id="3_rqw4j"]
+[ext_resource type="Texture2D" uid="uid://cjswsidfopc0p" path="res://assets/images/start-button-normal.png" id="4_geu2e"]
+[ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="5_4olml"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pyrju"]
+texture = ExtResource("1_sacj4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8qjhk"]
+texture = ExtResource("2_o4n67")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ytgwi"]
+texture = ExtResource("3_rqw4j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_igo7u"]
+texture = ExtResource("4_geu2e")
+
+[node name="Pre-game1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pyrju")
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 73.0
+offset_top = 37.0
+offset_right = 113.0
+offset_bottom = 77.0
+scale = Vector2(24.9803, 13.8378)
+theme_override_styles/panel = SubResource("StyleBoxTexture_8qjhk")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 670.0
+offset_top = 122.0
+offset_right = 678.0
+offset_bottom = 130.0
+grow_vertical = 2
+scale = Vector2(49.4585, 17.1336)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ytgwi")
+theme_override_styles/normal = SubResource("StyleBoxTexture_igo7u")
+
+[node name="Level" type="Label" parent="CanvasLayer"]
+offset_left = 89.0
+offset_top = 51.0
+offset_right = 129.0
+offset_bottom = 74.0
+scale = Vector2(4.80804, 4.80804)
+theme_override_fonts/font = ExtResource("5_4olml")
+theme_override_font_sizes/font_size = 20
+text = "Level 2"
+
+[node name="Mission_details" type="Label" parent="CanvasLayer"]
+offset_left = 92.0
+offset_top = 188.0
+offset_right = 362.0
+offset_bottom = 269.0
+scale = Vector2(2.12536, 2.32964)
+theme_override_fonts/font = ExtResource("5_4olml")
+theme_override_font_sizes/font_size = 20
+text = "lessons: 
+- two-step and multi-step equations
+-equations with two-sided variables 
+-inequalities"
+
+[node name="Objective" type="Label" parent="CanvasLayer"]
+offset_left = 94.0
+offset_top = 459.0
+offset_right = 447.0
+offset_bottom = 561.0
+scale = Vector2(2.12536, 2.32964)
+theme_override_fonts/font = ExtResource("5_4olml")
+theme_override_font_sizes/font_size = 20
+text = "Objective: 
+Defeat The Bot"

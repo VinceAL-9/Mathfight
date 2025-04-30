@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://m1bw1se5msyc"]
+[gd_scene load_steps=14 format=3 uid="uid://m1bw1se5msyc"]
 
 [ext_resource type="Script" uid="uid://ntpvtw05nsma" path="res://scripts/Whole game/Choose mode/campaign/Core gameplay/game.gd" id="1_pkyck"]
 [ext_resource type="PackedScene" uid="uid://bjofrf14vlhie" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/player_and_enemy.tscn" id="2_8fel7"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://u3ck2hd5c0i6" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/ProblemGens/lvl1_generator.tscn" id="6_7xgfn"]
 [ext_resource type="PackedScene" uid="uid://knmke0had48s" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/ProblemGens/lvl2_generator.tscn" id="7_mbtbo"]
 [ext_resource type="PackedScene" uid="uid://ny7x80gklppk" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/ProblemGens/lvl3_generator.tscn" id="8_ghigu"]
+[ext_resource type="AudioStream" uid="uid://brjrqukqrh6lq" path="res://assets/AudioAssets/wrong-47985.mp3" id="9_uqfip"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fel7"]
 bg_color = Color(0.234635, 0.211231, 0.371415, 1)
@@ -118,6 +119,9 @@ position = Vector2(864, 216)
 
 [node name="Lvl3Generator" parent="." instance=ExtResource("8_ghigu")]
 position = Vector2(815, 216)
+
+[node name="Wrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_uqfip")
 
 [connection signal="answer_submitted" from="Display/Keyboard" to="." method="_on_keyboard_answer_submitted"]
 [connection signal="timeout" from="ProblemTimers/Generate Problem" to="." method="_on_generate_problem_timeout"]

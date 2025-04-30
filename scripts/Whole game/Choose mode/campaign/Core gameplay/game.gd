@@ -30,6 +30,9 @@ var rng := RandomNumberGenerator.new() # randomizer
 # Reference to the Keyboard
 @onready var keyboard: Control = $Display/Keyboard
 
+# Audio for wrong answer
+@onready var wrong: AudioStreamPlayer = $Wrong
+
 
 var problem_active: bool # This is a placeholder for the problem generator
 var problem_start_time: int # for tracking elapsed time
@@ -125,6 +128,8 @@ func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where
 	
 	else:
 		# WRONG answer
+		if wrong:
+			wrong.play()
 		keyboard.reset_input() # Clear the wrong input immediately
 		has_answered = false
 
