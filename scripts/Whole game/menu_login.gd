@@ -7,6 +7,7 @@ extends Control
 @onready var signup_button = $LoginContainer/ButtonContainer/Signup
 @onready var login_text = $LoginText
 @onready var transition = $Transition
+@onready var button_sfx: AudioStreamPlayer = $Button_SFX
 
 var is_signing_up := false
 var config := ConfigFile.new()
@@ -61,6 +62,8 @@ func _on_login_button_down():
 
 		var saved_hash = config.get_value("users", username)
 		if saved_hash == password.sha256_text():
+			if button_sfx:
+				button_sfx.play()
 			warning_text.bbcode_text = "[color=green]Login successful![/color]"
 			# Load user profile
 			var profile = load_user_profile(username)
