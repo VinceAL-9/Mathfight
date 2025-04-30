@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://olixels6s1pw"
-path="res://.godot/imported/settings_3.png-cb7b423d4faed2b829274ba62eb1356c.ctex"
+uid="uid://cb254ctunncc0"
+path="res://.godot/imported/sound_on.png-5333e222c94aba8557552e0fab2f2491.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/settings_3.png"
-dest_files=["res://.godot/imported/settings_3.png-cb7b423d4faed2b829274ba62eb1356c.ctex"]
+source_file="res://assets/ui_icons/sound_on.png"
+dest_files=["res://.godot/imported/sound_on.png-5333e222c94aba8557552e0fab2f2491.ctex"]
 
 [params]
 
