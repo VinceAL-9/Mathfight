@@ -59,3 +59,25 @@ func _on_notifications_button_pressed() -> void:
 
 func _on_tasks_button_pressed() -> void:
 	pass # Replace with function body.
+
+func linear_to_db(value: float) -> float:
+	return 20.0 * log(value)
+
+func _on_h_slider_value_changed(value: float) -> void:
+	var volume_db: float
+
+	if value <= 0.0:
+		volume_db = -80.0 
+	else:
+		volume_db = linear_to_db(value)
+
+	var bus_index = AudioServer.get_bus_index("Master")
+	AudioServer.set_bus_volume_db(bus_index, volume_db)
+
+
+func _on_resolution_item_selected(index: int) -> void:
+	match index:
+		0:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		1:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

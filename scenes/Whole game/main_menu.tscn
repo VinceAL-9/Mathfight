@@ -139,6 +139,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = -3.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8ln24")
@@ -306,10 +310,11 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.088
 anchor_bottom = 0.117
-offset_left = 302.0
-offset_top = 143.0
-offset_right = 742.624
-offset_bottom = 421.184
+offset_left = 318.0
+offset_top = 142.0
+offset_right = 758.624
+offset_bottom = 420.184
+metadata/_edit_lock_ = true
 
 [node name="TextEdit" type="TextEdit" parent="Options"]
 layout_mode = 0
@@ -321,6 +326,17 @@ theme_override_fonts/font = ExtResource("9_3w3uy")
 theme_override_font_sizes/font_size = 43
 theme_override_styles/normal = SubResource("StyleBoxTexture_nyucq")
 text = "options"
+metadata/_edit_lock_ = true
+
+[node name="Volume" type="Label" parent="Options"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 75.0
+offset_right = 176.0
+offset_bottom = 98.0
+theme_override_fonts/font = ExtResource("9_3w3uy")
+theme_override_font_sizes/font_size = 19
+text = "Volume"
 
 [node name="HSlider" type="HSlider" parent="Options"]
 layout_mode = 0
@@ -331,22 +347,31 @@ offset_bottom = 134.0
 theme_override_styles/slider = SubResource("StyleBoxLine_3w3uy")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_nyucq")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_gp1oo")
-value = 50.0
+max_value = 1.0
+step = 0.01
+value = 1.0
 
-[node name="CheckButton" type="CheckButton" parent="Options"]
-layout_mode = 0
+[node name="Resolution" type="OptionButton" parent="Options"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.151
+anchor_bottom = 0.119
 offset_left = 101.0
 offset_top = 124.0
-offset_right = 409.0
-offset_bottom = 166.0
-theme_override_fonts/font = ExtResource("9_3w3uy")
-theme_override_font_sizes/font_size = 31
-text = "Fullscreen"
+offset_right = 395.158
+offset_bottom = 116.874
+item_count = 2
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
 
 [node name="Button_SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_nyucq")
 volume_db = 2.0
 mix_target = 2
+
+[node name="Background music" type="AudioStreamPlayer" parent="."]
 
 [connection signal="button_down" from="Background/VBoxContainer/StoreButton" to="." method="_on_store_button_button_down"]
 [connection signal="pressed" from="Background/VBoxContainer/StoreButton" to="." method="_on_store_button_pressed"]
@@ -356,4 +381,5 @@ mix_target = 2
 [connection signal="pressed" from="Header/NotificationsButton" to="." method="_on_notifications_button_pressed"]
 [connection signal="pressed" from="Header/TasksButton" to="." method="_on_tasks_button_pressed"]
 [connection signal="pressed" from="Transition/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="toggled" from="Options/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="value_changed" from="Options/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="item_selected" from="Options/Resolution" to="." method="_on_resolution_item_selected"]
