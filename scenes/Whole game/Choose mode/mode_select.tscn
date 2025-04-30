@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://btmi37hjpqehn"]
+[gd_scene load_steps=19 format=3 uid="uid://btmi37hjpqehn"]
 
 [ext_resource type="Script" uid="uid://3gmpb23vx0xc" path="res://scripts/Whole game/Choose mode/mode_select.gd" id="1_tfdo1"]
 [ext_resource type="Texture2D" uid="uid://dbkt778ajwqw3" path="res://assets/images/49eacdc1-1e21-48b0-a532-a83170cfcb37.jpg" id="2_we06t"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bmveh16gnmpf7" path="res://assets/images/f078cd7f-8587-4fab-bb23-5e41f3f9f275.jpg" id="7_sxdyp"]
 [ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="8_we06t"]
 [ext_resource type="AudioStream" uid="uid://codinsjriyrkh" path="res://assets/AudioAssets/ButtonSfx.mp3" id="9_0onc7"]
+[ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="10_sxdyp"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgshs"]
 texture = ExtResource("2_we06t")
@@ -100,6 +101,30 @@ _data = {
 &"fade_in": SubResource("Animation_tfdo1"),
 &"fade_out": SubResource("Animation_0onc7")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prpei"]
+bg_color = Color(0.733333, 0.505882, 0.752941, 0.513726)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 34
+corner_radius_top_right = 34
+corner_radius_bottom_right = 34
+corner_radius_bottom_left = 34
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04263"]
+bg_color = Color(0.733333, 0.505882, 0.752941, 0.768627)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 34
+corner_radius_top_right = 34
+corner_radius_bottom_right = 34
+corner_radius_bottom_left = 34
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvea5"]
+bg_color = Color(0.733333, 0.505882, 0.752941, 0.901961)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 34
+corner_radius_top_right = 34
+corner_radius_bottom_right = 34
+corner_radius_bottom_left = 34
 
 [node name="Mode_select" type="Control"]
 layout_mode = 3
@@ -209,4 +234,18 @@ color = Color(0, 0, 0, 1)
 [node name="Button_SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_0onc7")
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.709804)
+theme_override_fonts/font = ExtResource("10_sxdyp")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_prpei")
+theme_override_styles/hover = SubResource("StyleBoxFlat_04263")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cvea5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_prpei")
+text = "X"
+
 [connection signal="pressed" from="Panel/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

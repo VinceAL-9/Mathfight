@@ -1,18 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://bg1maj5vb6l7e"]
+[gd_scene load_steps=12 format=3 uid="uid://bg1maj5vb6l7e"]
 
 [ext_resource type="Script" uid="uid://cibebofytg4wo" path="res://scripts/Whole game/Choose mode/campaign/Levels/pre_game_2.gd" id="1_rqw4j"]
 [ext_resource type="Texture2D" uid="uid://bdvsufla5yllv" path="res://assets/images/Pregame_background.png" id="1_sacj4"]
-[ext_resource type="Texture2D" uid="uid://cr0clsc7g3y4g" path="res://assets/sprites/free-exclusion-zone-tileset-pixel-art/1 Tiles/Tile_46.png" id="2_o4n67"]
 [ext_resource type="Texture2D" uid="uid://y5nx0u36ai5d" path="res://assets/images/start-button-on-hover.png" id="3_rqw4j"]
 [ext_resource type="Texture2D" uid="uid://cjswsidfopc0p" path="res://assets/images/start-button-normal.png" id="4_geu2e"]
 [ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="5_4olml"]
-[ext_resource type="AudioStream" uid="uid://codinsjriyrkh" path="res://assets/AudioAssets/ButtonSfx.mp3" id="6_o4n67"]
+[ext_resource type="AudioStream" uid="uid://cd7t7udphckd" path="res://assets/AudioAssets/Carstart1.mp3" id="6_o4n67"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pyrju"]
 texture = ExtResource("1_sacj4")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8qjhk"]
-texture = ExtResource("2_o4n67")
 
 [sub_resource type="Animation" id="Animation_jk1qb"]
 length = 0.001
@@ -117,13 +113,37 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_pyrju")
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
+offset_left = 65.0
+offset_top = 29.0
+offset_right = 105.0
+offset_bottom = 69.0
+scale = Vector2(25.4194, 14.2925)
+color = Color(0.139806, 0.000263011, 0.282054, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_left = 73.0
 offset_top = 37.0
 offset_right = 113.0
 offset_bottom = 77.0
-scale = Vector2(24.9803, 13.8378)
-theme_override_styles/panel = SubResource("StyleBoxTexture_8qjhk")
+scale = Vector2(24.9784, 3.45959)
+color = Color(0.29192, 0.2542, 0.82, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+offset_left = 73.0
+offset_top = 175.0
+offset_right = 113.0
+offset_bottom = 215.0
+scale = Vector2(24.9808, 10.3873)
+color = Color(0.19918, 0.0874, 0.46, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer"]
+offset_left = 65.0
+offset_top = 169.0
+offset_right = 105.0
+offset_bottom = 209.0
+scale = Vector2(25.4203, 0.195309)
+color = Color(0.139806, 0.000263011, 0.282054, 1)
 
 [node name="PlayButton" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 15

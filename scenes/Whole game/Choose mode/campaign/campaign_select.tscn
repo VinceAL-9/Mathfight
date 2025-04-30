@@ -151,10 +151,10 @@ anchor_left = 0.111
 anchor_top = 0.288
 anchor_right = 0.111
 anchor_bottom = 0.288
-offset_left = -84.872
-offset_top = -14.624
-offset_right = 50.128
-offset_bottom = 120.376
+offset_left = 4.128
+offset_top = -15.624
+offset_right = 139.128
+offset_bottom = 119.376
 theme_override_colors/font_hover_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
 theme_override_colors/font_hover_color = Color(0.0705882, 0.0705882, 0.0705882, 0.85098)
 theme_override_colors/font_color = Color(0, 0, 0, 0.85098)
@@ -176,10 +176,10 @@ anchor_left = 0.111
 anchor_top = 0.288
 anchor_right = 0.111
 anchor_bottom = 0.288
-offset_left = 156.128
-offset_top = 191.376
-offset_right = 291.128
-offset_bottom = 326.376
+offset_left = 339.128
+offset_top = 180.376
+offset_right = 474.128
+offset_bottom = 315.376
 theme_override_colors/font_hover_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
 theme_override_colors/font_hover_color = Color(0.0705882, 0.0705882, 0.0705882, 0.85098)
 theme_override_colors/font_color = Color(0, 0, 0, 0.85098)
@@ -201,10 +201,10 @@ anchor_left = 0.111
 anchor_top = 0.288
 anchor_right = 0.111
 anchor_bottom = 0.288
-offset_left = 414.128
-offset_top = -22.624
-offset_right = 549.128
-offset_bottom = 112.376
+offset_left = 684.128
+offset_top = 29.376
+offset_right = 819.128
+offset_bottom = 164.376
 theme_override_colors/font_hover_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
 theme_override_colors/font_hover_color = Color(0.0705882, 0.0705882, 0.0705882, 0.85098)
 theme_override_colors/font_color = Color(0, 0, 0, 0.85098)
@@ -217,56 +217,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_a344e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tovcu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0l3vj")
 text = "3"
-
-[node name="Button4" type="Button" parent="Background"]
-modulate = Color(1, 1, 1, 0.941176)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.111
-anchor_top = 0.288
-anchor_right = 0.111
-anchor_bottom = 0.288
-offset_left = 573.128
-offset_top = 225.376
-offset_right = 708.128
-offset_bottom = 360.376
-theme_override_colors/font_hover_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
-theme_override_colors/font_hover_color = Color(0.0705882, 0.0705882, 0.0705882, 0.85098)
-theme_override_colors/font_color = Color(0, 0, 0, 0.85098)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 0.85098)
-theme_override_colors/font_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
-theme_override_fonts/font = ExtResource("3_sc65a")
-theme_override_font_sizes/font_size = 100
-theme_override_styles/focus = SubResource("StyleBoxEmpty_a344e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_a344e")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_tovcu")
-theme_override_styles/normal = SubResource("StyleBoxFlat_0l3vj")
-text = "4"
-
-[node name="Button5" type="Button" parent="Background"]
-modulate = Color(1, 1, 1, 0.941176)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.111
-anchor_top = 0.288
-anchor_right = 0.111
-anchor_bottom = 0.288
-offset_left = 850.128
-offset_top = 114.376
-offset_right = 985.128
-offset_bottom = 249.376
-theme_override_colors/font_hover_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
-theme_override_colors/font_hover_color = Color(0.0705882, 0.0705882, 0.0705882, 0.85098)
-theme_override_colors/font_color = Color(0, 0, 0, 0.85098)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 0.85098)
-theme_override_colors/font_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
-theme_override_fonts/font = ExtResource("3_sc65a")
-theme_override_font_sizes/font_size = 100
-theme_override_styles/focus = SubResource("StyleBoxEmpty_a344e")
-theme_override_styles/hover = SubResource("StyleBoxFlat_a344e")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_tovcu")
-theme_override_styles/normal = SubResource("StyleBoxFlat_0l3vj")
-text = "5"
 
 [node name="BackButton" type="Button" parent="Background"]
 modulate = Color(1, 1, 1, 0.941176)
@@ -312,6 +262,4 @@ stream = ExtResource("4_7caoh")
 [connection signal="pressed" from="Background/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Background/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Background/Button3" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="Background/Button4" to="." method="_on_button_4_pressed"]
-[connection signal="pressed" from="Background/Button5" to="." method="_on_button_5_pressed"]
 [connection signal="pressed" from="Background/BackButton" to="." method="_on_back_button_pressed"]

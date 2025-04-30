@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://cp733g6xxprji"]
+[gd_scene load_steps=19 format=3 uid="uid://cp733g6xxprji"]
 
 [ext_resource type="Script" uid="uid://bvcll0ol3dyjy" path="res://scripts/Whole game/menu_login.gd" id="1_xuj77"]
 [ext_resource type="Texture2D" uid="uid://d301meeri7xvv" path="res://assets/images/10.png" id="2_pncu6"]
 [ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="3_ei3sb"]
+[ext_resource type="AudioStream" uid="uid://j6yoxkh2du5l" path="res://assets/AudioAssets/Start_game.mp3" id="4_aummw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ye02"]
 texture = ExtResource("2_pncu6")
@@ -324,6 +325,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Button_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_aummw")
 
 [connection signal="button_down" from="LoginContainer/ButtonContainer/Login" to="." method="_on_login_button_down"]
 [connection signal="button_down" from="LoginContainer/ButtonContainer/Signup" to="." method="_on_signup_button_down"]
