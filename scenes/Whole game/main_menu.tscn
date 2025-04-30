@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://y5nx0u36ai5d" path="res://assets/images/start-button-on-hover.png" id="5_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://drode5ae7xs17" path="res://assets/images/list_bulleted.png" id="6_lgwnu"]
 [ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="9_3w3uy"]
-[ext_resource type="AudioStream" uid="uid://codinsjriyrkh" path="res://Unpacking/ButtonSfx.mp3" id="10_nyucq"]
+[ext_resource type="AudioStream" uid="uid://codinsjriyrkh" path="res://assets/AudioAssets/ButtonSfx.mp3" id="10_nyucq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fj5cn"]
 texture = ExtResource("2_rtw2f")

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cea784rj83t5m" path="res://assets/KeyboardAssets/keydesignhover.png" id="3_7egs6"]
 [ext_resource type="Texture2D" uid="uid://b2q624puu7qib" path="res://assets/KeyboardAssets/keydesignpressed.png" id="4_hcxtj"]
 [ext_resource type="Texture2D" uid="uid://c6uhw501l5wvn" path="res://assets/KeyboardAssets/Keydesign.png" id="5_x3a55"]
-[ext_resource type="AudioStream" uid="uid://qeei8173flk2" path="res://Unpacking/keyboard-click-327728.mp3" id="6_qfr70"]
+[ext_resource type="AudioStream" uid="uid://qeei8173flk2" path="res://assets/AudioAssets/keyboard-click-327728.mp3" id="6_qfr70"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gnjq6"]
 font_size = 50

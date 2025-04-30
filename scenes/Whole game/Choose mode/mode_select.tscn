@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dnifvmdgfck2y" path="res://assets/images/ae3e69ee-db87-4437-a764-5029f56d06fb (1).jpg" id="6_0onc7"]
 [ext_resource type="Texture2D" uid="uid://bmveh16gnmpf7" path="res://assets/images/f078cd7f-8587-4fab-bb23-5e41f3f9f275.jpg" id="7_sxdyp"]
 [ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="8_we06t"]
-[ext_resource type="AudioStream" uid="uid://codinsjriyrkh" path="res://Unpacking/ButtonSfx.mp3" id="9_0onc7"]
+[ext_resource type="AudioStream" uid="uid://codinsjriyrkh" path="res://assets/AudioAssets/ButtonSfx.mp3" id="9_0onc7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rgshs"]
 texture = ExtResource("2_we06t")
