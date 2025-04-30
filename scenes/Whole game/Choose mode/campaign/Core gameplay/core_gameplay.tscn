@@ -1,11 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://03d5d3tsunf1"]
+[gd_scene load_steps=7 format=3 uid="uid://03d5d3tsunf1"]
 
 [ext_resource type="Script" uid="uid://bglpysv87irj1" path="res://scripts/Whole game/Choose mode/campaign/Core gameplay/core_gameplay.gd" id="1_e06vs"]
 [ext_resource type="PackedScene" uid="uid://m1bw1se5msyc" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/game.tscn" id="1_g6o5k"]
+[ext_resource type="PackedScene" uid="uid://u3ck2hd5c0i6" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/ProblemGens/lvl1_generator.tscn" id="2_b778y"]
+[ext_resource type="PackedScene" uid="uid://knmke0had48s" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/ProblemGens/lvl2_generator.tscn" id="3_ahv1k"]
 [ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="3_phasa"]
+[ext_resource type="PackedScene" uid="uid://ny7x80gklppk" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/ProblemGens/lvl3_generator.tscn" id="4_en2i7"]
 
 [node name="Core Gameplay" type="Node2D"]
 script = ExtResource("1_e06vs")
+
+[node name="ProbGenerators" type="Node" parent="."]
+
+[node name="Level_1Generator" parent="ProbGenerators" instance=ExtResource("2_b778y")]
+
+[node name="Lvl2Generator" parent="ProbGenerators" instance=ExtResource("3_ahv1k")]
+
+[node name="Lvl3Generator" parent="ProbGenerators" instance=ExtResource("4_en2i7")]
 
 [node name="Interface" type="CanvasLayer" parent="."]
 

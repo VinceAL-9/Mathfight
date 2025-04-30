@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @onready var problem_label: Label = $ProblemLabel
 
@@ -35,25 +35,27 @@ func generate_problem():
 
 	match topic_type:
 		1:  # Simplifying expression
-			var c1 = random_number(1, 10)
-			var c2 = random_number(1, 10)
+			var c1 = random_number(1, 21)
+			var c2 = random_number(1, 21)
 			var op = random_operator()
-			current_problem = "%s%s %s %s%s" % [c1, variable, op, c2, variable]
-			current_answer = str(c1 + c2) + variable if op == "+" else str(c1 - c2) + variable
+			current_problem = "%d%s %s %d%s" % [c1, variable, op, c2, variable]
+			var result = c1 + c2 if op == "+" else c1 - c2
+			current_answer = "%s%s" % [str(result) if abs(result) != 1 else ("" if result > 0 else "-"), variable]
+
 		2:  # Solving one-step equation
-			var coeff = random_number(1, 10)
-			var solution = random_number(-10, 10)  # include negatives
+			var coeff = random_number(1, 21)
+			var solution = random_number(-10, 10)
 			var op = random_operator()
 			if op == "+":
 				current_problem = "%s + %d = %d" % [variable, coeff, solution + coeff]
-				current_answer = "%s = %d" % [variable, solution]
 			else:
 				current_problem = "%d%s = %d" % [coeff, variable, coeff * solution]
-				current_answer = "%s=%d" % [variable, solution]
+			current_answer = "%s=%d" % [variable, solution]
+
 		3:  # Evaluating algebraic expression
-			var value = random_number(1, 10)
-			var coeff = random_number(1, 5)
-			var constant = random_number(1, 10)
+			var value = random_number(1, 15)
+			var coeff = random_number(1, 15)
+			var constant = random_number(1, 15)
 			current_problem = "Evaluate: %d%s + %d for %s = %d" % [coeff, variable, constant, variable, value]
 			current_answer = str(coeff * value + constant)
 	

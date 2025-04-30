@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://chso4r4j1hp0y"]
+[gd_scene load_steps=16 format=3 uid="uid://chso4r4j1hp0y"]
 
+[ext_resource type="Script" uid="uid://46x207iaoljc" path="res://scripts/Whole game/Choose mode/campaign/Levels/pre_game_1.gd" id="1_3q40s"]
 [ext_resource type="Texture2D" uid="uid://bdvsufla5yllv" path="res://assets/images/Pregame_background.png" id="1_d4uqf"]
 [ext_resource type="Texture2D" uid="uid://cr0clsc7g3y4g" path="res://assets/sprites/free-exclusion-zone-tileset-pixel-art/1 Tiles/Tile_46.png" id="2_18lmr"]
 [ext_resource type="Texture2D" uid="uid://y5nx0u36ai5d" path="res://assets/images/start-button-on-hover.png" id="3_qfmi3"]
 [ext_resource type="Texture2D" uid="uid://cjswsidfopc0p" path="res://assets/images/start-button-normal.png" id="4_2pott"]
 [ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="5_ehnsm"]
+[ext_resource type="AudioStream" uid="uid://codinsjriyrkh" path="res://assets/AudioAssets/ButtonSfx.mp3" id="7_eerx7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pyrju"]
 texture = ExtResource("1_d4uqf")
@@ -18,9 +20,98 @@ texture = ExtResource("3_qfmi3")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_igo7u"]
 texture = ExtResource("4_2pott")
 
+[sub_resource type="Animation" id="Animation_jk1qb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qj8ya"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.933333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_tbmy8"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5dd4i"]
+_data = {
+&"RESET": SubResource("Animation_jk1qb"),
+&"fade_in": SubResource("Animation_qj8ya"),
+&"fade_out": SubResource("Animation_tbmy8")
+}
+
 [node name="Pre-game1" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_3q40s")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -88,3 +179,40 @@ theme_override_fonts/font = ExtResource("5_ehnsm")
 theme_override_font_sizes/font_size = 20
 text = "Objective: 
 Defeat The Bot"
+
+[node name="Button_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_eerx7")
+volume_db = 2.0
+mix_target = 2
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5dd4i")
+}
+
+[node name="PlayButton" type="TextureButton" parent="Transition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 827.0
+offset_top = 511.0
+offset_right = 1235.0
+offset_bottom = 801.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.201166, 0.306916)
+action_mode = 0
+texture_normal = ExtResource("4_2pott")
+texture_hover = ExtResource("3_qfmi3")
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

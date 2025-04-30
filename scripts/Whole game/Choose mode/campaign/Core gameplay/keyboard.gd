@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 # UI Node
 @onready var label = $VBoxContainer/MarginContainer/Label
@@ -14,7 +14,6 @@ signal answer_submitted(answer_text: String)
 
 # variables
 var next_char_superscript: bool = false  # Whether the next digit should be superscript
-var sqrt_open: bool = false              # Whether we're inside a √(...) expression
 var parenthesis_open: bool = false        # Whether a standalone ( ) is open
 var typing_enabled: bool  # Whether player is allowed to type, prevents spam inputs
 
@@ -30,17 +29,18 @@ func key_pressed(character) -> void:
 	if button_sfx:
 		button_sfx.play()
 	
-	# Prevent typing if typing is disabled
 	if not typing_enabled:
 		return
 	
-	# Handles typing a character into the label, considering superscript state
 	var char_str := str(character)
-	
-	if next_char_superscript and char_str.is_valid_int():
-		# If superscript mode active and character is a digit, convert it
-		label.text += SUPERSCRIPT_MAP.get(char_str, char_str)
-		next_char_superscript = false
+
+	if next_char_superscript:
+		if char_str in SUPERSCRIPT_MAP:
+			label.text += SUPERSCRIPT_MAP[char_str]
+		else:
+			# Exit superscript mode if invalid input (e.g., letters or symbols)
+			next_char_superscript = false
+			label.text += char_str
 	else:
 		label.text += char_str
 
@@ -124,9 +124,8 @@ func _on_buttony_pressed() -> void:
 func _on_button_raised_pressed() -> void:
 	if button_sfx:
 		button_sfx.play()
-	# Activates superscript mode for next character
 	if typing_enabled:
-		next_char_superscript = true
+		next_char_superscript = !next_char_superscript  # toggle superscript mode
 
 func _on_button_parenthesis_pressed() -> void:
 	if not typing_enabled:
@@ -156,7 +155,7 @@ func _on_button_ok_pressed() -> void:
 	label.text = ""
 	label.remove_theme_color_override("font_color")
 	next_char_superscript = false
-	sqrt_open = false
+	
 	parenthesis_open = false
 	typing_enabled = true
 
@@ -164,6 +163,6 @@ func reset_input() -> void: # call this function to manually reset keyboard inpu
 	label.text = ""
 	label.remove_theme_color_override("font_color")
 	next_char_superscript = false
-	sqrt_open = false
+	
 	parenthesis_open = false
 	typing_enabled = true

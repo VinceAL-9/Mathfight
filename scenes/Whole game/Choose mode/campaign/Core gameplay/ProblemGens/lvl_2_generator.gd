@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @onready var problem_label: Label = $ProblemLabel
 

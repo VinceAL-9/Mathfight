@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Functions="*res://scripts/Whole game/functions.gd"
+Gamestate="*res://scripts/Whole game/Choose mode/campaign/Core gameplay/gamestate.gd"
 
 [display]
 

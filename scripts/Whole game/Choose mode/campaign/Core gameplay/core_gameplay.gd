@@ -12,6 +12,22 @@ func _ready() -> void:
 	game.set_process(false) # Disable processing temporarily
 	start_timer.start()
 
+
+	# Set correct level generator based on global GameState
+	match Gamestate.selected_level:
+		1:
+			game.level_generator = $ProbGenerators/Level_1Generator
+			game.get_node("ProblemTimers/Timer for Solving").wait_time = 30
+		2:
+			game.level_generator = $ProbGenerators/Lvl2Generator
+			game.get_node("ProblemTimers/Timer for Solving").wait_time = 45
+		3:
+			game.level_generator = $ProbGenerators/Lvl3Generator
+			game.get_node("ProblemTimers/Timer for Solving").wait_time = 60
+	# set position of problem display afterwards
+	game.level_generator.position = Vector2(528, 134)
+
+
 func _on_start_timer_timeout() -> void:
 	interface.visible = false # Hide the label
 	game_display.visible = true

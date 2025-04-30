@@ -373,7 +373,6 @@ mix_target = 2
 
 [node name="Background music" type="AudioStreamPlayer" parent="."]
 
-[connection signal="button_down" from="Background/VBoxContainer/StoreButton" to="." method="_on_store_button_button_down"]
 [connection signal="pressed" from="Background/VBoxContainer/StoreButton" to="." method="_on_store_button_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/EquipmentButton" to="." method="_on_equipment_button_pressed"]

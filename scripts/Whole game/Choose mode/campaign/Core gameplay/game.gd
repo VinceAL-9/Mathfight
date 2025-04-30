@@ -14,13 +14,8 @@ var rng := RandomNumberGenerator.new() # randomizer
 @onready var enemy_hp: ProgressBar = $Display/EnemyContainer/EnemyHPBar
 @onready var solve_timer_display: Label = $Display/SolveTimerContainer/SolveTimerDisplay
 
-# problem generators and their displays
-@onready var level_1_generator: Node2D = $Level_1Generator 
-@onready var problem_display_1: Label = $Level_1Generator.get_node("ProblemLabel") 
-@onready var lvl_2_generator: Node2D = $Lvl2Generator
-@onready var problem_display_2: Label = $Lvl2Generator.get_node("ProblemLabel")
-@onready var lvl_3_generator: Node2D = $Lvl3Generator
-@onready var problem_display_3: Label = $Lvl3Generator.get_node("ProblemLabel")
+# set the type of problem generator to be used in a specific level
+var level_generator: Control
 
 
 # AnimatedSprite2d Nodes of player and enemy
@@ -53,8 +48,8 @@ func update_health_ui() -> void:
 	enemy_hp.value = enemy_health
 
 func _on_generate_problem_timeout() -> void:
-	lvl_3_generator.generate_problem()
-	problem_display_3.visible = true # display problem and generate it 
+	level_generator.generate_problem()
+	level_generator.get_node("ProblemLabel").visible = true # display problem and generate it 
 	problem_active = true # generate a problem here then start the solve timer
 	has_answered = false # allow answering again for the new problem
 	solve_timer.start()
@@ -72,7 +67,7 @@ func _on_timer_for_solving_timeout() -> void:
 		
 		
 		solve_timer_display.visible = false
-		problem_display_3.visible = false
+		level_generator.get_node("ProblemLabel").visible = false
 		
 		anim.play("enemy_attack") # play the animation with a bit of delay to sync with damage
 		await get_tree().create_timer(1.5).timeout
@@ -91,17 +86,37 @@ func _on_timer_for_solving_timeout() -> void:
 		prob_timer.start(rng.randi_range(2, 4))
 		has_answered = false
 
+func are_quadratic_factors_equivalent(ans1: String, ans2: String) -> bool: # for level 3, handles swapping of factors in quadratic equation
+	var pattern := r"\([^)]+\)"
+	var regex := RegEx.new()
+	regex.compile(pattern)
+
+	var matches1 := []
+	for match in regex.search_all(ans1):
+		matches1.append(match.get_string())
+
+	var matches2 := []
+	for match in regex.search_all(ans2):
+		matches2.append(match.get_string())
+
+	# Normalize: remove spaces and sort binomials
+	matches1.map(func(b): return b.strip_edges().replace(" ", "")).sort()
+	matches2.map(func(b): return b.strip_edges().replace(" ", "")).sort()
+
+	return matches1 == matches2
+
 func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where the input will take place
+	var current_ans = level_generator.get_current_answer()
 	if game_over: return # skip logic if game is over
 	if not problem_active or has_answered: return
 	
 	has_answered = true # lock in answer to prevent re-pressing
 	
 	# Compare the submitted answer
-	if answer_text == lvl_3_generator.get_current_answer():
+	if answer_text == current_ans or are_quadratic_factors_equivalent(answer_text, current_ans):
 		# hide the timer and problem display after correct answer
 		solve_timer_display.visible = false
-		problem_display_3.visible = false
+		level_generator.get_node("ProblemLabel").visible = false
 		
 		# this gets the elapsed time since the start of the solve timer by subtracting the start time from current time
 		var elapsed_time = (Time.get_ticks_msec() - problem_start_time) / 1000.0 # convert to seconds, since this is in milliseconds
@@ -148,6 +163,7 @@ func _process(_delta: float) -> void:
 			solve_timer_display.add_theme_color_override("font_color", Color.RED)
 		else:
 			solve_timer_display.add_theme_color_override("font_color", Color.YELLOW)
+
 func end_game_after_delay() -> void: # wait for a moment before ending the game
 	game_over = true # prevent further interaction
 	solve_timer.stop()
