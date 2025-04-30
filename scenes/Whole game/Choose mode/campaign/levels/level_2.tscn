@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnqtyhcwymlt4"]
+
+[ext_resource type="Texture2D" uid="uid://bpqy76wthpjlr" path="res://assets/images/cyberpunk-street.png" id="1_a8i7t"]
+[ext_resource type="PackedScene" uid="uid://03d5d3tsunf1" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/core_gameplay.tscn" id="2_8orw3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lcyn"]
+bg_color = Color(0.280617, 0.285499, 0.317777, 1)
+
+[node name="Level2" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0lcyn")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.745098)
+offset_right = 1152.0
+offset_bottom = 365.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_a8i7t")
+
+[node name="Core Gameplay" parent="." instance=ExtResource("2_8orw3")]

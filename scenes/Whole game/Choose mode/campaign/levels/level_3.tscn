@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxcy1fe2nhw6p"]
+
+[ext_resource type="Texture2D" uid="uid://ckd1q4w1tfm04" path="res://assets/images/city.png" id="1_sdbjs"]
+[ext_resource type="PackedScene" uid="uid://03d5d3tsunf1" path="res://scenes/Whole game/Choose mode/campaign/Core gameplay/core_gameplay.tscn" id="2_x6tkx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kx2bd"]
+bg_color = Color(0.280617, 0.285499, 0.317777, 1)
+
+[node name="Level3" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kx2bd")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.745098)
+offset_right = 1152.0
+offset_bottom = 397.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_sdbjs")
+
+[node name="Core Gameplay" parent="." instance=ExtResource("2_x6tkx")]
