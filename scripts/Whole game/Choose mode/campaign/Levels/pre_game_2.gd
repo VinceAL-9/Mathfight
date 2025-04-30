@@ -1,10 +1,10 @@
 extends Control
 
 @onready var button_sfx: AudioStreamPlayer = $Button_SFX
-@onready var transition: AnimationPlayer = $Transition
+@onready var transition: AnimationPlayer = $CanvasLayer/Transition
 
 
-func _on_button_pressed() -> void:
+func _on_texture_button_pressed() -> void:
 	if button_sfx:
 		button_sfx.play()
 	transition.play("fade_out")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://chso4r4j1hp0y"]
+[gd_scene load_steps=14 format=3 uid="uid://chso4r4j1hp0y"]
 
 [ext_resource type="Script" uid="uid://46x207iaoljc" path="res://scripts/Whole game/Choose mode/campaign/Levels/pre_game_1.gd" id="1_3q40s"]
 [ext_resource type="Texture2D" uid="uid://bdvsufla5yllv" path="res://assets/images/Pregame_background.png" id="1_d4uqf"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://y5nx0u36ai5d" path="res://assets/images/start-button-on-hover.png" id="3_qfmi3"]
 [ext_resource type="Texture2D" uid="uid://cjswsidfopc0p" path="res://assets/images/start-button-normal.png" id="4_2pott"]
 [ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="5_ehnsm"]
-[ext_resource type="AudioStream" uid="uid://codinsjriyrkh" path="res://assets/AudioAssets/ButtonSfx.mp3" id="7_eerx7"]
+[ext_resource type="AudioStream" uid="uid://j6yoxkh2du5l" path="res://assets/AudioAssets/Start_game.mp3" id="7_eerx7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pyrju"]
 texture = ExtResource("1_d4uqf")
@@ -14,18 +14,12 @@ texture = ExtResource("1_d4uqf")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8qjhk"]
 texture = ExtResource("2_18lmr")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ytgwi"]
-texture = ExtResource("3_qfmi3")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_igo7u"]
-texture = ExtResource("4_2pott")
-
 [sub_resource type="Animation" id="Animation_jk1qb"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/path = NodePath("CanvasLayer/Transition/ColorRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -37,7 +31,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/path = NodePath("CanvasLayer/Transition/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -52,7 +46,7 @@ resource_name = "fade_in"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/path = NodePath("CanvasLayer/Transition/ColorRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -64,7 +58,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/path = NodePath("CanvasLayer/Transition/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -79,7 +73,7 @@ resource_name = "fade_out"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/path = NodePath("CanvasLayer/Transition/ColorRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -91,7 +85,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/path = NodePath("CanvasLayer/Transition/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -131,20 +125,14 @@ offset_bottom = 77.0
 scale = Vector2(24.9803, 13.8378)
 theme_override_styles/panel = SubResource("StyleBoxTexture_8qjhk")
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 670.0
-offset_top = 122.0
-offset_right = 678.0
-offset_bottom = 130.0
-grow_vertical = 2
-scale = Vector2(49.4585, 17.1336)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/pressed = SubResource("StyleBoxTexture_ytgwi")
-theme_override_styles/normal = SubResource("StyleBoxTexture_igo7u")
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 682.0
+offset_top = 455.0
+offset_right = 2242.0
+offset_bottom = 867.0
+scale = Vector2(0.253826, 0.347041)
+texture_normal = ExtResource("4_2pott")
+texture_hover = ExtResource("3_qfmi3")
 
 [node name="Level" type="Label" parent="CanvasLayer"]
 offset_left = 89.0
@@ -180,39 +168,25 @@ theme_override_font_sizes/font_size = 20
 text = "Objective: 
 Defeat The Bot"
 
-[node name="Button_SFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_eerx7")
-volume_db = 2.0
-mix_target = 2
-
-[node name="Transition" type="AnimationPlayer" parent="."]
+[node name="Transition" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_5dd4i")
 }
 
-[node name="PlayButton" type="TextureButton" parent="Transition"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 827.0
-offset_top = 511.0
-offset_right = 1235.0
-offset_bottom = 801.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.201166, 0.306916)
-action_mode = 0
-texture_normal = ExtResource("4_2pott")
-texture_hover = ExtResource("3_qfmi3")
-
-[node name="ColorRect" type="ColorRect" parent="Transition"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Transition"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -3.05176e-05
+offset_bottom = 6.10352e-05
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[node name="Button_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_eerx7")
+volume_db = 1.0
+mix_target = 2
+
+[connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_texture_button_pressed"]
