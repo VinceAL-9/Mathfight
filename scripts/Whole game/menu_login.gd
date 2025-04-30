@@ -2,7 +2,6 @@ extends Control
 
 @onready var password_field = $LoginContainer/InputContainer/Password
 @onready var transition = $Transition
-@onready var button_sfx: AudioStreamPlayer = $Button_SFX
 var stored_username := ""
 var stored_password_hash := ""
 var is_signing_up := false
@@ -64,8 +63,6 @@ func _on_login_button_down() -> void:
 		var input_pass_hash = $LoginContainer/InputContainer/Password.text.sha256_text()
 
 		if input_user == stored_username and input_pass_hash == stored_password_hash:
-			if button_sfx:
-				button_sfx.play()
 			print("Login successful!")
 			$WarningText.bbcode_text = "[color=green]Login successful! %s[/color]" % input_user
 			transition.play("fade_out")
