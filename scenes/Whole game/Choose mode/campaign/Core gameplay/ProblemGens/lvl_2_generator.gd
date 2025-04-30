@@ -4,7 +4,7 @@ extends Control
 
 var variables = ["x", "y"]
 var operators = ["+", "-"]
-var inequality_signs = ["<", ">"] # signs without the version with equal 
+var inequality_signs = ["<", ">"]  # Only strict inequalities
 
 var current_problem: String
 var current_answer: String
@@ -31,38 +31,39 @@ func generate_problem():
 	var variable = random_variable()
 
 	match problem_type:
-		1:  # Multi-step equation
+		1:  # Multi-step equation: a(x + b) + c = value
+			var sol = random_number(-10, 10)
 			var a = random_number(1, 5, true)
-			var b = random_number(1, 10)
-			var c = random_number(1, 10)
-			var sol = random_number(1, 10, true)
-
-			var lhs_expr = "%d(%s + %d) + %d" % [a, variable, b, c]
+			var b = random_number(-5, 5)
+			var c = random_number(-10, 10)
 			var rhs_value = a * (sol + b) + c
-			current_problem = "%s = %d" % [lhs_expr, rhs_value]
+
+			current_problem = "Solve: %d(%s + %d) + %d = %d" % [a, variable, b, c, rhs_value]
 			current_answer = "%s=%d" % [variable, sol]
 
-		2:  # Variables on both sides
-			var sol = random_number(1, 10, true)
+		2:  # Variables on both sides: ax + c = bx + d
+			var sol = random_number(-10, 10)
 			var a = random_number(1, 5, true)
 			var b = random_number(1, 5, true)
-			var c = random_number(1, 10)
-			var d = random_number(1, 10)
+			
+			while a == b:
+				b = random_number(1, 5, true)  # Ensure coefficients are different for solvable equation
 
-			var _lhs = a * sol + c
-			var _rhs = b * sol + d
-			current_problem = "%d%s + %d = %d%s + %d" % [a, variable, c, b, variable, d]
+			var c = random_number(-10, 10)
+			var lhs = a * sol + c
+
+			var d = lhs - b * sol  # Ensures both sides equal when x = sol
+			current_problem = "Solve: %d%s + %d = %d%s + %d" % [a, variable, c, b, variable, d]
 			current_answer = "%s=%d" % [variable, sol]
 
-		3:  # Inequality
+		3:  # Inequality: ax + b < value
 			var sol = random_number(-5, 5)
 			var a = random_number(1, 5)
-			var b = random_number(1, 10)
+			var b = random_number(-10, 10)
 			var sign_ = random_inequality()
 
-			var lhs_expr = "%d%s + %d" % [a, variable, b]
 			var rhs_value = a * sol + b
-			current_problem = "%s %s %d" % [lhs_expr, sign_, rhs_value]
+			current_problem = "Solve: %d%s + %d %s %d" % [a, variable, b, sign_, rhs_value]
 			current_answer = "%s%s%d" % [variable, sign_, sol]
 
 	problem_label.text = current_problem
