@@ -272,7 +272,7 @@ theme_override_fonts/font = ExtResource("3_ei3sb")
 theme_override_font_sizes/font_size = 25
 text = "Username"
 
-[node name="Username" type="TextEdit" parent="LoginContainer/InputContainer"]
+[node name="Username" type="LineEdit" parent="LoginContainer/InputContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_ei3sb")

@@ -1,79 +1,84 @@
 extends Control
 
 @onready var password_field = $LoginContainer/InputContainer/Password
+@onready var username_field = $LoginContainer/InputContainer/Username
+@onready var warning_text = $WarningText
+@onready var login_button = $LoginContainer/ButtonContainer/Login
+@onready var signup_button = $LoginContainer/ButtonContainer/Signup
+@onready var login_text = $LoginText
 @onready var transition = $Transition
-var stored_username := ""
-var stored_password_hash := ""
+
 var is_signing_up := false
-var password_vissable := false
+var config := ConfigFile.new()
+var FILE_PATH := "user://players.cfg"	
 
 func _ready():
-	transition.play("fade_in")
+	var err = config.load(FILE_PATH)
+	if err != OK:
+		print("No config file found, creating new one.")
+		config.save(FILE_PATH)
 	password_field.secret = true
-	
-func _on_signup_button_down() -> void:
-	if !is_signing_up:
-		# Enter sign-up mode
-		is_signing_up = true
-		$LoginContainer/ButtonContainer/Login.text = "Create"
-		$LoginContainer/ButtonContainer/Signup.text = "Cancel"
-		$LoginContainer/InputContainer/Username.text = ""
-		$LoginContainer/InputContainer/Password.text = ""
-		$LoginText.bbcode_text = "Sign up"
-		$WarningText.bbcode_text = " "
-		print("Switched to sign-up mode")
-	else:
-		# Cancel sign-up
-		is_signing_up = false
-		$LoginContainer/ButtonContainer/Login.text = "Login"
-		$LoginContainer/ButtonContainer/Signup.text = "Sign Up"
-		$LoginContainer/InputContainer/Username.text = ""
-		$LoginContainer/InputContainer/Password.text = ""
-		$LoginText.bbcode_text = "[b]Login[/b]"
-		print("Cancelled sign-up")
+	transition.play("fade_in")
 
-func _on_login_button_down() -> void:
+#para sa toggle ka mode
+func _on_signup_button_down():
+	is_signing_up = !is_signing_up
 	if is_signing_up:
-		# Create account
-		stored_username = $LoginContainer/InputContainer/Username.text.strip_edges()
-		stored_password_hash = $LoginContainer/InputContainer/Password.text.sha256_text()
-		
-		if stored_username == "" or $LoginContainer/InputContainer/Password.text == "":
-			$WarningText.bbcode_text = "[color=red]Cannot be empty.[/color]"
-			return
-
-		print("Account created! Username: %s | Password hash: %s" % [stored_username, stored_password_hash])
-		$WarningText.bbcode_text = "[color=green]Account created![/color]"
-		$LoginText.bbcode_text = "Login"
-
-		# Reset UI
-		is_signing_up = false
-		$LoginContainer/ButtonContainer/Login.text = "Login"
-		$LoginContainer/ButtonContainer/Signup.text = "Sign Up"
-		$LoginContainer/InputContainer/Username.text = ""
-		$LoginContainer/InputContainer/Password.text = ""
+		login_button.text = "Create"
+		signup_button.text = "Cancel"
+		login_text.bbcode_text = "Sign up"
 	else:
-		# Try login
-		if stored_username == "":
-			print("No account created yet.")
-			$WarningText.bbcode_text = "[color=red]No account found.[/color]"
+		login_button.text = "Login"
+		signup_button.text = "Sign Up"
+		login_text.bbcode_text = "Login"
+	username_field.text = ""
+	password_field.text = ""
+	warning_text.bbcode_text = " "
+
+func _on_login_button_down():
+	var username = username_field.text.strip_edges()
+	var password = password_field.text
+
+	if username == "" or password == "":
+		warning_text.bbcode_text = "[color=red]Fields cannot be empty.[/color]"
+		return
+
+#if ara sa sign up mode and user does not exist make new user
+	if is_signing_up:
+		if config.has_section_key("users", username):
+			warning_text.bbcode_text = "[color=red]Username already exists.[/color]"
+			return
+		config.set_value("users", username, password.sha256_text())
+		config.save(FILE_PATH)
+		warning_text.bbcode_text = "[color=green]Account created![/color]"
+		_on_signup_button_down() 
+
+#if ara sa  log in mode, cant have same username with other acc checks if acc exist
+	else:
+		if !config.has_section_key("users", username):
+			warning_text.bbcode_text = "[color=red]No account found.[/color]"
 			return
 
-		var input_user = $LoginContainer/InputContainer/Username.text.strip_edges()
-		var input_pass_hash = $LoginContainer/InputContainer/Password.text.sha256_text()
+		var saved_hash = config.get_value("users", username)
+		if saved_hash == password.sha256_text():
+			warning_text.bbcode_text = "[color=green]Login successful![/color]"
+			# Load user profile
+			var profile = load_user_profile(username)
+			print("User profile loaded: ", profile)
 
-		if input_user == stored_username and input_pass_hash == stored_password_hash:
-			print("Login successful!")
-			$WarningText.bbcode_text = "[color=green]Login successful! %s[/color]" % input_user
 			transition.play("fade_out")
 			await get_tree().create_timer(1).timeout
 			Functions.load_screen_to_scene("res://scenes/Whole game/main_menu.tscn")
 		else:
-			print("Login failed.")
-			$WarningText.bbcode_text = "[color=red]Incorrect username or password.[/color]"
+			warning_text.bbcode_text = "[color=red]Incorrect password.[/color]"
 
-		$LoginContainer/InputContainer/Username.text = ""
-		$LoginContainer/InputContainer/Password.text = ""
+	username_field.text = ""
+	password_field.text = ""
+
+# Load user profile, returning just the username
+func load_user_profile(username: String) -> String:
+	return username
+
 
 
 
