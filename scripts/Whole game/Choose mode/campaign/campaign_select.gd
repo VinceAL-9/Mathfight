@@ -4,7 +4,6 @@ extends Control
 @onready var button_sfx: AudioStreamPlayer = $Button_SFX
 
 
-
 func _ready():
 	transition1.play("fade_in")
 	await get_tree().create_timer(1).timeout
@@ -17,7 +16,7 @@ func _on_back_button_pressed() -> void:
 
 func _on_button_pressed() -> void:
 	Gamestate.selected_level = 1
-	
+	Music.play_pregame()
 	if button_sfx:
 		button_sfx.play()
 	transition1.play("fade_out")
@@ -26,7 +25,7 @@ func _on_button_pressed() -> void:
 
 func _on_button_2_pressed() -> void:
 	Gamestate.selected_level = 2
-	
+	Music.play_pregame()
 	if button_sfx:
 		button_sfx.play()
 	transition1.play("fade_out")
@@ -35,7 +34,7 @@ func _on_button_2_pressed() -> void:
 
 func _on_button_3_pressed() -> void:
 	Gamestate.selected_level = 3
-	
+	Music.play_pregame()
 	if button_sfx:
 		button_sfx.play()
 	transition1.play("fade_out")

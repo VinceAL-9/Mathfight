@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://cpr3ip56unda2"]
+
+[ext_resource type="Script" uid="uid://vrabdfu05t04" path="res://scripts/Whole game/music_player.gd" id="1_eq6mq"]
+[ext_resource type="AudioStream" uid="uid://btdxiyl0f4cpy" path="res://assets/AudioAssets/Music/Three Red Hearts - Connected.ogg" id="1_y6152"]
+[ext_resource type="AudioStream" uid="uid://do4igl6gqdi2t" path="res://assets/AudioAssets/Music/Three Red Hearts - Modern Bits.ogg" id="2_aftu4"]
+[ext_resource type="AudioStream" uid="uid://bp3gg6omqytqh" path="res://assets/AudioAssets/Music/Three Red Hearts - Go.ogg" id="2_vmgw6"]
+[ext_resource type="AudioStream" uid="uid://c2ycbharmajdm" path="res://assets/AudioAssets/Music/Battle_5.wav" id="3_dsxlg"]
+[ext_resource type="AudioStream" uid="uid://ctcpxlou47h3a" path="res://assets/AudioAssets/Music/Three Red Hearts - Sanctuary.ogg" id="3_eq6mq"]
+[ext_resource type="AudioStream" uid="uid://sp5a0bbtbtwa" path="res://assets/AudioAssets/Music/Three Red Hearts - Puzzle Pieces.ogg" id="4_e4c7a"]
+[ext_resource type="AudioStream" uid="uid://yuo2htpo8k6o" path="res://assets/AudioAssets/Music/Battle_2.wav" id="7_bqtuj"]
+[ext_resource type="AudioStream" uid="uid://3vodwkedvvru" path="res://assets/AudioAssets/Music/Battle_4.wav" id="8_b65hl"]
+
+[node name="MusicPlayer" type="Node"]
+script = ExtResource("1_eq6mq")
+
+[node name="MainMenu1" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("1_y6152")
+autoplay = true
+parameters/looping = true
+
+[node name="MainMenu2" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("2_aftu4")
+parameters/looping = true
+
+[node name="MainMenu3" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_eq6mq")
+volume_db = -9.454
+parameters/looping = true
+
+[node name="Pregame" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("2_vmgw6")
+parameters/looping = true
+
+[node name="Level1" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("3_dsxlg")
+
+[node name="Level2" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("7_bqtuj")
+
+[node name="Level3" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("8_b65hl")
+
+[node name="MatchResults" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("4_e4c7a")
+parameters/looping = true
+
+[connection signal="finished" from="MainMenu1" to="." method="_on_main_menu_1_finished"]
