@@ -10,6 +10,7 @@ script = ExtResource("1_dpajf")
 
 [node name="ProblemLabel" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = -83.0
 offset_top = -20.0
 offset_right = 89.0

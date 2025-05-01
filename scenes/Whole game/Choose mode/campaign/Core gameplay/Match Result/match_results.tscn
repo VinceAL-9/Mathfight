@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://byiavkgwagq77"]
 
-[ext_resource type="Script" uid="uid://culwvxnh4jokr" path="res://scripts/Whole game/Choose mode/campaign/match_results.gd" id="1_abhoq"]
+[ext_resource type="Script" uid="uid://culwvxnh4jokr" path="res://scripts/Whole game/Choose mode/campaign/Core gameplay/Match Result/match_results.gd" id="1_abhoq"]
 [ext_resource type="Texture2D" uid="uid://bdvsufla5yllv" path="res://assets/images/Pregame_background.png" id="1_dgkba"]
 [ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="2_7dvep"]
 [ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="3_7dvep"]

@@ -161,17 +161,14 @@ func end_game_after_delay() -> void: # wait for a moment before ending the game
 	
 	solve_timer.stop()
 	prob_timer.stop()
-	transition.play("fade_out")
-	await get_tree().create_timer(1).timeout
-	
 	display.queue_free() # remove every UI element from screen
 	
 	await get_tree().create_timer(4.0).timeout # wait 5 seconds before final action
 
 	# Now show a Game Over screen or quit
 	Music.play_match_results()
-	Functions.load_screen_to_scene("res://scenes/Whole game/Choose mode/campaign/Core gameplay/match_results.tscn")
-	print("Game Over") # Optional: Replace with UI or scene change
+	Functions.load_screen_to_scene("res://scenes/Whole game/Choose mode/campaign/Core gameplay/Match Result/match_results.tscn")
+
 		
 		
 		
