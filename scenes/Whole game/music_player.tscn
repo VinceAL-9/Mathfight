@@ -53,3 +53,6 @@ stream = ExtResource("4_e4c7a")
 parameters/looping = true
 
 [connection signal="finished" from="MainMenu1" to="." method="_on_main_menu_1_finished"]
+[connection signal="finished" from="Level1" to="." method="_on_level_1_finished"]
+[connection signal="finished" from="Level2" to="." method="_on_level_2_finished"]
+[connection signal="finished" from="Level3" to="." method="_on_level_3_finished"]

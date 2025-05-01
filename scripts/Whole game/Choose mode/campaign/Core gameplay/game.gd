@@ -157,7 +157,7 @@ func end_game_after_delay() -> void: # wait for a moment before ending the game
 	
 	display.queue_free() # remove every UI element from screen
 	
-	await get_tree().create_timer(5.0).timeout # wait 5 seconds before final action
+	await get_tree().create_timer(4.0).timeout # wait 5 seconds before final action
 
 	# Now show a Game Over screen or quit, as well as play the corresponding music
 	Music.play_match_results()

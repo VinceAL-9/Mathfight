@@ -57,3 +57,16 @@ func play_match_results() -> void:
 	await get_tree().create_timer(1.5).timeout
 	match_results.play()
 	current_music = match_results
+
+
+func _on_level_1_finished() -> void:
+	await get_tree().create_timer(1.0).timeout
+	level_1.play()
+
+func _on_level_2_finished() -> void:
+	await get_tree().create_timer(1.0).timeout
+	level_2.play()
+
+func _on_level_3_finished() -> void:
+	await get_tree().create_timer(1.0).timeout
+	level_3.play()
