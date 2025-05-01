@@ -67,7 +67,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="Animation" id="Animation_v7xk8"]
@@ -344,7 +344,7 @@ position = Vector2(1012, 291)
 scale = Vector2(4.57292, 3.89482)
 sprite_frames = SubResource("SpriteFrames_tc4w2")
 animation = &"idle"
-frame_progress = 0.376396
+frame_progress = 0.0765024
 
 [node name="Transition" type="AnimationPlayer" parent="CanvasLayer"]
 process_mode = 3
