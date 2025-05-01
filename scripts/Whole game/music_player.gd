@@ -51,3 +51,9 @@ func play_menu_music() -> void:
 	await get_tree().create_timer(2.0).timeout
 	main_menu_1.play()
 	current_music = main_menu_1
+
+func play_match_results() -> void:
+	current_music.stop()
+	await get_tree().create_timer(1.5).timeout
+	match_results.play()
+	current_music = match_results

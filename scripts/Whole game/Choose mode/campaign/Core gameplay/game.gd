@@ -159,9 +159,10 @@ func end_game_after_delay() -> void: # wait for a moment before ending the game
 	
 	await get_tree().create_timer(5.0).timeout # wait 5 seconds before final action
 
-	# Now show a Game Over screen or quit
+	# Now show a Game Over screen or quit, as well as play the corresponding music
+	Music.play_match_results()
 	get_tree().change_scene_to_file("res://scenes/Whole game/Choose mode/campaign/Core gameplay/match_results.tscn")
-	print("Game Over") # Optional: Replace with UI or scene change
+	
 		
 		
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://byiavkgwagq77"]
+[gd_scene load_steps=15 format=3 uid="uid://e0jgombkr726"]
 
 [ext_resource type="Script" uid="uid://culwvxnh4jokr" path="res://scripts/Whole game/Choose mode/campaign/match_results.gd" id="1_abhoq"]
 [ext_resource type="Texture2D" uid="uid://bdvsufla5yllv" path="res://assets/images/Pregame_background.png" id="1_dgkba"]
@@ -67,7 +67,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Control" type="Control"]
@@ -196,6 +196,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_abhoq")
 text = "Continue"
 
 [node name="ColorRect5" type="ColorRect" parent="CanvasLayer/ContinueButton"]
+layout_mode = 0
 offset_left = 155.0
 offset_top = -244.0
 offset_right = 330.0
@@ -224,7 +225,7 @@ position = Vector2(1012, 291)
 scale = Vector2(4.57292, 3.89482)
 sprite_frames = SubResource("SpriteFrames_tc4w2")
 animation = &"idle"
-frame_progress = 0.968383
+frame_progress = 0.272894
 
 [connection signal="pressed" from="CanvasLayer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ContinueButton" to="." method="_on_continue_button_pressed"]

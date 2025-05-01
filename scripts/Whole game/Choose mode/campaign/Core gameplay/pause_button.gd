@@ -14,6 +14,7 @@ func paused():
 func _on_exit_button_pressed() -> void:
 	resume()
 	Transition.play("fade_out")
+	Music.play_menu_music()
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://scenes/Whole game/Choose mode/campaign/campaign_select.tscn")
 
