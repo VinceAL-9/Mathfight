@@ -3,7 +3,11 @@ extends Control
 @onready var button_sfx: AudioStreamPlayer = $Button_SFX
 @onready var transition: AnimationPlayer = $CanvasLayer/Transition
 
-
+func _ready():
+	$CanvasLayer/Transition/ColorRect.visible = true
+	transition.play("fade_in")
+	await get_tree().create_timer(1).timeout
+	
 func _on_texture_button_pressed() -> void:
 	if button_sfx:
 		button_sfx.play()

@@ -344,7 +344,7 @@ position = Vector2(1012, 291)
 scale = Vector2(4.57292, 3.89482)
 sprite_frames = SubResource("SpriteFrames_tc4w2")
 animation = &"idle"
-frame_progress = 0.0765024
+frame_progress = 0.36479
 
 [node name="Transition" type="AnimationPlayer" parent="CanvasLayer"]
 process_mode = 3
