@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Mathfight"
-run/main_scene="uid://h08om00iupig"
+run/main_scene="uid://bg8ls8rhycn7r"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
