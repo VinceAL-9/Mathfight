@@ -11,3 +11,4 @@ func _on_texture_button_pressed() -> void:
 	Music.play_level_2()
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://scenes/Whole game/Choose mode/campaign/levels/level_2.tscn")
+	Leveldata.level = 2

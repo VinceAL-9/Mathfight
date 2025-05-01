@@ -75,12 +75,15 @@ func _on_timer_for_solving_timeout() -> void:
 		await get_tree().create_timer(1.5).timeout
 		
 		player_health -= 10
+		
+		Leveldata.items_not_solved += 1
 		update_health_ui()
 		
 		
 		if player_health <= 0:
 			anim.play("player_death") # death animation for player
 			enemy_sprite.play("idle")
+			Leveldata.player_win = false
 			await end_game_after_delay()
 			return
 			
@@ -112,11 +115,13 @@ func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where
 		else: # normal damage
 			enemy_health -= 10
 		
+		Leveldata.items_solved += 1
 		update_health_ui()
 		
 		if enemy_health <= 0:
 			anim.play("enemy_death") # death animation for enemy
 			player_sprite.play("idle")
+			Leveldata.player_win = true
 			
 			await end_game_after_delay()
 			return
@@ -147,22 +152,25 @@ func _process(_delta: float) -> void:
 			solve_timer_display.add_theme_color_override("font_color", Color.RED)
 		else:
 			solve_timer_display.add_theme_color_override("font_color", Color.YELLOW)
+			
+	Leveldata.time_elapsed += _delta
 
 func end_game_after_delay() -> void: # wait for a moment before ending the game
-	transition.play("fade_out")
+	
 	game_over = true # prevent further interaction
 	
 	solve_timer.stop()
 	prob_timer.stop()
+	transition.play("fade_out")
+	await get_tree().create_timer(1).timeout
 	
 	display.queue_free() # remove every UI element from screen
 	
-	await get_tree().create_timer(4.0).timeout # wait 5 seconds before final action
+	await get_tree().create_timer(5.0).timeout # wait 5 seconds before final action
 
-	# Now show a Game Over screen or quit, as well as play the corresponding music
-	Music.play_match_results()
-	get_tree().change_scene_to_file("res://scenes/Whole game/Choose mode/campaign/Core gameplay/match_results.tscn")
-	
+	# Now show a Game Over screen or quit
+	Functions.load_screen_to_scene("res://scenes/Whole game/Choose mode/campaign/Core gameplay/match_results.tscn")
+	print("Game Over") # Optional: Replace with UI or scene change
 		
 		
 		

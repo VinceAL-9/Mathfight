@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://e0jgombkr726"]
+[gd_scene load_steps=19 format=3 uid="uid://byiavkgwagq77"]
 
 [ext_resource type="Script" uid="uid://culwvxnh4jokr" path="res://scripts/Whole game/Choose mode/campaign/match_results.gd" id="1_abhoq"]
 [ext_resource type="Texture2D" uid="uid://bdvsufla5yllv" path="res://assets/images/Pregame_background.png" id="1_dgkba"]
@@ -67,8 +67,96 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_v7xk8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7safa"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_0auvj"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nbrat"]
+_data = {
+&"RESET": SubResource("Animation_v7xk8"),
+&"fade_in": SubResource("Animation_7safa"),
+&"fade_out": SubResource("Animation_0auvj")
+}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -138,31 +226,62 @@ text = "Match Results"
 metadata/_edit_use_anchors_ = true
 
 [node name="ItemsSolvedText" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 109.0
-offset_top = 207.0
-offset_right = 575.0
-offset_bottom = 257.0
+offset_left = 94.0
+offset_top = 202.0
+offset_right = 560.0
+offset_bottom = 252.0
 theme_override_fonts/normal_font = ExtResource("3_7dvep")
 theme_override_font_sizes/normal_font_size = 50
 text = "Items Solved:"
 
+[node name="ItemsSolved" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 464.0
+offset_top = 202.0
+offset_right = 675.0
+offset_bottom = 252.0
+theme_override_colors/default_color = Color(0.815686, 0.6, 0, 0.886275)
+theme_override_fonts/normal_font = ExtResource("3_7dvep")
+theme_override_font_sizes/normal_font_size = 50
+text = "Solved
+"
+
 [node name="ItemsNotSolvedText" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 112.0
-offset_top = 276.0
-offset_right = 599.0
-offset_bottom = 326.0
+offset_left = 97.0
+offset_top = 271.0
+offset_right = 584.0
+offset_bottom = 321.0
 theme_override_fonts/normal_font = ExtResource("3_7dvep")
 theme_override_font_sizes/normal_font_size = 50
 text = "Items Not solved:"
 
+[node name="ItemsNotSolved" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 574.0
+offset_top = 270.0
+offset_right = 860.0
+offset_bottom = 320.0
+theme_override_colors/default_color = Color(0.815686, 0.6, 0, 0.886275)
+theme_override_fonts/normal_font = ExtResource("3_7dvep")
+theme_override_font_sizes/normal_font_size = 50
+text = "Not solved"
+
 [node name="TimeElapsedText" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 112.0
-offset_top = 345.0
-offset_right = 578.0
-offset_bottom = 395.0
+offset_left = 97.0
+offset_top = 340.0
+offset_right = 456.0
+offset_bottom = 390.0
 theme_override_fonts/normal_font = ExtResource("3_7dvep")
 theme_override_font_sizes/normal_font_size = 50
 text = "Time elapsed:"
+
+[node name="TimeElapsed" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 468.0
+offset_top = 341.0
+offset_right = 831.0
+offset_bottom = 391.0
+theme_override_colors/default_color = Color(0.815686, 0.6, 0, 0.886275)
+theme_override_fonts/normal_font = ExtResource("3_7dvep")
+theme_override_font_sizes/normal_font_size = 50
+text = "Time"
 
 [node name="BackButton" type="TextureButton" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0.764706)
@@ -225,7 +344,21 @@ position = Vector2(1012, 291)
 scale = Vector2(4.57292, 3.89482)
 sprite_frames = SubResource("SpriteFrames_tc4w2")
 animation = &"idle"
-frame_progress = 0.272894
+frame_progress = 0.376396
+
+[node name="Transition" type="AnimationPlayer" parent="CanvasLayer"]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_nbrat")
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Transition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="CanvasLayer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ContinueButton" to="." method="_on_continue_button_pressed"]
