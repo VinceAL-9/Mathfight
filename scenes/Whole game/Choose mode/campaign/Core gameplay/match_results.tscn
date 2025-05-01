@@ -217,12 +217,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.294118, 0.254902, 0.819608, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ContinueButton"]
-position = Vector2(293, -152)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0.792157)
+position = Vector2(1012, 291)
 scale = Vector2(4.57292, 3.89482)
 sprite_frames = SubResource("SpriteFrames_tc4w2")
 animation = &"idle"
-frame_progress = 0.732767
+frame_progress = 0.968383
 
 [connection signal="pressed" from="CanvasLayer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ContinueButton" to="." method="_on_continue_button_pressed"]
