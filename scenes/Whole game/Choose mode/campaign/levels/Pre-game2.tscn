@@ -112,6 +112,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_pyrju")
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
 offset_left = 65.0
@@ -120,6 +121,7 @@ offset_right = 105.0
 offset_bottom = 69.0
 scale = Vector2(25.4194, 14.2925)
 color = Color(0.139806, 0.000263011, 0.282054, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 offset_left = 73.0
@@ -128,6 +130,7 @@ offset_right = 113.0
 offset_bottom = 77.0
 scale = Vector2(24.9784, 3.45959)
 color = Color(0.29192, 0.2542, 0.82, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
 offset_left = 73.0
@@ -136,6 +139,7 @@ offset_right = 113.0
 offset_bottom = 215.0
 scale = Vector2(24.9808, 10.3873)
 color = Color(0.19918, 0.0874, 0.46, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect4" type="ColorRect" parent="CanvasLayer"]
 offset_left = 65.0
@@ -144,6 +148,7 @@ offset_right = 105.0
 offset_bottom = 209.0
 scale = Vector2(25.4203, 0.195309)
 color = Color(0.139806, 0.000263011, 0.282054, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayButton" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 15
@@ -159,6 +164,7 @@ scale = Vector2(0.25329, 0.330485)
 action_mode = 0
 texture_normal = ExtResource("4_geu2e")
 texture_hover = ExtResource("3_rqw4j")
+metadata/_edit_use_anchors_ = true
 
 [node name="Level" type="Label" parent="CanvasLayer"]
 offset_left = 89.0
@@ -169,6 +175,7 @@ scale = Vector2(4.80804, 4.80804)
 theme_override_fonts/font = ExtResource("5_4olml")
 theme_override_font_sizes/font_size = 20
 text = "Level 2"
+metadata/_edit_use_anchors_ = true
 
 [node name="Mission_details" type="Label" parent="CanvasLayer"]
 offset_left = 92.0
@@ -182,6 +189,7 @@ text = "lessons:
 - two-step and multi-step equations
 -equations with two-sided variables 
 -inequalities"
+metadata/_edit_use_anchors_ = true
 
 [node name="Objective" type="Label" parent="CanvasLayer"]
 offset_left = 94.0
@@ -193,6 +201,7 @@ theme_override_fonts/font = ExtResource("5_4olml")
 theme_override_font_sizes/font_size = 20
 text = "Objective: 
 Defeat The Bot"
+metadata/_edit_use_anchors_ = true
 
 [node name="Transition" type="AnimationPlayer" parent="CanvasLayer"]
 root_node = NodePath("../..")

@@ -1,7 +1,7 @@
 extends TextureButton
 
 @onready var PopupFade = $"../PausePopupFade"
-
+@onready var Transition = $"../Transition"
 func _ready():
 	$"../PausePopupFade/PauseContainer".visible = false
 
@@ -13,19 +13,27 @@ func paused():
 
 func _on_exit_button_pressed() -> void:
 	resume()
+	Transition.play("fade_out")
+	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://scenes/Whole game/Choose mode/campaign/campaign_select.tscn")
 
 func _on_retry_button_pressed() -> void:
 	if paused() == false:
+		Transition.play("fade_out")
+		await get_tree().create_timer(1).timeout
 		get_tree().reload_current_scene()
 	else:
 		resume()
+		Transition.play("fade_out")
+		await get_tree().create_timer(1).timeout
 		get_tree().reload_current_scene()
 
 func _on_continue_button_pressed() -> void:
-	PopupFade.play("fade_out")
-	$"../PausePopupFade/PauseContainer".visible = false
 	resume()
+	PopupFade.play("fade_out")
+	await get_tree().create_timer(0.3).timeout
+	$"../PausePopupFade/PauseContainer".visible = false
+	
 
 func _on_pressed() -> void:
 	$"../PausePopupFade/PauseContainer".visible = true

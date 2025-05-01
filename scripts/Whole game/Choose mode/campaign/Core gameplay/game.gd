@@ -14,6 +14,7 @@ var rng := RandomNumberGenerator.new() # randomizer
 @onready var enemy_hp: ProgressBar = $Display/EnemyContainer/EnemyHPBar
 @onready var solve_timer_display: Label = $Display/SolveTimerContainer/SolveTimerDisplay
 
+@onready var transition: AnimationPlayer = $Display/Transition
 # set the type of problem generator to be used in a specific level
 var level_generator: Control
 
@@ -39,6 +40,7 @@ func _ready() -> void: # executes once, at the start of the match
 	
 	update_health_ui() # sets initial health display
 	
+	transition.play("fade_in")
 	problem_active = false
 	prob_timer.start()
 	
@@ -115,6 +117,7 @@ func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where
 		if enemy_health <= 0:
 			anim.play("enemy_death") # death animation for enemy
 			player_sprite.play("idle")
+			
 			await end_game_after_delay()
 			return
 		
@@ -146,7 +149,9 @@ func _process(_delta: float) -> void:
 			solve_timer_display.add_theme_color_override("font_color", Color.YELLOW)
 
 func end_game_after_delay() -> void: # wait for a moment before ending the game
+	transition.play("fade_out")
 	game_over = true # prevent further interaction
+	
 	solve_timer.stop()
 	prob_timer.stop()
 	
@@ -155,6 +160,7 @@ func end_game_after_delay() -> void: # wait for a moment before ending the game
 	await get_tree().create_timer(5.0).timeout # wait 5 seconds before final action
 
 	# Now show a Game Over screen or quit
+	get_tree().change_scene_to_file("res://scenes/Whole game/Choose mode/campaign/Core gameplay/match_results.tscn")
 	print("Game Over") # Optional: Replace with UI or scene change
 		
 		

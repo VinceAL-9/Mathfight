@@ -1,0 +1,228 @@
+[gd_scene load_steps=15 format=3 uid="uid://byiavkgwagq77"]
+
+[ext_resource type="Script" uid="uid://culwvxnh4jokr" path="res://scripts/Whole game/Choose mode/campaign/match_results.gd" id="1_abhoq"]
+[ext_resource type="Texture2D" uid="uid://bdvsufla5yllv" path="res://assets/images/Pregame_background.png" id="1_dgkba"]
+[ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="2_7dvep"]
+[ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="3_7dvep"]
+[ext_resource type="Texture2D" uid="uid://drkpyyr8tg8ca" path="res://assets/ui_icons/arrow_left.png" id="5_wpmmi"]
+[ext_resource type="Texture2D" uid="uid://bfntxkn4g3k30" path="res://assets/sprites/Characters with guns/1 Characters/1 Biker/Idle1.png" id="6_wpmmi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ewtgu"]
+texture = ExtResource("1_dgkba")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abhoq"]
+bg_color = Color(0.121569, 0.321569, 0.717647, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpmmi"]
+bg_color = Color(0.158411, 0.380803, 0.820436, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v3fi"]
+atlas = ExtResource("6_wpmmi")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyial"]
+atlas = ExtResource("6_wpmmi")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05vts"]
+atlas = ExtResource("6_wpmmi")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uss15"]
+atlas = ExtResource("6_wpmmi")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tc4w2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v3fi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyial")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05vts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uss15")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_abhoq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ewtgu")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
+offset_left = 65.0
+offset_top = 29.0
+offset_right = 105.0
+offset_bottom = 69.0
+scale = Vector2(25.4194, 14.2925)
+color = Color(0.139806, 0.000263011, 0.282054, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 73.0
+offset_top = 37.0
+offset_right = 113.0
+offset_bottom = 77.0
+scale = Vector2(24.9784, 3.45959)
+color = Color(0.29192, 0.2542, 0.82, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+offset_left = 73.0
+offset_top = 175.0
+offset_right = 113.0
+offset_bottom = 215.0
+scale = Vector2(24.9808, 10.3873)
+color = Color(0.19918, 0.0874, 0.46, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer"]
+offset_left = 65.0
+offset_top = 169.0
+offset_right = 105.0
+offset_bottom = 209.0
+scale = Vector2(25.4203, 0.195309)
+color = Color(0.139806, 0.000263011, 0.282054, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="MatchResultsText" type="Label" parent="CanvasLayer"]
+offset_left = 89.0
+offset_top = 51.0
+offset_right = 129.0
+offset_bottom = 74.0
+scale = Vector2(4.80804, 4.80804)
+theme_override_fonts/font = ExtResource("2_7dvep")
+theme_override_font_sizes/font_size = 20
+text = "Match Results"
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemsSolvedText" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 109.0
+offset_top = 207.0
+offset_right = 575.0
+offset_bottom = 257.0
+theme_override_fonts/normal_font = ExtResource("3_7dvep")
+theme_override_font_sizes/normal_font_size = 50
+text = "Items Solved:"
+
+[node name="ItemsNotSolvedText" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 112.0
+offset_top = 276.0
+offset_right = 599.0
+offset_bottom = 326.0
+theme_override_fonts/normal_font = ExtResource("3_7dvep")
+theme_override_font_sizes/normal_font_size = 50
+text = "Items Not solved:"
+
+[node name="TimeElapsedText" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 112.0
+offset_top = 345.0
+offset_right = 578.0
+offset_bottom = 395.0
+theme_override_fonts/normal_font = ExtResource("3_7dvep")
+theme_override_font_sizes/normal_font_size = 50
+text = "Time elapsed:"
+
+[node name="BackButton" type="TextureButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.764706)
+offset_left = 101.0
+offset_top = 475.0
+offset_right = 357.0
+offset_bottom = 731.0
+scale = Vector2(0.450798, 0.3133)
+texture_normal = ExtResource("5_wpmmi")
+texture_pressed = ExtResource("5_wpmmi")
+texture_hover = ExtResource("5_wpmmi")
+texture_focused = ExtResource("5_wpmmi")
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.745098)
+offset_left = 719.0
+offset_top = 443.0
+offset_right = 1053.0
+offset_bottom = 574.0
+theme_override_colors/font_hover_pressed_color = Color(0.808598, 0.808598, 0.808598, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_7dvep")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxFlat_abhoq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wpmmi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wpmmi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_abhoq")
+text = "Continue"
+
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/ContinueButton"]
+offset_left = 155.0
+offset_top = -244.0
+offset_right = 330.0
+offset_bottom = -52.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/ContinueButton/ColorRect5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.5
+offset_top = -88.5
+offset_right = 80.5
+offset_bottom = 88.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.294118, 0.254902, 0.819608, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ContinueButton"]
+position = Vector2(293, -152)
+scale = Vector2(4.57292, 3.89482)
+sprite_frames = SubResource("SpriteFrames_tc4w2")
+animation = &"idle"
+frame_progress = 0.732767
+
+[connection signal="pressed" from="CanvasLayer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ContinueButton" to="." method="_on_continue_button_pressed"]

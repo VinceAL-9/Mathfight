@@ -6,6 +6,7 @@ extends Control
 
 func _ready():
 	$Options.visible = false
+	$Transition/ColorRect.visible = true
 	transition.play("fade_in")
 	await get_tree().create_timer(1).timeout
 
