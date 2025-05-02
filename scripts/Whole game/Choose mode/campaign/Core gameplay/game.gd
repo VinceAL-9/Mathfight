@@ -54,6 +54,15 @@ func update_health_ui() -> void:
 func _on_generate_problem_timeout() -> void:
 	problem_active = true # generate a problem here then start the solve timer
 	resume_allowed = true
+	
+	match Gamestate.selected_level: # manually set all wait times of solve timer upon generating a new problem
+		1:
+			solve_timer.wait_time = 30
+		2: 
+			solve_timer.wait_time = 45
+		3:
+			solve_timer.wait_time = 60
+	
 	level_generator.generate_problem()
 	level_generator.get_node("ProblemLabel").visible = true # display problem and generate it 
 	has_answered = false # allow answering again for the new problem
@@ -66,6 +75,8 @@ func _on_generate_problem_timeout() -> void:
 	problem_start_time = Time.get_ticks_msec() # gets the time at which the solve timer started and the problem generated
 
 func store_timer_remaining():
+	if not resume_allowed:
+		return
 	if solve_timer.is_stopped() == false:
 		solve_timer_remaining = (solve_timer_end_time - Time.get_ticks_msec()) / 1000.0
 
@@ -73,7 +84,7 @@ func resume_timer_with_adjustment(): # sync the solve timer with the display upo
 	if resume_allowed and solve_timer_remaining > 0.0:
 		solve_timer.start(solve_timer_remaining)
 		solve_timer_end_time = Time.get_ticks_msec() + int(solve_timer_remaining * 1000)
-		solve_timer_remaining = 0.0
+		solve_timer_remaining = 0.0 # Clear ONLY after using
 
 func _on_timer_for_solving_timeout() -> void:
 	if problem_active and not has_answered: # prevent double triggers if answer was already given
