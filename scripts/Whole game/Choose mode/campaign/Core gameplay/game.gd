@@ -139,7 +139,7 @@ func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where
 
 		if elapsed_time <= total_time * 0.30: # if the player solves within 30% of the total time 
 			damage = 20  
-		elif elapsed_time > total_time * 0.90: # if the player takes too long to answer
+		elif elapsed_time > total_time * 0.75: # if the player takes too long to answer
 			damage = 10  
 		else:
 			damage = 15  # normal timing = standard damage
