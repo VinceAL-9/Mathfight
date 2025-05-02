@@ -30,11 +30,15 @@ func _on_continue_button_pressed() -> void:
 	Music.play_menu_music()
 	if Leveldata.player_win:
 		if Leveldata.level == 1:
+			Gamestate.selected_level = 2
 			Functions.load_screen_to_scene("res://scenes/Whole game/Choose mode/campaign/levels/Pre-game2.tscn")
 			Leveldata.level = 2
 		elif Leveldata.level == 2:
+			Gamestate.selected_level = 3
 			Functions.load_screen_to_scene("res://scenes/Whole game/Choose mode/campaign/levels/Pre-game3.tscn")
 			Leveldata.level = 3
+		elif Leveldata.level == 3:
+			Functions.load_screen_to_scene("res://scenes/Whole game/main_menu.tscn")
 	else:
 		if Leveldata.level == 1:
 			Functions.load_screen_to_scene("res://scenes/Whole game/Choose mode/campaign/levels/level_1.tscn")

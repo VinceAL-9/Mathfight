@@ -54,27 +54,27 @@ func generate_problem():
 				current_answer = get_exponent(v, a * b)
 
 		2:  # Simplifying expressions like 3x² + 2x² = 5x²
-			var coef1 = random_number(1, 9)
-			var coef2 = random_number(1, 9)
+			var coef1 = random_number(1, 20)
+			var coef2 = random_number(1, 20)
 			var total = coef1 + coef2
 			current_problem = "Simplify: %d%s + %d%s" % [coef1, get_exponent(v, 2), coef2, get_exponent(v, 2)]
 			current_answer = "%d%s" % [total, get_exponent(v, 2)]
 
 		3:  # Factoring common term: 4x + 8 => 4(x + 2)
-			var factor = random_number(2, 13)
-			var addend = random_number(1, 15)
+			var factor = random_number(2, 11)
+			var addend = random_number(1, 11)
 			var term1 = factor * 1  # 1x
 			var term2 = factor * addend
 			current_problem = "Factor: %d%s + %d" % [term1, v, term2]
 			current_answer = "%d(%s+%d)" % [factor, v, addend]
 
 		4:  # Quadratic factoring: x² + 5x + 6 = (x + 2)(x + 3)
-			var r1 = random_number(1, 11)
-			var r2 = random_number(1, 11)
+			var r1 = random_number(1, 10)
+			var r2 = random_number(1, 10)
 			var sum_ = r1 + r2
 			var prod = r1 * r2
 			current_problem = "Factor: %s + %d%s + %d = 0" % [get_exponent(v, 2), sum_, v, prod]
-			current_answer = "(%s+%d)(%s+%d)" % [v, r1, v, r2] + "(%s+%d)(%s+%d)" % [v, r2, v, r1]
+			current_answer = "(%s+%d)(%s+%d)" % [v, r1, v, r2]
 
 	problem_label.text = current_problem
 

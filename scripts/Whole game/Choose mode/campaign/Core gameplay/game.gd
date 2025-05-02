@@ -99,7 +99,7 @@ func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where
 	has_answered = true # lock in answer to prevent re-pressing
 	
 	# Compare the submitted answer
-	if answer_text in current_ans:
+	if answer_text == current_ans:
 		# hide the timer and problem display after correct answer
 		solve_timer_display.visible = false
 		level_generator.get_node("ProblemLabel").visible = false
