@@ -2,62 +2,125 @@ extends Control
 
 @onready var problem_label: Label = $ProblemLabel
 
-# Arrays for random elements
-var variables = ["x", "y"]  # Common variable letters
-var operators = ["+", "-"]  # Operators for expressions
+# Variable letters and operators to choose from
+var variables = ["x", "y"]
+var operators = ["+", "-"]
 
-# Holds the latest problem and answer
+# Tracks the current problem and its correct answer
 var current_problem: String
 var current_answer: String
 
-
 func _ready():
 	randomize()
-	generate_problem()  # Generate one on startup
+	generate_problem()
 
-func random_number(mininmum, maximum):
-	return randi() % (maximum - mininmum + 1) + mininmum
+# Returns a random number in the given range
+func random_number(minimum, maximum):
+	return randi() % (maximum - minimum + 1) + minimum
 
+# Returns a random variable (x or y)
 func random_variable():
 	return variables[randi() % variables.size()]
 
+# Returns a random operator (+ or -)
 func random_operator():
 	return operators[randi() % operators.size()]
 
-# Generates and stores a new problem + its answer
+# Formats a term like 3x, -x, or just x
+func format_term(coefficient: int, variable: String) -> String:
+	if coefficient == 0:
+		return ""
+	elif coefficient == 1:
+		return variable
+	elif coefficient == -1:
+		return "-" + variable
+	else:
+		return str(coefficient) + variable
+
+# Main problem generator
 func generate_problem():
-	var topic_type = random_number(1, 3)
+	var topic_type = random_number(1, 3)  # Choose topic 1, 2, or 3
 	var variable = random_variable()
 
 	match topic_type:
-		1:  # Simplifying expression
-			var c1 = random_number(1, 21)
-			var c2 = random_number(1, 21)
-			var op = random_operator()
-			current_problem = "%d%s %s %d%s" % [c1, variable, op, c2, variable]
-			var result = c1 + c2 if op == "+" else c1 - c2
-			current_answer = "%s%s" % [str(result) if abs(result) != 1 else ("" if result > 0 else "-"), variable]
+		### 1. Simplifying Expressions
+		1:
+			var mode = random_number(1, 2)  # Choose between simple and distributive
+			if mode == 1:
+				# Simple like: 3x - 2x
+				var c1 = random_number(-10, 10)
+				var c2 = random_number(-10, 10)
+				while c1 == 0 and c2 == 0:
+					c1 = random_number(-10, 10)
+					c2 = random_number(-10, 10)
 
-		2:  # Solving one-step equation
-			var coeff = random_number(1, 21)
+				var result = c1 + c2
+				current_problem = "%s %s %s" % [
+					format_term(c1, variable),
+					"+" if c2 >= 0 else "-",
+					format_term(abs(c2), variable)
+				]
+				current_answer = format_term(result, variable)
+			else:
+				# Distributive: a(bx + c)
+				var a = random_number(-5, 5)
+				while a == 0:
+					a = random_number(-5, 5)
+				var b = random_number(1, 5)
+				var c = random_number(-5, 5)
+
+				var term_inside = "%s%s %s %d" % [
+					"" if b == 1 else str(b),
+					variable,
+					"+" if c >= 0 else "-",
+					abs(c)
+				]
+				current_problem = "%d(%s)" % [a, term_inside]
+
+				# Distribute a*(bx + c)
+				var final_coeff = a * b
+				var final_const = a * c
+				var expression = []
+				if final_coeff != 0:
+					expression.append(format_term(final_coeff, variable))
+				if final_const != 0:
+					expression.append("%+d" % final_const)
+				current_answer = " ".join(expression)
+
+		### 2. One-step Equation
+		2:
 			var solution = random_number(-10, 10)
 			var op = random_operator()
-			if op == "+":
-				current_problem = "%s + %d = %d" % [variable, coeff, solution + coeff]
-			else:
-				current_problem = "%d%s = %d" % [coeff, variable, coeff * solution]
-			current_answer = "%s=%d" % [variable, solution]
+			var coeff = random_number(1, 10)
 
-		3:  # Evaluating algebraic expression
-			var value = random_number(1, 15)
-			var coeff = random_number(1, 15)
-			var constant = random_number(1, 15)
-			current_problem = "Evaluate: %d%s + %d for %s = %d" % [coeff, variable, constant, variable, value]
+			if op == "+":
+				var rhs = solution + coeff
+				current_problem = "%s + %d = %d" % [variable, coeff, rhs]
+				current_answer = "%s=%d" % [variable, solution]
+			else:
+				var lhs = coeff * solution
+				current_problem = "%d%s = %d" % [coeff, variable, lhs]
+				current_answer = "%s=%d" % [variable, solution]
+
+		### 3. Evaluating an Expression
+		3:
+			var value = random_number(-5, 10)
+			var coeff = random_number(1, 10)
+			var constant = random_number(-10, 10)
+
+			current_problem = "Evaluate: %d%s %s %d for %s = %d" % [
+				coeff,
+				variable,
+				"+" if constant >= 0 else "-",
+				abs(constant),
+				variable,
+				value
+			]
 			current_answer = str(coeff * value + constant)
-	
-	# Update label text
+
+	# Show the problem to the player
 	problem_label.text = current_problem
 
-# Provide access to the current answer for backend use
+# Getter function for checking answers externally
 func get_current_answer() -> String:
 	return current_answer
