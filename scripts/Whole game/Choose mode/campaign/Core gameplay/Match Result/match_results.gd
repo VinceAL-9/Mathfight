@@ -23,8 +23,22 @@ func _ready():
 	
 
 func _on_back_button_pressed() -> void:
-	Leveldata.level = 0
-	Functions.load_screen_to_scene("res://scenes/Whole game/main_menu.tscn")
+	Music.play_menu_music()
+	
+	if Leveldata.player_win:
+		if Leveldata.level == 1:
+			if 2 not in Gamestate.unlocked_levels:
+				Gamestate.unlocked_levels.append(2)
+			Functions.load_screen_to_scene("res://scenes/Whole game/main_menu.tscn")
+		elif Leveldata.level == 2:
+				if 3 not in Gamestate.unlocked_levels:
+					Gamestate.unlocked_levels.append(3)
+				Functions.load_screen_to_scene("res://scenes/Whole game/main_menu.tscn")
+		elif Leveldata.level == 3:
+			Functions.load_screen_to_scene("res://scenes/Whole game/main_menu.tscn")
+	else:
+		Leveldata.level = 0
+		Functions.load_screen_to_scene("res://scenes/Whole game/main_menu.tscn")
 
 func _on_continue_button_pressed() -> void:
 	Music.play_pregame()

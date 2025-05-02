@@ -91,7 +91,7 @@ func generate_problem():
 		2:
 			var solution = random_number(-10, 10)
 			var op = random_operator()
-			var coeff = random_number(1, 10)
+			var coeff = random_number(3, 10)
 
 			if op == "+":
 				var rhs = solution + coeff
