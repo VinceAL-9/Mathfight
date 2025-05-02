@@ -66,7 +66,7 @@ func generate_problem():
 				var a = random_number(-5, 5)
 				while a == 0:
 					a = random_number(-5, 5)
-				var b = random_number(1, 5)
+				var b = random_number(-5, 5)
 				var c = random_number(-5, 5)
 
 				var term_inside = "%s%s %s %d" % [

@@ -10,6 +10,7 @@ script = ExtResource("1_vbhy5")
 
 [node name="ProblemLabel" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = -83.0
 offset_top = -20.0
 offset_right = 89.0
@@ -20,3 +21,4 @@ theme_override_fonts/font = ExtResource("2_1shjv")
 theme_override_font_sizes/font_size = 40
 text = "problem"
 horizontal_alignment = 1
+autowrap_mode = 2
