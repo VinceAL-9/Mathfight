@@ -28,15 +28,22 @@ func _on_back_button_pressed() -> void:
 
 func _on_continue_button_pressed() -> void:
 	Music.play_pregame()
+	
 	if Leveldata.player_win:
 		if Leveldata.level == 1:
+			if 2 not in Gamestate.unlocked_levels:
+				Gamestate.unlocked_levels.append(2)
 			Gamestate.selected_level = 2
 			Functions.load_screen_to_scene("res://scenes/Whole game/Choose mode/campaign/levels/Pre-game2.tscn")
 			Leveldata.level = 2
+
 		elif Leveldata.level == 2:
+			if 3 not in Gamestate.unlocked_levels:
+				Gamestate.unlocked_levels.append(3)
 			Gamestate.selected_level = 3
 			Functions.load_screen_to_scene("res://scenes/Whole game/Choose mode/campaign/levels/Pre-game3.tscn")
 			Leveldata.level = 3
+
 		elif Leveldata.level == 3:
 			Functions.load_screen_to_scene("res://scenes/Whole game/main_menu.tscn")
 	else:

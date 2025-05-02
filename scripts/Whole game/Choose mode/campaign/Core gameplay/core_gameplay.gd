@@ -17,13 +17,13 @@ func _ready() -> void:
 	match Gamestate.selected_level:
 		1:
 			game.level_generator = $ProbGenerators/Level_1Generator
-			game.get_node("ProblemTimers/Timer for Solving").wait_time = 30
+			game.get_node("ProblemTimers/Timer for Solving").wait_time = 15
 		2:
 			game.level_generator = $ProbGenerators/Lvl2Generator
-			game.get_node("ProblemTimers/Timer for Solving").wait_time = 45
+			game.get_node("ProblemTimers/Timer for Solving").wait_time = 25
 		3:
 			game.level_generator = $ProbGenerators/Lvl3Generator
-			game.get_node("ProblemTimers/Timer for Solving").wait_time = 60
+			game.get_node("ProblemTimers/Timer for Solving").wait_time = 45
 	# set position of problem display afterwards
 	game.level_generator.position = Vector2(528, 134)
 

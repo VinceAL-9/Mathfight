@@ -57,11 +57,11 @@ func _on_generate_problem_timeout() -> void:
 	
 	match Gamestate.selected_level: # manually set all wait times of solve timer upon generating a new problem
 		1:
-			solve_timer.wait_time = 30
+			solve_timer.wait_time = 15
 		2: 
-			solve_timer.wait_time = 45
+			solve_timer.wait_time = 25
 		3:
-			solve_timer.wait_time = 60
+			solve_timer.wait_time = 45
 	
 	level_generator.generate_problem()
 	level_generator.get_node("ProblemLabel").visible = true # display problem and generate it 
@@ -91,14 +91,13 @@ func _on_timer_for_solving_timeout() -> void:
 		# RESET the keyboard 
 		keyboard.reset_input()
 		
-		
 		solve_timer_display.visible = false
 		level_generator.get_node("ProblemLabel").visible = false
 		
 		anim.play("enemy_attack") # play the animation with a bit of delay to sync with damage
 		await get_tree().create_timer(1.5).timeout
 		
-		player_health -= 10
+		player_health -= rng.randi_range(21, 30) # damage range of the enemy
 		
 		Leveldata.items_not_solved += 1
 		update_health_ui()
@@ -135,10 +134,17 @@ func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where
 		anim.play("player_attack") # play the animation with a bit of delay to sync with damage
 		await get_tree().create_timer(1.0).timeout
 		
-		if elapsed_time <= 6.5: # if player solves in under 6.5 secs, enhance damage
-			enemy_health -= rng.randi_range(15, 20)
-		else: # normal damage
-			enemy_health -= 10
+		var total_time = solve_timer.wait_time
+		var damage: int
+
+		if elapsed_time <= total_time * 0.30: # if the player solves within 30% of the total time 
+			damage = 20  
+		elif elapsed_time > total_time * 0.90: # if the player takes too long to answer
+			damage = 10  
+		else:
+			damage = 15  # normal timing = standard damage
+
+		enemy_health -= damage
 		
 		Leveldata.items_solved += 1
 		update_health_ui()
@@ -174,7 +180,7 @@ func _process(_delta: float) -> void:
 		solve_timer_display.text = str("%.1f" % time_left) # show with 1 decimal place
 		
 		# Change color based on time left
-		if time_left <= 10.0:
+		if time_left <= 7.0:
 			solve_timer_display.add_theme_color_override("font_color", Color.RED)
 		else:
 			solve_timer_display.add_theme_color_override("font_color", Color.YELLOW)

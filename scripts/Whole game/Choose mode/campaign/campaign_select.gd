@@ -3,11 +3,28 @@ extends Control
 @onready var transition1 = $Transition1
 @onready var button_sfx: AudioStreamPlayer = $Button_SFX
 
+@onready var button_2: Button = $Background/Button2
+@onready var button_3: Button = $Background/Button3
+
+
 
 func _ready():
 	transition1.play("fade_in")
+	
+	# Disable buttons by default
+	button_2.disabled = true
+	button_3.disabled = true
+
+	# Enable buttons based on unlocked levels
+	if 2 in Gamestate.unlocked_levels:
+		button_2.disabled = false
+	if 3 in Gamestate.unlocked_levels:
+		button_3.disabled = false
+	
 	await get_tree().create_timer(1).timeout
 	
+
+
 
 func _on_back_button_pressed() -> void:
 	if button_sfx:
