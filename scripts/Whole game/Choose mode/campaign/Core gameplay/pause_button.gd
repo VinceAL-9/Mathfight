@@ -2,15 +2,20 @@ extends TextureButton
 
 @onready var PopupFade = $"../PausePopupFade"
 @onready var Transition = $"../Transition"
+
 func _ready():
 	$"../PausePopupFade/PauseContainer".visible = false
 
 func resume():
 	get_tree().paused = false
+	if $"../..".has_method("resume_timer_with_adjustment"):
+		$"../..".resume_timer_with_adjustment()
 	
 func paused():
 	get_tree().paused = true
-
+	if $"../..".has_method("store_timer_remaining"):
+		$"../..".store_timer_remaining()
+	
 func _on_exit_button_pressed() -> void:
 	resume()
 	Leveldata.level = 0

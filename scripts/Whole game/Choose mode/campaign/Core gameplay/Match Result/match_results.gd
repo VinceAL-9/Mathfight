@@ -27,7 +27,7 @@ func _on_back_button_pressed() -> void:
 	Functions.load_screen_to_scene("res://scenes/Whole game/main_menu.tscn")
 
 func _on_continue_button_pressed() -> void:
-	Music.play_menu_music()
+	Music.play_pregame()
 	if Leveldata.player_win:
 		if Leveldata.level == 1:
 			Gamestate.selected_level = 2

@@ -30,11 +30,13 @@ var level_generator: Control
 @onready var wrong: AudioStreamPlayer = $Wrong
 
 
-var problem_active: bool # This is a placeholder for the problem generator
+var problem_active: bool
 var problem_start_time: int # for tracking elapsed time
 var game_over: bool = false # indicator whether this game is over
 var has_answered: bool = false # prevents input spamming
 var solve_timer_end_time: int # for displaying the solve timer every time a problem is generated
+var solve_timer_remaining: float = 0.0 # for the pause button to sync with solve timerr
+var resume_allowed: bool = false
 
 func _ready() -> void: # executes once, at the start of the match
 	
@@ -50,9 +52,10 @@ func update_health_ui() -> void:
 	enemy_hp.value = enemy_health
 
 func _on_generate_problem_timeout() -> void:
+	problem_active = true # generate a problem here then start the solve timer
+	resume_allowed = true
 	level_generator.generate_problem()
 	level_generator.get_node("ProblemLabel").visible = true # display problem and generate it 
-	problem_active = true # generate a problem here then start the solve timer
 	has_answered = false # allow answering again for the new problem
 	solve_timer.start()
 	
@@ -61,6 +64,16 @@ func _on_generate_problem_timeout() -> void:
 	solve_timer_display.visible = true
 	
 	problem_start_time = Time.get_ticks_msec() # gets the time at which the solve timer started and the problem generated
+
+func store_timer_remaining():
+	if solve_timer.is_stopped() == false:
+		solve_timer_remaining = (solve_timer_end_time - Time.get_ticks_msec()) / 1000.0
+
+func resume_timer_with_adjustment(): # sync the solve timer with the display upon resuming from pause 
+	if resume_allowed and solve_timer_remaining > 0.0:
+		solve_timer.start(solve_timer_remaining)
+		solve_timer_end_time = Time.get_ticks_msec() + int(solve_timer_remaining * 1000)
+		solve_timer_remaining = 0.0
 
 func _on_timer_for_solving_timeout() -> void:
 	if problem_active and not has_answered: # prevent double triggers if answer was already given
@@ -88,6 +101,7 @@ func _on_timer_for_solving_timeout() -> void:
 			return
 			
 		problem_active = false
+		resume_allowed = false
 		prob_timer.start(rng.randi_range(2, 4))
 		has_answered = false
 
@@ -129,6 +143,7 @@ func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where
 		solve_timer.stop() # stop the solve timer and start generate_problem timer
 		prob_timer.start(rng.randi_range(2, 4))
 		problem_active = false
+		resume_allowed = false
 	
 	else:
 		# WRONG answer
