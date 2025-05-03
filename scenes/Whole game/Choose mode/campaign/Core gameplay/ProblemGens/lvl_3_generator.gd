@@ -62,11 +62,18 @@ func generate_problem():
 			var coef1 = random_number(1, 15)
 			var coef2 = random_number(1, 15)
 			var use_squared = randi() % 2 == 0  # 50% chance
-
+			var use_cubed = randi() % 2 == 0
+			while use_squared and use_cubed:
+				use_squared = randi() % 2 == 0 
+				use_cubed = randi() % 2 == 0
+			
 			var total = coef1 + coef2
 			if use_squared:
 				current_problem = "Simplify: %d%s + %d%s" % [coef1, get_exponent(v, 2), coef2, get_exponent(v, 2)]
 				current_answer = "%d%s" % [total, get_exponent(v, 2)]
+			elif use_cubed:
+				current_problem = "Simplify: %d%s + %d%s" % [coef1, get_exponent(v, 3), coef2, get_exponent(v, 3)]
+				current_answer = "%d%s" % [total, get_exponent(v, 3)]
 			else:
 				current_problem = "Simplify: %d%s + %d%s" % [coef1, v, coef2, v]
 				current_answer = "%d%s" % [total, v]

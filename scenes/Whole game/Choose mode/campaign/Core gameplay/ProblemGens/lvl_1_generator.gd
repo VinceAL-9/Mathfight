@@ -50,7 +50,7 @@ func generate_problem():
 				# Simple like: 3x - 2x
 				var c1 = random_number(-10, 10)
 				var c2 = random_number(-10, 10)
-				while c1 == 0 and c2 == 0:
+				while c1 == 0 or c2 == 0:
 					c1 = random_number(-10, 10)
 					c2 = random_number(-10, 10)
 
@@ -75,7 +75,7 @@ func generate_problem():
 					"+" if c >= 0 else "-",
 					abs(c)
 				]
-				current_problem = "%d(%s)" % [a, term_inside]
+				current_problem = "Distribute: %d(%s)" % [a, term_inside]
 
 				# Distribute a*(bx + c)
 				var final_coeff = a * b
@@ -83,9 +83,11 @@ func generate_problem():
 				var expression = []
 				if final_coeff != 0:
 					expression.append(format_term(final_coeff, variable))
-				if final_const != 0:
-					expression.append("%+d" % final_const)
-				current_answer = " ".join(expression)
+				if final_const < 0:
+					expression.append("-%d" % abs(final_const))
+				else:
+					expression.append("+%d" % final_const)
+				current_answer = "".join(expression)
 
 		### 2. One-step Equation
 		2:
@@ -95,11 +97,11 @@ func generate_problem():
 
 			if op == "+":
 				var rhs = solution + coeff
-				current_problem = "%s + %d = %d" % [variable, coeff, rhs]
+				current_problem = "%s + %d = %d, %s = ?" % [variable, coeff, rhs, variable]
 				current_answer = "%s=%d" % [variable, solution]
 			else:
 				var lhs = coeff * solution
-				current_problem = "%d%s = %d" % [coeff, variable, lhs]
+				current_problem = "%d%s = %d, %s = ?" % [coeff, variable, lhs, variable]
 				current_answer = "%s=%d" % [variable, solution]
 
 		### 3. Evaluating an Expression
@@ -107,11 +109,13 @@ func generate_problem():
 			var value = random_number(-5, 10)
 			var coeff = random_number(1, 10)
 			var constant = random_number(-10, 10)
+			while constant == 0:
+				constant = random_number(-10, 10)
 
 			current_problem = "Evaluate: %d%s %s %d for %s = %d" % [
 				coeff,
 				variable,
-				"+" if constant >= 0 else "-",
+				"-" if constant <= 0 else "+",
 				abs(constant),
 				variable,
 				value
