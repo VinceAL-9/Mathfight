@@ -231,9 +231,10 @@ metadata/_edit_lock_ = true
 
 [node name="ProfilePictureButton" type="Button" parent="Header"]
 layout_mode = 0
-offset_left = 36.0
-offset_right = 159.0
-offset_bottom = 123.0
+offset_left = 37.0
+offset_top = 2.0
+offset_right = 160.0
+offset_bottom = 125.0
 theme_override_styles/focus = SubResource("StyleBoxFlat_kbped")
 theme_override_styles/hover = SubResource("StyleBoxFlat_kbped")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kbped")
@@ -274,6 +275,15 @@ texture_normal = ExtResource("6_lgwnu")
 texture_pressed = ExtResource("6_lgwnu")
 texture_hover = ExtResource("6_lgwnu")
 texture_focused = ExtResource("6_lgwnu")
+
+[node name="Username" type="Label" parent="Header"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 45.0
+offset_right = 338.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("3_oa1go")
+theme_override_font_sizes/font_size = 30
 
 [node name="Transition" type="AnimationPlayer" parent="."]
 libraries = {
@@ -376,6 +386,7 @@ mix_target = 2
 [connection signal="pressed" from="Background/VBoxContainer/StoreButton" to="." method="_on_store_button_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/EquipmentButton" to="." method="_on_equipment_button_pressed"]
+[connection signal="button_down" from="Header/ProfilePictureButton" to="." method="_on_profile_picture_button_button_down"]
 [connection signal="pressed" from="Header/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Header/NotificationsButton" to="." method="_on_notifications_button_pressed"]
 [connection signal="pressed" from="Header/TasksButton" to="." method="_on_tasks_button_pressed"]

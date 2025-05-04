@@ -9,10 +9,12 @@ extends Control
 @onready var transition = $Transition
 @onready var button_sfx: AudioStreamPlayer = $Button_SFX
 
+#Gets the config file
 var is_signing_up := false
 var config := ConfigFile.new()
 var FILE_PATH := "user://players.cfg"	
 
+#Chekcs if file exist 
 func _ready():
 	var err = config.load(FILE_PATH)
 	if err != OK:
@@ -21,7 +23,7 @@ func _ready():
 	password_field.secret = true
 	transition.play("fade_in")
 
-#para sa toggle ka mode
+#Toggles between login and sign up mode
 func _on_signup_button_down():
 	is_signing_up = !is_signing_up
 	if is_signing_up:
@@ -36,6 +38,7 @@ func _on_signup_button_down():
 	password_field.text = ""
 	warning_text.bbcode_text = " "
 
+#Controls the sign-up and login
 func _on_login_button_down():
 	var username = username_field.text.strip_edges()
 	var password = password_field.text
@@ -44,44 +47,43 @@ func _on_login_button_down():
 		warning_text.bbcode_text = "[color=red]Fields cannot be empty.[/color]"
 		return
 
-#if ara sa sign up mode and user does not exist make new user
-	if is_signing_up:
+	if is_signing_up:#Check if acc exist if not saves the data
 		if config.has_section_key("users", username):
 			warning_text.bbcode_text = "[color=red]Username already exists.[/color]"
 			return
 		config.set_value("users", username, password.sha256_text())
 		config.save(FILE_PATH)
 		warning_text.bbcode_text = "[color=green]Account created![/color]"
-		_on_signup_button_down() 
-
-#if ara sa  log in mode, cant have same username with other acc checks if acc exist
-	else:
+		_on_signup_button_down()
+	else:#Checks if acc if in config file
 		if !config.has_section_key("users", username):
 			warning_text.bbcode_text = "[color=red]No account found.[/color]"
 			return
-
+		
+		#Checks if inputed password matches the one under the user
 		var saved_hash = config.get_value("users", username)
 		if saved_hash == password.sha256_text():
 			if button_sfx:
 				button_sfx.play()
 			warning_text.bbcode_text = "[color=green]Login successful![/color]"
-			# Load user profile
-			var profile = load_user_profile(username)
-			print("User profile loaded: ", profile)
 
+			# Save current user to session
+			config.set_value("session", "last_user", username)
+			config.save(FILE_PATH)
+
+			# Transition to main menu
 			transition.play("fade_out")
 			await get_tree().create_timer(1).timeout
-			Functions.load_screen_to_scene("res://scenes/Whole game/main_menu.tscn")
+			get_tree().change_scene_to_file("res://scenes/Whole game/main_menu.tscn")
 		else:
 			warning_text.bbcode_text = "[color=red]Incorrect password.[/color]"
 
+	#Resets the lineEdit nodes
 	username_field.text = ""
 	password_field.text = ""
 
-# Load user profile, returning just the username
-func load_user_profile(username: String) -> String:
-	return username
 
+	
 
 
 
