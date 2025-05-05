@@ -295,6 +295,28 @@ texture_pressed = ExtResource("5_wpmmi")
 texture_hover = ExtResource("5_wpmmi")
 texture_focused = ExtResource("5_wpmmi")
 
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer"]
+offset_left = 874.0
+offset_top = 199.0
+offset_right = 1049.0
+offset_bottom = 391.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/ColorRect5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.5
+offset_top = -88.5
+offset_right = 80.5
+offset_bottom = 88.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.294118, 0.254902, 0.819608, 1)
+
 [node name="ContinueButton" type="Button" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0.745098)
 offset_left = 719.0
@@ -313,29 +335,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_wpmmi")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wpmmi")
 theme_override_styles/normal = SubResource("StyleBoxFlat_abhoq")
 text = "Continue"
-
-[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/ContinueButton"]
-layout_mode = 0
-offset_left = 155.0
-offset_top = -244.0
-offset_right = 330.0
-offset_bottom = -52.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="CanvasLayer/ContinueButton/ColorRect5"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -80.5
-offset_top = -88.5
-offset_right = 80.5
-offset_bottom = 88.5
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.294118, 0.254902, 0.819608, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
 process_mode = 3
