@@ -61,14 +61,14 @@ func generate_problem():
 			# Combining like terms: a*x^n + b*x^n
 			var coef1 = random_number(1, 20)
 			var coef2 = random_number(1, 20)
-			var exp = [1, 2, 3][randi() % 3]
+			var exponent = [1, 2, 3][randi() % 3]
 			var total = coef1 + coef2
 
 			current_problem = "Simplify: %d%s + %d%s" % [
-				coef1, get_exponent(v, exp) if exp > 1 else v,
-				coef2, get_exponent(v, exp) if exp > 1 else v
+				coef1, get_exponent(v, exponent) if exponent > 1 else v,
+				coef2, get_exponent(v, exponent) if exponent > 1 else v
 			]
-			current_answer = "%d%s" % [total, get_exponent(v, exp) if exp > 1 else v]
+			current_answer = "%d%s" % [total, get_exponent(v, exponent) if exponent > 1 else v]
 
 		3:
 			# Factoring out GCF

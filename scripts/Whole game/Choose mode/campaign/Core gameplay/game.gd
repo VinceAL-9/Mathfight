@@ -39,6 +39,13 @@ var solve_timer_remaining: float = 0.0 # for the pause button to sync with solve
 var resume_allowed: bool = false
 
 func _ready() -> void: # executes once, at the start of the match
+	match Gamestate.selected_level: # manually set all wait times of solve timer upon generating a new problem
+		1:
+			solve_timer.wait_time = 20
+		2: 
+			solve_timer.wait_time = 45
+		3:
+			solve_timer.wait_time = 45
 	
 	update_health_ui() # sets initial health display
 	
@@ -57,9 +64,9 @@ func _on_generate_problem_timeout() -> void:
 	
 	match Gamestate.selected_level: # manually set all wait times of solve timer upon generating a new problem
 		1:
-			solve_timer.wait_time = 15
+			solve_timer.wait_time = 20
 		2: 
-			solve_timer.wait_time = 25
+			solve_timer.wait_time = 45
 		3:
 			solve_timer.wait_time = 45
 	
@@ -97,7 +104,7 @@ func _on_timer_for_solving_timeout() -> void:
 		anim.play("enemy_attack") # play the animation with a bit of delay to sync with damage
 		await get_tree().create_timer(1.5).timeout
 		
-		player_health -= rng.randi_range(21, 30) # damage range of the enemy
+		player_health -= rng.randi_range(15, 20) # damage range of the enemy
 		
 		Leveldata.items_not_solved += 1
 		update_health_ui()
@@ -140,7 +147,7 @@ func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where
 		if elapsed_time <= total_time * 0.30: # if the player solves within 30% of the total time 
 			damage = 20  
 		elif elapsed_time > total_time * 0.75: # if the player takes too long to answer
-			damage = 5 
+			damage = 10
 		else:
 			damage = 15  # normal timing = standard damage
 

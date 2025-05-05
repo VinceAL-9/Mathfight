@@ -205,10 +205,10 @@ script = ExtResource("1_pkyck")
 [node name="Display" type="CanvasLayer" parent="."]
 
 [node name="SolveTimerContainer" type="MarginContainer" parent="Display"]
-offset_left = 886.0
-offset_top = 197.0
-offset_right = 986.0
-offset_bottom = 237.0
+offset_left = 520.0
+offset_top = 150.0
+offset_right = 620.0
+offset_bottom = 190.0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
