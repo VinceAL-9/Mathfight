@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://mbk6s6yg8d7g"]
+[gd_scene load_steps=17 format=3 uid="uid://mbk6s6yg8d7g"]
 
 [ext_resource type="Script" uid="uid://ddpj0a1h52nix" path="res://scripts/Whole game/Choose mode/campaign/campaign_select.gd" id="1_gi77u"]
 [ext_resource type="Texture2D" uid="uid://ckd1q4w1tfm04" path="res://assets/images/city.png" id="2_7caoh"]
@@ -36,6 +36,26 @@ corner_radius_top_left = 123
 corner_radius_top_right = 123
 corner_radius_bottom_right = 123
 corner_radius_bottom_left = 123
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7caoh"]
+bg_color = Color(0.364706, 0.309804, 0.113725, 0.690196)
+border_color = Color(0.126192, 0.126192, 0.126191, 1)
+border_blend = true
+corner_radius_top_left = 123
+corner_radius_top_right = 123
+corner_radius_bottom_right = 123
+corner_radius_bottom_left = 123
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sc65a"]
+bg_color = Color(0.364473, 0.311609, 0.114058, 0.690196)
+border_color = Color(0.126192, 0.126192, 0.126191, 1)
+border_blend = true
+corner_radius_top_left = 123
+corner_radius_top_right = 123
+corner_radius_bottom_right = 123
+corner_radius_bottom_left = 123
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7caoh"]
 
 [sub_resource type="Animation" id="Animation_oxcbj"]
 length = 0.001
@@ -135,6 +155,7 @@ grow_vertical = 2
 script = ExtResource("1_gi77u")
 
 [node name="Background" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.941176)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -180,6 +201,7 @@ offset_left = 339.128
 offset_top = 180.376
 offset_right = 474.128
 offset_bottom = 315.376
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.85098)
 theme_override_colors/font_hover_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
 theme_override_colors/font_hover_color = Color(0.0705882, 0.0705882, 0.0705882, 0.85098)
 theme_override_colors/font_color = Color(0, 0, 0, 0.85098)
@@ -188,6 +210,7 @@ theme_override_colors/font_pressed_color = Color(0.141176, 0.141176, 0.141176, 0
 theme_override_fonts/font = ExtResource("3_sc65a")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a344e")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_7caoh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_a344e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tovcu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0l3vj")
@@ -205,6 +228,7 @@ offset_left = 684.128
 offset_top = 29.376
 offset_right = 819.128
 offset_bottom = 164.376
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0.85098)
 theme_override_colors/font_hover_pressed_color = Color(0.141176, 0.141176, 0.141176, 0.85098)
 theme_override_colors/font_hover_color = Color(0.0705882, 0.0705882, 0.0705882, 0.85098)
 theme_override_colors/font_color = Color(0, 0, 0, 0.85098)
@@ -213,6 +237,7 @@ theme_override_colors/font_pressed_color = Color(0.141176, 0.141176, 0.141176, 0
 theme_override_fonts/font = ExtResource("3_sc65a")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/focus = SubResource("StyleBoxEmpty_a344e")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_sc65a")
 theme_override_styles/hover = SubResource("StyleBoxFlat_a344e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tovcu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0l3vj")
@@ -242,6 +267,27 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_a344e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_tovcu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0l3vj")
 text = "X"
+
+[node name="Label" type="Label" parent="Background"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -249.0
+offset_top = 15.0
+offset_right = 250.0
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("3_sc65a")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7caoh")
+text = "Choose level"
 
 [node name="Transition1" type="AnimationPlayer" parent="."]
 libraries = {

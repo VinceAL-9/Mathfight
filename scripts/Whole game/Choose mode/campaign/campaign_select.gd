@@ -26,19 +26,19 @@ func _ready():
 
 
 
-func _on_back_button_pressed() -> void:
+func _on_back_button_pressed() -> void: # returns to mode select
 	if button_sfx:
 		button_sfx.play()
 	Functions.load_screen_to_scene2("res://scenes/Whole game/Choose mode/mode_select.tscn")
 
-func _on_button_pressed() -> void:
-	Gamestate.selected_level = 1
-	Music.play_pregame()
+func _on_button_pressed() -> void: # the level 1 button
+	Gamestate.selected_level = 1 # makes the gamestate level 1 which affects the problem generator and timer
+	Music.play_pregame() # music
 	if button_sfx:
 		button_sfx.play()
 	transition1.play("fade_out")
 	await get_tree().create_timer(1).timeout
-	Functions.load_screen_to_scene2("res://scenes/Whole game/Choose mode/campaign/levels/Pre-game1.tscn")
+	Functions.load_screen_to_scene2("res://scenes/Whole game/Choose mode/campaign/levels/Pre-game1.tscn") # change scene to pre game 1
 
 func _on_button_2_pressed() -> void:
 	Gamestate.selected_level = 2
