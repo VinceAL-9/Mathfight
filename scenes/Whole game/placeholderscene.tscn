@@ -19,17 +19,6 @@ theme_override_fonts/font = ExtResource("1_1j55e")
 theme_override_font_sizes/font_size = 200
 text = "Coming Soon"
 
-[node name="Label" type="Label" parent="Label"]
-layout_mode = 0
-offset_left = 739.0
-offset_top = 257.0
-offset_right = 1107.0
-offset_bottom = 275.0
-rotation = 0.523599
-theme_override_fonts/font = ExtResource("1_1j55e")
-theme_override_font_sizes/font_size = 20
-text = "(errors if no scene in the prompt)"
-
 [node name="CampaignTest" type="Button" parent="."]
 layout_mode = 0
 offset_left = 540.0
@@ -49,6 +38,14 @@ offset_bottom = 541.0
 theme_override_fonts/font = ExtResource("1_1j55e")
 theme_override_font_sizes/font_size = 24
 text = "Back to Main Menu"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_top = -18.0
+offset_right = 1165.0
+offset_bottom = 658.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="CampaignTest" to="." method="_on_campaign_test_pressed"]
 [connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
