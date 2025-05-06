@@ -257,17 +257,6 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
 theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
 text = "OK"
 
-[node name="Buttonequal" type="Button" parent="VBoxContainer/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_qfr70")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
-theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
-text = "="
-
 [node name="Buttonraised" type="Button" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -277,9 +266,9 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
 theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
-text = "a^"
+text = "A^"
 
-[node name="Buttonparenthesis" type="Button" parent="VBoxContainer/GridContainer"]
+[node name="Buttonopenparaenthesis" type="Button" parent="VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -288,7 +277,19 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
 theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
-text = "()"
+text = "("
+
+[node name="Buttonclosedparenthesis" type="Button" parent="VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_qfr70")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxTexture_8t13d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se432")
+theme_override_styles/normal = SubResource("StyleBoxTexture_msmor")
+text = ")
+"
 
 [node name="Button_SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_qfr70")
@@ -312,6 +313,6 @@ volume_db = -10.0
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button8" to="." method="_on_button_8_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button9" to="." method="_on_button_9_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/ButtonOK" to="." method="_on_button_ok_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonequal" to="." method="_on_buttonequal_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Buttonraised" to="." method="_on_button_raised_pressed"]
-[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonparenthesis" to="." method="_on_button_parenthesis_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonopenparaenthesis" to="." method="_on_button_openparenthesis_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Buttonclosedparenthesis" to="." method="_on_button_closedparenthesis_pressed"]
