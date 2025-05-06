@@ -89,7 +89,7 @@ func generate_problem():
 			# Difference of squares
 			var coeff_options = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 			var coeff = coeff_options[randi() % coeff_options.size()]
-			var a = random_number(1, 8)
+			var a = random_number(1, 9)
 			var square = a * a
 
 			if coeff == 1:

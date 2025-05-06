@@ -38,7 +38,7 @@ func generate_problem():
 			var c = random_number(-8, 8, true)
 			var rhs = a * (sol + b) + c
 			current_problem = "Solve: %d(%s + %d) + %d = %d" % [a, variable, b, c, rhs]
-			current_answer = "%s=%d" % [variable, sol]
+			current_answer = "%d" % [sol]
 
 		2:
 			var sol = random_number(-7, 7, true)
@@ -49,7 +49,7 @@ func generate_problem():
 			var c = random_number(-6, 6, true)
 			var d = a * sol + c - b * sol
 			current_problem = "Solve: %d%s + %d = %d%s + %d" % [a, variable, c, b, variable, d]
-			current_answer = "%s=%d" % [variable, sol]
+			current_answer = "%d" % [sol]
 
 		3:
 			var sol = random_number(-6, 6, true)
@@ -86,7 +86,7 @@ func generate_problem():
 				d += 1 if d < 4 else -1
 				rhs = c * (sol + d)
 			current_problem = "Solve: %d(%s + %d) = %d(%s + %d)" % [a, variable, b, c, variable, d]
-			current_answer = "%s=%d" % [variable, sol]
+			current_answer = "%d" % [sol]
 
 	problem_label.text = current_problem
 

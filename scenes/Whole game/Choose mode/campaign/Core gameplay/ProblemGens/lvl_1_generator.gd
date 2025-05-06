@@ -98,11 +98,11 @@ func generate_problem():
 			if op == "+":
 				var rhs = solution + coeff
 				current_problem = "%s + %d = %d, %s = ?" % [variable, coeff, rhs, variable]
-				current_answer = "%s=%d" % [variable, solution]
+				current_answer = "%d" % [solution]
 			else:
 				var lhs = coeff * solution
 				current_problem = "%d%s = %d, %s = ?" % [coeff, variable, lhs, variable]
-				current_answer = "%s=%d" % [variable, solution]
+				current_answer = "%d" % [solution]
 
 		### 3. Evaluating an Expression
 		3:

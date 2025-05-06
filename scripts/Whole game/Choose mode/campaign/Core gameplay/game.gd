@@ -179,6 +179,16 @@ func _on_keyboard_answer_submitted(answer_text: String) -> void: # this is where
 func _process(_delta: float) -> void:
 	if game_over: return # skip logic if game is over
 	
+	if Input.is_action_just_pressed("autokill"):
+		enemy_health -= 100
+		if enemy_health <= 0:
+			anim.play("enemy_death") # death animation for enemy
+			player_sprite.play("idle")
+			Leveldata.player_win = true
+			
+			await end_game_after_delay()
+			return
+	
 	if solve_timer.is_stopped():
 		solve_timer_display.visible = false
 	else:

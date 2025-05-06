@@ -9,7 +9,7 @@ func _input(event):
 		return
 
 	if event is InputEventKey and event.pressed:
-		var key_char = event.as_text()
+		var _key_char = event.as_text()
 
 		# Ignore Shift alone
 		if event.keycode == Key.KEY_SHIFT:
@@ -58,8 +58,6 @@ func _input(event):
 signal answer_submitted(answer_text: String)
 
 # variables
-var next_char_superscript: bool = false  # Whether the next digit should be superscript
-var parenthesis_open: bool = false        # Whether a standalone ( ) is open
 var typing_enabled: bool  # Whether player is allowed to type, prevents spam inputs
 
 # functions
@@ -192,15 +190,11 @@ func _on_button_ok_pressed() -> void:
 	
 	label.text = ""
 	label.remove_theme_color_override("font_color")
-	next_char_superscript = false
 	
-	parenthesis_open = false
 	typing_enabled = true
 
 func reset_input() -> void: # call this function to manually reset keyboard input
 	label.text = ""
 	label.remove_theme_color_override("font_color")
-	next_char_superscript = false
 	
-	parenthesis_open = false
 	typing_enabled = true
