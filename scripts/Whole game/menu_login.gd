@@ -40,7 +40,7 @@ func _on_signup_button_down():
 
 #Controls the sign-up and login
 func _on_login_button_down():
-	var username = username_field.text.strip_edges()
+	var username = username_field.text.strip_edges().to_upper()
 	var password = password_field.text
 
 	if username == "" or password == "":

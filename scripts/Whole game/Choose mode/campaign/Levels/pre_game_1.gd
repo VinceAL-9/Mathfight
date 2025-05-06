@@ -7,6 +7,7 @@ func _ready():
 	$CanvasLayer/Transition/ColorRect.visible = true # makes full black screen visible for the transition to play properly
 	transition.play("fade_in") # does the transition
 	await get_tree().create_timer(1).timeout # delay to accomodate
+	
 
 
 func _on_texture_button_pressed() -> void:
