@@ -62,47 +62,61 @@ func generate_problem():
 			current_answer = "%s%s%d" % [variable, sign_, sol]
 
 		4:
-			# Pick a target solution for x
-			var sol = random_number(-6, 6, true)
-
-			# Always use negative coefficient for a
-			var a = random_number(-8, -2)
-			var b = random_number(-10, 10, true)
-
-			# Pick an inequality sign
+			var answer_sign: String
 			var sign_ = random_inequality()
+			
+			if sign_ == ">":
+				# Equation: a*x + b < rhs
+				# Solve: a*x < rhs - b → x > (rhs - b)/a → flip sign due to negative a
+				answer_sign = "<"
+			elif sign_ == "<":
+				# Equation: a*x + b > rhs
+				# Solve: a*x > rhs - b → x < (rhs - b)/a → flip sign due to negative a
+				answer_sign = ">"
+			
+			var sol = random_number(-6, 6, true)
+			var a = random_number(-8, -2)  # Always negative
+			var b = random_number(-10, 10, true)
+			
 
-			# Compute LHS with the solution plugged in
+			# Calculate rhs such that the inequality is true when x == sol
 			var lhs = a * sol + b
+			var rhs = lhs  # Ensure solution works for sol
+			
+			var answer_val = sol
 
-			# Set RHS to that value so inequality is true when x == sol
-			var rhs = lhs
 
-			# Create expression: a*x + b <or> > rhs
-			# Now solve this inequality: a*x + b < rhs
-
-			# To solve: a*x < rhs - b → x < (rhs - b)/a
-			# But since a is negative, the inequality sign *flips*
-
-			# Solve manually
-			var flipped_sign = ">" if sign_ == "<" else "<"
-			var answer_value = sol
-
-			# Format problem string and answer string
 			current_problem = "Solve: %d%s + %d %s %d" % [a, variable, b, sign_, rhs]
-			current_answer = "%s%s%d" % [variable, flipped_sign, answer_value]
+			current_answer = "%s%s%d" % [variable, answer_sign, answer_val]
 
 		5:
+			# Generate a non-zero integer solution
 			var sol = random_number(-6, 6, true)
-			var a = random_number(2, 6, true)
+			while sol == 0:
+				sol = random_number(-6, 6, true)
+
+			# Generate distinct multipliers for each side
+			var a = random_number(2, 6)
+			var c = random_number(2, 6)
+			while a == c:
+				c = random_number(2, 6)
+
+			# Generate different offsets (b and d)
 			var b = random_number(-4, 4, true)
-			var c = random_number(2, 6, true)
 			var d = random_number(-4, 4, true)
+			while b == d:
+				d = random_number(-4, 4, true)
+
+			# Build lhs and rhs using distributive property
 			var lhs = a * (sol + b)
 			var rhs = c * (sol + d)
-			if lhs == rhs:
+
+			# Ensure expressions are not trivially equal
+			while lhs == rhs:
 				d += 1 if d < 4 else -1
 				rhs = c * (sol + d)
+
+			# Final equation that must be solved by distribution
 			current_problem = "%d(%s + %d) = %d(%s + %d), %s = ?" % [a, variable, b, c, variable, d, variable]
 			current_answer = "%d" % [sol]
 
