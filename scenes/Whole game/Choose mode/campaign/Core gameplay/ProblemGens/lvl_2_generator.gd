@@ -37,7 +37,7 @@ func generate_problem():
 			var b = random_number(-5, 5, true)
 			var c = random_number(-8, 8, true)
 			var rhs = a * (sol + b) + c
-			current_problem = "Solve: %d(%s + %d) + %d = %d" % [a, variable, b, c, rhs]
+			current_problem = "%d(%s + %d) + %d = %d, %s = ?" % [a, variable, b, c, rhs, variable]
 			current_answer = "%d" % [sol]
 
 		2:
@@ -48,7 +48,7 @@ func generate_problem():
 				b = random_number(2, 5, true)
 			var c = random_number(-6, 6, true)
 			var d = a * sol + c - b * sol
-			current_problem = "Solve: %d%s + %d = %d%s + %d" % [a, variable, c, b, variable, d]
+			current_problem = "%d%s + %d = %d%s + %d, %s = ?" % [a, variable, c, b, variable, d, variable]
 			current_answer = "%d" % [sol]
 
 		3:
@@ -62,17 +62,35 @@ func generate_problem():
 			current_answer = "%s%s%d" % [variable, sign_, sol]
 
 		4:
+			# Pick a target solution for x
 			var sol = random_number(-6, 6, true)
-			var a = random_number(-8, -2)  # Always negative
+
+			# Always use negative coefficient for a
+			var a = random_number(-8, -2)
 			var b = random_number(-10, 10, true)
+
+			# Pick an inequality sign
 			var sign_ = random_inequality()
-			var rhs = a * sol + b
-			var flipped_sign = ""
-			match sign_:
-				"<": flipped_sign = ">"
-				">": flipped_sign = "<"
+
+			# Compute LHS with the solution plugged in
+			var lhs = a * sol + b
+
+			# Set RHS to that value so inequality is true when x == sol
+			var rhs = lhs
+
+			# Create expression: a*x + b <or> > rhs
+			# Now solve this inequality: a*x + b < rhs
+
+			# To solve: a*x < rhs - b → x < (rhs - b)/a
+			# But since a is negative, the inequality sign *flips*
+
+			# Solve manually
+			var flipped_sign = ">" if sign_ == "<" else "<"
+			var answer_value = sol
+
+			# Format problem string and answer string
 			current_problem = "Solve: %d%s + %d %s %d" % [a, variable, b, sign_, rhs]
-			current_answer = "%s%s%d" % [variable, flipped_sign, sol]
+			current_answer = "%s%s%d" % [variable, flipped_sign, answer_value]
 
 		5:
 			var sol = random_number(-6, 6, true)
@@ -85,7 +103,7 @@ func generate_problem():
 			if lhs == rhs:
 				d += 1 if d < 4 else -1
 				rhs = c * (sol + d)
-			current_problem = "Solve: %d(%s + %d) = %d(%s + %d)" % [a, variable, b, c, variable, d]
+			current_problem = "%d(%s + %d) = %d(%s + %d), %s = ?" % [a, variable, b, c, variable, d, variable]
 			current_answer = "%d" % [sol]
 
 	problem_label.text = current_problem
