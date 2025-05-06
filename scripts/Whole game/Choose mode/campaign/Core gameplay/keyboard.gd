@@ -4,14 +4,16 @@ extends Control
 @onready var label = $VBoxContainer/MarginContainer/Label
 @onready var button_sfx: AudioStreamPlayer = $Button_SFX
 
+#Adds keyboard inputs for each button
 func _input(event):
 	if not typing_enabled:
 		return
-
+	
+	# This is for the keys that is required to hold shift to access
 	if event is InputEventKey and event.pressed:
 		var _key_char = event.as_text()
 
-		# Ignore Shift alone
+		# Ignore Shift so that it doesnt output zero due to godot preocesses
 		if event.keycode == Key.KEY_SHIFT:
 			return
 
