@@ -11,6 +11,8 @@ var FILE_PATH := "user://players.cfg"
 var username: String = "" 
 	
 func _ready():# Load config file
+	$ComingSoonNotifText.visible = false
+	$DailyTasks.visible = false
 	var err = config.load(FILE_PATH)
 	if err != OK:
 		print("Config file not found! Creating a new config file.")
@@ -69,7 +71,9 @@ func _on_achievements_button_pressed() -> void:
 func _on_equipment_button_pressed() -> void:
 	if button_sfx:
 		button_sfx.play()
-	get_tree().change_scene_to_file("res://scenes/Whole game/placeholderscene.tscn")
+	transition.play("fade_out")
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file("res://scenes/Whole game/equipment.tscn")
 	print("Equipment button pressed")
 
 func _on_settings_button_pressed() -> void:
@@ -87,14 +91,21 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on_notifications_button_pressed() -> void:
-	pass # Replace with function body.
-
+	if button_sfx:
+		button_sfx.play()
+	$ComingSoonNotifText.visible = true
+	await get_tree().create_timer(1).timeout
+	$ComingSoonNotifText.visible = false
+	
 func _on_tasks_button_pressed() -> void:
+	if button_sfx:
+		button_sfx.play()
 	$DailyTasks.visible = true
+	$ComingSoonNotifText.visible = false
 	$Header/SettingsButton.visible = false 
 	$Header/NotificationsButton.visible = false
 	$Header/TasksButton.visible = false
-	
+	$Header/PremiumCrystalAmountContainer.visible = false
 
 func linear_to_db(value: float) -> float:
 	return 20.0 * log(value)
@@ -122,8 +133,18 @@ func _on_resolution_item_selected(index: int) -> void:
 
 
 func _on_texture_button_pressed() -> void:
+	if button_sfx:
+		button_sfx.play()
 	$DailyTasks.visible = false
 	$Header/SettingsButton.visible = true
 	$Header/NotificationsButton.visible = true
 	$Header/TasksButton.visible = true
+	$Header/PremiumCrystalAmountContainer.visible = true
 	
+
+
+func _on_back_button_options_pressed() -> void:
+	if button_sfx:
+		button_sfx.play()
+	$Options.visible = false
+	$Background/VBoxContainer.visible = true

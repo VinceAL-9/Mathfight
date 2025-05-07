@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dkh03ty5lemyo"]
+[gd_scene load_steps=17 format=3 uid="uid://dkh03ty5lemyo"]
 
 [ext_resource type="Texture2D" uid="uid://cfxdq71gavliu" path="res://assets/images/preview-modified.png" id="1_cvdap"]
 [ext_resource type="Script" uid="uid://cj40yqt8ei32a" path="res://scripts/Whole game/achievements.gd" id="1_fjhl8"]
 [ext_resource type="Texture2D" uid="uid://drkpyyr8tg8ca" path="res://assets/ui_icons/arrow_left.png" id="2_fjhl8"]
 [ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="3_5b1ac"]
 [ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="3_j4ffg"]
+[ext_resource type="AudioStream" uid="uid://codinsjriyrkh" path="res://assets/AudioAssets/ButtonSfx.mp3" id="6_5b1ac"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5b1ac"]
 texture = ExtResource("1_cvdap")
@@ -42,33 +43,6 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="Animation" id="Animation_kov0v"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/ColorRect:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.966667),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Transition/ColorRect:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 0.966667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_g8b4r"]
 length = 0.001
 tracks/0/type = "value"
@@ -94,6 +68,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kov0v"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.966667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_nxsnj"]
@@ -183,11 +184,13 @@ offset_bottom = 128.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_j4ffg")
 
 [node name="ProgressBarContainer" type="Panel" parent="Background/AchievementContainer/ProgressBarContainer"]
+layout_mode = 0
 offset_right = 736.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5b1ac")
 
 [node name="AchievementTaskText2" type="RichTextLabel" parent="Background/AchievementContainer"]
+layout_mode = 0
 offset_left = 36.0
 offset_top = 139.0
 offset_right = 532.0
@@ -197,6 +200,7 @@ theme_override_font_sizes/normal_font_size = 51
 text = "Beat the Campaign"
 
 [node name="ProgressBarContainer2" type="Panel" parent="Background/AchievementContainer"]
+layout_mode = 0
 offset_left = 39.0
 offset_top = 201.0
 offset_right = 1062.0
@@ -204,10 +208,12 @@ offset_bottom = 241.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_j4ffg")
 
 [node name="ProgressBarContainer" type="Panel" parent="Background/AchievementContainer/ProgressBarContainer2"]
+layout_mode = 0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5b1ac")
 
 [node name="AchievementTaskText3" type="RichTextLabel" parent="Background/AchievementContainer"]
+layout_mode = 0
 offset_left = 36.0
 offset_top = 255.0
 offset_right = 976.0
@@ -217,6 +223,7 @@ theme_override_font_sizes/normal_font_size = 51
 text = "Defeat the bot for the first time"
 
 [node name="ProgressBarContainer3" type="Panel" parent="Background/AchievementContainer"]
+layout_mode = 0
 offset_left = 39.0
 offset_top = 317.0
 offset_right = 1062.0
@@ -224,11 +231,13 @@ offset_bottom = 357.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_j4ffg")
 
 [node name="ProgressBarContainer" type="Panel" parent="Background/AchievementContainer/ProgressBarContainer3"]
+layout_mode = 0
 offset_right = 460.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5b1ac")
 
 [node name="AchievementTaskText4" type="RichTextLabel" parent="Background/AchievementContainer"]
+layout_mode = 0
 offset_left = 36.0
 offset_top = 367.0
 offset_right = 881.0
@@ -238,6 +247,7 @@ theme_override_font_sizes/normal_font_size = 51
 text = "Beat a player in multiplayer"
 
 [node name="ProgressBarContainer4" type="Panel" parent="Background/AchievementContainer"]
+layout_mode = 0
 offset_left = 39.0
 offset_top = 429.0
 offset_right = 1062.0
@@ -245,6 +255,7 @@ offset_bottom = 469.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_j4ffg")
 
 [node name="ProgressBarContainer" type="Panel" parent="Background/AchievementContainer/ProgressBarContainer4"]
+layout_mode = 0
 offset_right = 1023.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5b1ac")
@@ -269,7 +280,6 @@ theme_override_font_sizes/normal_font_size = 120
 text = "Achievements"
 
 [node name="ComingSoonPanel" type="Panel" parent="Background"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -332,5 +342,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Button_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_5b1ac")
+volume_db = 2.0
+mix_target = 2
 
 [connection signal="pressed" from="Background/ComingSoonPanel/Button" to="." method="_on_button_pressed"]

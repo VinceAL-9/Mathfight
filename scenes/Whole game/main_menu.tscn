@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://3cmbc03ti6xe"]
+[gd_scene load_steps=34 format=3 uid="uid://3cmbc03ti6xe"]
 
 [ext_resource type="Script" uid="uid://suong8djaq8e" path="res://scripts/Whole game/main_menu.gd" id="1_8ln24"]
 [ext_resource type="Texture2D" uid="uid://cp02anuuk7fj6" path="res://assets/images/preview.png" id="2_rtw2f"]
@@ -156,6 +156,14 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0spsf"]
 bg_color = Color(0.109804, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0arbs"]
+bg_color = Color(0.321569, 0.321569, 0.321569, 0.658824)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -327,24 +335,26 @@ theme_override_fonts/normal_font = ExtResource("3_oa1go")
 theme_override_font_sizes/normal_font_size = 38
 text = "0"
 
-[node name="CrystalBackground" type="Panel" parent="Header"]
-offset_left = 552.0
-offset_top = 5.0
-offset_right = 613.0
-offset_bottom = 66.0
+[node name="CrystalBackground" type="Panel" parent="Header/CrystalAmountContainer"]
+layout_mode = 0
+offset_left = -43.0
+offset_top = -8.0
+offset_right = 18.0
+offset_bottom = 53.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_31o0v")
 
-[node name="Crystal" type="TextureRect" parent="Header"]
+[node name="Crystal" type="TextureRect" parent="Header/CrystalAmountContainer"]
 self_modulate = Color(1, 1, 1, 0.713726)
 layout_mode = 0
-offset_left = 553.0
-offset_top = 11.0
-offset_right = 611.0
-offset_bottom = 69.0
+offset_left = -42.0
+offset_top = -2.0
+offset_right = 16.0
+offset_bottom = 56.0
 texture = ExtResource("7_gp1oo")
 
 [node name="PremiumCrystalAmountContainer" type="Panel" parent="Header"]
 self_modulate = Color(1, 1, 1, 0.772549)
+layout_mode = 0
 offset_left = 797.0
 offset_top = 13.0
 offset_right = 939.0
@@ -361,19 +371,21 @@ theme_override_fonts/normal_font = ExtResource("3_oa1go")
 theme_override_font_sizes/normal_font_size = 38
 text = "0"
 
-[node name="CrystalBackground2" type="Panel" parent="Header"]
-offset_left = 754.0
-offset_top = 5.0
-offset_right = 815.0
-offset_bottom = 66.0
+[node name="CrystalBackground2" type="Panel" parent="Header/PremiumCrystalAmountContainer"]
+layout_mode = 0
+offset_left = -43.0
+offset_top = -8.0
+offset_right = 18.0
+offset_bottom = 53.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_31o0v")
 
-[node name="Crystal2" type="TextureRect" parent="Header"]
+[node name="Crystal2" type="TextureRect" parent="Header/PremiumCrystalAmountContainer"]
 self_modulate = Color(1, 1, 1, 0.713726)
-offset_left = 755.0
-offset_top = 11.0
-offset_right = 813.0
-offset_bottom = 69.0
+layout_mode = 0
+offset_left = -42.0
+offset_top = -2.0
+offset_right = 16.0
+offset_bottom = 56.0
 texture = ExtResource("8_6bll2")
 
 [node name="Transition" type="AnimationPlayer" parent="."]
@@ -477,122 +489,200 @@ theme_override_fonts/font = ExtResource("3_oa1go")
 theme_override_font_sizes/font_size = 20
 text = "Display Mode"
 
-[node name="DailyTasks" type="Panel" parent="."]
+[node name="BackButtonOptions" type="TextureButton" parent="Options"]
+self_modulate = Color(1, 1, 1, 0.815686)
 layout_mode = 0
-offset_left = 801.0
-offset_top = 3.0
-offset_right = 1154.0
-offset_bottom = 404.0
-
-[node name="Display3" type="Label" parent="DailyTasks"]
-offset_left = 38.0
-offset_top = 179.0
-offset_right = 184.0
-offset_bottom = 202.0
-theme_override_fonts/font = ExtResource("3_oa1go")
-theme_override_font_sizes/font_size = 20
-text = "Solve 5 Items"
-
-[node name="ProgressBarContainer3" type="Panel" parent="DailyTasks"]
-offset_left = 40.0
-offset_top = 205.0
-offset_right = 1063.0
-offset_bottom = 245.0
-scale = Vector2(0.267722, 0.449122)
-theme_override_styles/panel = SubResource("StyleBoxFlat_ujtj8")
-
-[node name="ProgressBarContainer" type="Panel" parent="DailyTasks/ProgressBarContainer3"]
-offset_right = 736.0
-offset_bottom = 40.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_0spsf")
-
-[node name="Display4" type="Label" parent="DailyTasks"]
-offset_left = 38.0
-offset_top = 234.0
-offset_right = 184.0
-offset_bottom = 257.0
-theme_override_fonts/font = ExtResource("3_oa1go")
-theme_override_font_sizes/font_size = 20
-text = "Play 1 Game"
-
-[node name="ProgressBarContainer4" type="Panel" parent="DailyTasks"]
-offset_left = 40.0
-offset_top = 262.0
-offset_right = 1063.0
-offset_bottom = 302.0
-scale = Vector2(0.267722, 0.449122)
-theme_override_styles/panel = SubResource("StyleBoxFlat_ujtj8")
-
-[node name="ProgressBarContainer" type="Panel" parent="DailyTasks/ProgressBarContainer4"]
-offset_right = 736.0
-offset_bottom = 40.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_0spsf")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="DailyTasks"]
-layout_mode = 0
-offset_top = 10.0
-offset_right = 353.0
-offset_bottom = 50.0
-theme_override_fonts/normal_font = ExtResource("3_oa1go")
-theme_override_font_sizes/normal_font_size = 43
-text = "Daily Tasks"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureButton" type="TextureButton" parent="DailyTasks"]
-layout_mode = 0
-offset_right = 256.0
-offset_bottom = 256.0
-scale = Vector2(0.123809, 0.123809)
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 49.0
+offset_bottom = 48.0
+scale = Vector2(0.164634, 0.164634)
 texture_normal = ExtResource("12_31o0v")
 texture_pressed = ExtResource("12_31o0v")
 texture_hover = ExtResource("12_31o0v")
 texture_disabled = ExtResource("12_31o0v")
 texture_focused = ExtResource("12_31o0v")
 
+[node name="ComingSoonNotifText" type="RichTextLabel" parent="."]
+offset_left = 937.0
+offset_top = 64.0
+offset_right = 1151.0
+offset_bottom = 100.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("9_3w3uy")
+theme_override_font_sizes/normal_font_size = 33
+text = "Coming soon"
+
+[node name="DailyTasks" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 750.0
+offset_top = 3.0
+offset_right = 1154.0
+offset_bottom = 438.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DailyTasks"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.5
+offset_top = 16.0
+offset_right = 176.5
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("3_oa1go")
+theme_override_font_sizes/normal_font_size = 43
+text = "Daily Tasks"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Display3" type="Label" parent="DailyTasks"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 182.0
+offset_right = 187.0
+offset_bottom = 205.0
+scale = Vector2(1.0849, 1.1613)
+theme_override_fonts/font = ExtResource("3_oa1go")
+theme_override_font_sizes/font_size = 20
+text = "Solve 5 Items"
+
+[node name="ProgressBarContainer3" type="Panel" parent="DailyTasks"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 208.0
+offset_right = 1128.0
+offset_bottom = 248.0
+scale = Vector2(0.290451, 0.521564)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ujtj8")
+
+[node name="ProgressBarContainer" type="Panel" parent="DailyTasks/ProgressBarContainer3"]
+layout_mode = 0
+offset_right = 417.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0spsf")
+
+[node name="Display4" type="Label" parent="DailyTasks"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 237.0
+offset_right = 187.0
+offset_bottom = 260.0
+scale = Vector2(1.0849, 1.1613)
+theme_override_fonts/font = ExtResource("3_oa1go")
+theme_override_font_sizes/font_size = 20
+text = "Play 1 Game"
+
+[node name="ProgressBarContainer4" type="Panel" parent="DailyTasks"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 265.0
+offset_right = 1128.0
+offset_bottom = 305.0
+scale = Vector2(0.290451, 0.521564)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ujtj8")
+
+[node name="ProgressBarContainer" type="Panel" parent="DailyTasks/ProgressBarContainer4"]
+layout_mode = 0
+offset_right = 912.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0spsf")
+
 [node name="Display" type="Label" parent="DailyTasks"]
-offset_left = 40.0
-offset_top = 67.0
-offset_right = 186.0
-offset_bottom = 90.0
+layout_mode = 0
+offset_left = 43.0
+offset_top = 70.0
+offset_right = 189.0
+offset_bottom = 93.0
+scale = Vector2(1.0849, 1.1613)
 theme_override_fonts/font = ExtResource("3_oa1go")
 theme_override_font_sizes/font_size = 20
 text = "Solve 5 Items"
 
 [node name="ProgressBarContainer" type="Panel" parent="DailyTasks"]
-offset_left = 40.0
-offset_top = 91.0
-offset_right = 1063.0
-offset_bottom = 131.0
-scale = Vector2(0.267722, 0.449122)
+layout_mode = 0
+offset_left = 43.0
+offset_top = 94.0
+offset_right = 1128.0
+offset_bottom = 134.0
+scale = Vector2(0.290451, 0.521564)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ujtj8")
 
 [node name="ProgressBarContainer" type="Panel" parent="DailyTasks/ProgressBarContainer"]
+layout_mode = 0
 offset_right = 736.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_0spsf")
 
 [node name="Display2" type="Label" parent="DailyTasks"]
-offset_left = 41.0
-offset_top = 123.0
-offset_right = 187.0
-offset_bottom = 146.0
+layout_mode = 0
+offset_left = 44.0
+offset_top = 126.0
+offset_right = 190.0
+offset_bottom = 149.0
+scale = Vector2(1.0849, 1.1613)
 theme_override_fonts/font = ExtResource("3_oa1go")
 theme_override_font_sizes/font_size = 20
 text = "Play 1 Game"
 
 [node name="ProgressBarContainer2" type="Panel" parent="DailyTasks"]
-offset_left = 40.0
-offset_top = 149.779
-offset_right = 1063.0
-offset_bottom = 189.779
-scale = Vector2(0.267722, 0.449122)
+layout_mode = 0
+offset_left = 43.0
+offset_top = 153.0
+offset_right = 1128.0
+offset_bottom = 193.0
+scale = Vector2(0.290451, 0.521564)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ujtj8")
 
 [node name="ProgressBarContainer" type="Panel" parent="DailyTasks/ProgressBarContainer2"]
-offset_right = 736.0
+layout_mode = 0
+offset_right = 210.0
 offset_bottom = 40.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_0spsf")
+
+[node name="BackgroundDarkeningThingamajig" type="Panel" parent="DailyTasks"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0arbs")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="DailyTasks"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -109.0
+offset_top = 35.0
+offset_right = 322.0
+offset_bottom = 106.0
+grow_horizontal = 2
+rotation = 0.808745
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("3_oa1go")
+theme_override_font_sizes/normal_font_size = 66
+text = "Coming Soon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="DailyTasks"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 267.0
+offset_bottom = 267.0
+scale = Vector2(0.123809, 0.123809)
+texture_normal = ExtResource("12_31o0v")
+texture_pressed = ExtResource("12_31o0v")
+texture_hover = ExtResource("12_31o0v")
+texture_disabled = ExtResource("12_31o0v")
+texture_focused = ExtResource("12_31o0v")
 
 [node name="Button_SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_nyucq")
@@ -611,4 +701,5 @@ mix_target = 2
 [connection signal="pressed" from="Transition/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="value_changed" from="Options/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="item_selected" from="Options/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="pressed" from="Options/BackButtonOptions" to="." method="_on_back_button_options_pressed"]
 [connection signal="pressed" from="DailyTasks/TextureButton" to="." method="_on_texture_button_pressed"]
