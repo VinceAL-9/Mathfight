@@ -27,7 +27,7 @@ func random_inequality() -> String:
 	return inequality_signs[randi() % inequality_signs.size()]
 
 func generate_problem():
-	var problem_type = 5
+	var problem_type = random_number(1, 5)
 	var variable = random_variable()
 
 	match problem_type:
@@ -54,7 +54,7 @@ func generate_problem():
 		3:
 			var sol = random_number(-6, 6, true)
 			var a = random_number(2, 8, true)
-			var b = random_number(-10, 10, true)
+			var b = random_number(1, 10, true)
 			var sign_ = random_inequality()
 			var rhs = a * sol + b
 			var b_term = "%s %d" % [("+" if b >= 0 else "-"), abs(b)]
