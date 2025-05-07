@@ -86,7 +86,7 @@ func generate_problem():
 					current_answer = "%s>%d" % [variable, answer_val]
 
 		5:
-			# Generate solution (-6 to 6, non-zero)
+			# Generate solution (-10 to 10, non-zero)
 			var sol = random_number(-10, 10, true)
 			while sol == 0:
 				sol = random_number(-6, 6, true)
@@ -99,14 +99,24 @@ func generate_problem():
 
 			# Calculate PROPER d to satisfy a(sol+b) = c(sol+d)
 			var b = random_number(-4, 4, true)
+			@warning_ignore("integer_division")
 			var d = (a * (sol + b) - c * sol) / c  # Corrected formula
-
+			
 			# Ensure d is integer in [-4, 4]
 			while not (is_equal_approx(d, int(d))) or d < -4 or d > 4:
 				b = random_number(-4, 4, true)
+				@warning_ignore("integer_division")
 				d = (a * (sol + b) - c * sol) / c
 
 			d = int(d)
+
+			@warning_ignore("integer_division")
+			var exact_solution = (c*d - a*b)/(a - c)
+			if not is_equal_approx(exact_solution, sol):
+				generate_problem()  # Restart
+
+			if not is_equal_approx(exact_solution, int(exact_solution)):
+				generate_problem()  # Restart if non-integer solution
 
 			# Verify equation holds (NEW CRITICAL CHECK)
 			if a * (sol + b) != c * (sol + d):
