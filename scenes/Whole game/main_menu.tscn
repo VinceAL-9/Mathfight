@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://3cmbc03ti6xe"]
+[gd_scene load_steps=33 format=3 uid="uid://3cmbc03ti6xe"]
 
 [ext_resource type="Script" uid="uid://suong8djaq8e" path="res://scripts/Whole game/main_menu.gd" id="1_8ln24"]
 [ext_resource type="Texture2D" uid="uid://cp02anuuk7fj6" path="res://assets/images/preview.png" id="2_rtw2f"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://6nhtxw8of0we" path="res://assets/images/crystalbutcolorful.png" id="8_6bll2"]
 [ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="9_3w3uy"]
 [ext_resource type="AudioStream" uid="uid://codinsjriyrkh" path="res://assets/AudioAssets/ButtonSfx.mp3" id="10_nyucq"]
+[ext_resource type="Texture2D" uid="uid://u0pfi6n4lf1f" path="res://assets/ui_icons/cross.png" id="12_31o0v"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fj5cn"]
 texture = ExtResource("2_rtw2f")
@@ -149,6 +150,12 @@ thickness = 10
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_gp1oo"]
 color = Color(0.984314, 0.694118, 0.0901961, 1)
 thickness = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujtj8"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0spsf"]
+bg_color = Color(0.109804, 1, 0, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -470,6 +477,123 @@ theme_override_fonts/font = ExtResource("3_oa1go")
 theme_override_font_sizes/font_size = 20
 text = "Display Mode"
 
+[node name="DailyTasks" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 801.0
+offset_top = 3.0
+offset_right = 1154.0
+offset_bottom = 404.0
+
+[node name="Display3" type="Label" parent="DailyTasks"]
+offset_left = 38.0
+offset_top = 179.0
+offset_right = 184.0
+offset_bottom = 202.0
+theme_override_fonts/font = ExtResource("3_oa1go")
+theme_override_font_sizes/font_size = 20
+text = "Solve 5 Items"
+
+[node name="ProgressBarContainer3" type="Panel" parent="DailyTasks"]
+offset_left = 40.0
+offset_top = 205.0
+offset_right = 1063.0
+offset_bottom = 245.0
+scale = Vector2(0.267722, 0.449122)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ujtj8")
+
+[node name="ProgressBarContainer" type="Panel" parent="DailyTasks/ProgressBarContainer3"]
+offset_right = 736.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0spsf")
+
+[node name="Display4" type="Label" parent="DailyTasks"]
+offset_left = 38.0
+offset_top = 234.0
+offset_right = 184.0
+offset_bottom = 257.0
+theme_override_fonts/font = ExtResource("3_oa1go")
+theme_override_font_sizes/font_size = 20
+text = "Play 1 Game"
+
+[node name="ProgressBarContainer4" type="Panel" parent="DailyTasks"]
+offset_left = 40.0
+offset_top = 262.0
+offset_right = 1063.0
+offset_bottom = 302.0
+scale = Vector2(0.267722, 0.449122)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ujtj8")
+
+[node name="ProgressBarContainer" type="Panel" parent="DailyTasks/ProgressBarContainer4"]
+offset_right = 736.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0spsf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DailyTasks"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 353.0
+offset_bottom = 50.0
+theme_override_fonts/normal_font = ExtResource("3_oa1go")
+theme_override_font_sizes/normal_font_size = 43
+text = "Daily Tasks"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="DailyTasks"]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 256.0
+scale = Vector2(0.123809, 0.123809)
+texture_normal = ExtResource("12_31o0v")
+texture_pressed = ExtResource("12_31o0v")
+texture_hover = ExtResource("12_31o0v")
+texture_disabled = ExtResource("12_31o0v")
+texture_focused = ExtResource("12_31o0v")
+
+[node name="Display" type="Label" parent="DailyTasks"]
+offset_left = 40.0
+offset_top = 67.0
+offset_right = 186.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("3_oa1go")
+theme_override_font_sizes/font_size = 20
+text = "Solve 5 Items"
+
+[node name="ProgressBarContainer" type="Panel" parent="DailyTasks"]
+offset_left = 40.0
+offset_top = 91.0
+offset_right = 1063.0
+offset_bottom = 131.0
+scale = Vector2(0.267722, 0.449122)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ujtj8")
+
+[node name="ProgressBarContainer" type="Panel" parent="DailyTasks/ProgressBarContainer"]
+offset_right = 736.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0spsf")
+
+[node name="Display2" type="Label" parent="DailyTasks"]
+offset_left = 41.0
+offset_top = 123.0
+offset_right = 187.0
+offset_bottom = 146.0
+theme_override_fonts/font = ExtResource("3_oa1go")
+theme_override_font_sizes/font_size = 20
+text = "Play 1 Game"
+
+[node name="ProgressBarContainer2" type="Panel" parent="DailyTasks"]
+offset_left = 40.0
+offset_top = 149.779
+offset_right = 1063.0
+offset_bottom = 189.779
+scale = Vector2(0.267722, 0.449122)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ujtj8")
+
+[node name="ProgressBarContainer" type="Panel" parent="DailyTasks/ProgressBarContainer2"]
+offset_right = 736.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0spsf")
+
 [node name="Button_SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_nyucq")
 volume_db = 2.0
@@ -487,3 +611,4 @@ mix_target = 2
 [connection signal="pressed" from="Transition/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="value_changed" from="Options/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="item_selected" from="Options/Resolution" to="." method="_on_resolution_item_selected"]
+[connection signal="pressed" from="DailyTasks/TextureButton" to="." method="_on_texture_button_pressed"]

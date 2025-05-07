@@ -61,7 +61,9 @@ func _on_store_button_pressed() -> void:
 func _on_achievements_button_pressed() -> void:
 	if button_sfx:
 		button_sfx.play()
-	get_tree().change_scene_to_file("res://scenes/Whole game/placeholderscene.tscn")
+	transition.play("fade_out")
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file("res://scenes/Whole game/achievements.tscn")
 	print("Achievements button pressed")
 
 func _on_equipment_button_pressed() -> void:
@@ -88,7 +90,11 @@ func _on_notifications_button_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_tasks_button_pressed() -> void:
-	pass # Replace with function body.
+	$DailyTasks.visible = true
+	$Header/SettingsButton.visible = false 
+	$Header/NotificationsButton.visible = false
+	$Header/TasksButton.visible = false
+	
 
 func linear_to_db(value: float) -> float:
 	return 20.0 * log(value)
@@ -112,4 +118,12 @@ func _on_resolution_item_selected(index: int) -> void:
 		1:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
+	
+
+
+func _on_texture_button_pressed() -> void:
+	$DailyTasks.visible = false
+	$Header/SettingsButton.visible = true
+	$Header/NotificationsButton.visible = true
+	$Header/TasksButton.visible = true
 	

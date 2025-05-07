@@ -1,0 +1,336 @@
+[gd_scene load_steps=16 format=3 uid="uid://dkh03ty5lemyo"]
+
+[ext_resource type="Texture2D" uid="uid://cfxdq71gavliu" path="res://assets/images/preview-modified.png" id="1_cvdap"]
+[ext_resource type="Script" uid="uid://cj40yqt8ei32a" path="res://scripts/Whole game/achievements.gd" id="1_fjhl8"]
+[ext_resource type="Texture2D" uid="uid://drkpyyr8tg8ca" path="res://assets/ui_icons/arrow_left.png" id="2_fjhl8"]
+[ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="3_5b1ac"]
+[ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="3_j4ffg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5b1ac"]
+texture = ExtResource("1_cvdap")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evsvp"]
+bg_color = Color(0.290196, 0.254902, 0.819608, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4ffg"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5b1ac"]
+bg_color = Color(0.109804, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyolp"]
+bg_color = Color(0.321569, 0.321569, 0.321569, 0.658824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nat2q"]
+bg_color = Color(0.191365, 0.297162, 0.694129, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id="Animation_kov0v"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.966667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g8b4r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nxsnj"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nxsnj"]
+_data = {
+&"RESET": SubResource("Animation_g8b4r"),
+&"fade_in": SubResource("Animation_kov0v"),
+&"fade_out": SubResource("Animation_nxsnj")
+}
+
+[node name="Achievements" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fjhl8")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5b1ac")
+
+[node name="AchievementContainer" type="Panel" parent="Background"]
+modulate = Color(1, 1, 1, 0.941176)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -548.0
+offset_top = -203.0
+offset_right = 548.0
+offset_bottom = 287.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_evsvp")
+
+[node name="AchievementTaskText" type="RichTextLabel" parent="Background/AchievementContainer"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 26.0
+offset_right = 532.0
+offset_bottom = 87.0
+theme_override_fonts/normal_font = ExtResource("3_5b1ac")
+theme_override_font_sizes/normal_font_size = 51
+text = "Solve 50 Items"
+
+[node name="ProgressBarContainer" type="Panel" parent="Background/AchievementContainer"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 88.0
+offset_right = 1062.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j4ffg")
+
+[node name="ProgressBarContainer" type="Panel" parent="Background/AchievementContainer/ProgressBarContainer"]
+offset_right = 736.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5b1ac")
+
+[node name="AchievementTaskText2" type="RichTextLabel" parent="Background/AchievementContainer"]
+offset_left = 36.0
+offset_top = 139.0
+offset_right = 532.0
+offset_bottom = 200.0
+theme_override_fonts/normal_font = ExtResource("3_5b1ac")
+theme_override_font_sizes/normal_font_size = 51
+text = "Beat the Campaign"
+
+[node name="ProgressBarContainer2" type="Panel" parent="Background/AchievementContainer"]
+offset_left = 39.0
+offset_top = 201.0
+offset_right = 1062.0
+offset_bottom = 241.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j4ffg")
+
+[node name="ProgressBarContainer" type="Panel" parent="Background/AchievementContainer/ProgressBarContainer2"]
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5b1ac")
+
+[node name="AchievementTaskText3" type="RichTextLabel" parent="Background/AchievementContainer"]
+offset_left = 36.0
+offset_top = 255.0
+offset_right = 976.0
+offset_bottom = 316.0
+theme_override_fonts/normal_font = ExtResource("3_5b1ac")
+theme_override_font_sizes/normal_font_size = 51
+text = "Defeat the bot for the first time"
+
+[node name="ProgressBarContainer3" type="Panel" parent="Background/AchievementContainer"]
+offset_left = 39.0
+offset_top = 317.0
+offset_right = 1062.0
+offset_bottom = 357.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j4ffg")
+
+[node name="ProgressBarContainer" type="Panel" parent="Background/AchievementContainer/ProgressBarContainer3"]
+offset_right = 460.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5b1ac")
+
+[node name="AchievementTaskText4" type="RichTextLabel" parent="Background/AchievementContainer"]
+offset_left = 36.0
+offset_top = 367.0
+offset_right = 881.0
+offset_bottom = 428.0
+theme_override_fonts/normal_font = ExtResource("3_5b1ac")
+theme_override_font_sizes/normal_font_size = 51
+text = "Beat a player in multiplayer"
+
+[node name="ProgressBarContainer4" type="Panel" parent="Background/AchievementContainer"]
+offset_left = 39.0
+offset_top = 429.0
+offset_right = 1062.0
+offset_bottom = 469.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j4ffg")
+
+[node name="ProgressBarContainer" type="Panel" parent="Background/AchievementContainer/ProgressBarContainer4"]
+offset_right = 1023.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5b1ac")
+
+[node name="BackButton" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 541.0
+offset_right = 261.0
+offset_bottom = 797.0
+scale = Vector2(0.432994, 0.432994)
+texture = ExtResource("2_fjhl8")
+
+[node name="AchievementText" type="RichTextLabel" parent="Background"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 8.0
+offset_right = 943.0
+offset_bottom = 135.0
+theme_override_fonts/normal_font = ExtResource("3_j4ffg")
+theme_override_font_sizes/normal_font_size = 120
+text = "Achievements"
+
+[node name="ComingSoonPanel" type="Panel" parent="Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eyolp")
+
+[node name="Label" type="Label" parent="Background/ComingSoonPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -482.0
+offset_top = -71.0
+offset_right = 482.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("3_j4ffg")
+theme_override_font_sizes/font_size = 94
+text = "Coming Soon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Background/ComingSoonPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = 62.0
+offset_right = 159.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_j4ffg")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxFlat_nat2q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nat2q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nat2q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nat2q")
+text = "Back to Main Menu"
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nxsnj")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Background/ComingSoonPanel/Button" to="." method="_on_button_pressed"]
