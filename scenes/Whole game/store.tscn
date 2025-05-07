@@ -1,0 +1,390 @@
+[gd_scene load_steps=24 format=3 uid="uid://b80kj2tskpa4o"]
+
+[ext_resource type="Texture2D" uid="uid://cfxdq71gavliu" path="res://assets/images/preview-modified.png" id="1_fu7b1"]
+[ext_resource type="Script" uid="uid://bkr1apbtooj25" path="res://scripts/Whole game/Choose mode/campaign/Core gameplay/store.gd" id="1_kov0v"]
+[ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="2_phaf5"]
+[ext_resource type="Texture2D" uid="uid://cd1rcg1jxl0ji" path="res://assets/images/chest.png" id="2_s0bti"]
+[ext_resource type="Texture2D" uid="uid://m8ta83lkl70h" path="res://assets/images/chestbutwooden.png" id="3_kov0v"]
+[ext_resource type="Texture2D" uid="uid://chknaxtl3ta0g" path="res://assets/images/rarerchest.png" id="4_g8b4r"]
+[ext_resource type="Texture2D" uid="uid://dvicp3x5hvs48" path="res://assets/images/crystal.png" id="6_nxsnj"]
+[ext_resource type="Texture2D" uid="uid://drkpyyr8tg8ca" path="res://assets/ui_icons/arrow_left.png" id="7_73m35"]
+[ext_resource type="Texture2D" uid="uid://6nhtxw8of0we" path="res://assets/images/crystalbutcolorful.png" id="9_g8b4r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gpikn"]
+texture = ExtResource("1_fu7b1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hmpbv"]
+bg_color = Color(0.290196, 0.254902, 0.819608, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4fp"]
+bg_color = Color(0.231373, 0.407843, 0.756863, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xbqxr"]
+texture = ExtResource("2_s0bti")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0b0vx"]
+texture = ExtResource("3_kov0v")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6sn7x"]
+texture = ExtResource("4_g8b4r")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxsnj"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 0.8)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_73m35"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2fin"]
+bg_color = Color(0.321569, 0.321569, 0.321569, 0.658824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0bti"]
+bg_color = Color(0.191365, 0.297162, 0.694129, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id="Animation_kov0v"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.966667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g8b4r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nxsnj"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nxsnj"]
+_data = {
+&"RESET": SubResource("Animation_g8b4r"),
+&"fade_in": SubResource("Animation_kov0v"),
+&"fade_out": SubResource("Animation_nxsnj")
+}
+
+[node name="Store" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kov0v")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gpikn")
+
+[node name="StoreContainer" type="Panel" parent="Background"]
+modulate = Color(1, 1, 1, 0.941176)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -548.0
+offset_top = -203.0
+offset_right = 548.0
+offset_bottom = 287.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hmpbv")
+
+[node name="ItemContainer" type="Panel" parent="Background/StoreContainer"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 112.0
+offset_right = 317.0
+offset_bottom = 385.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ee4fp")
+
+[node name="Chest" type="Panel" parent="Background/StoreContainer/ItemContainer"]
+self_modulate = Color(1, 1, 1, 0.85098)
+layout_mode = 0
+offset_right = 273.0
+offset_bottom = 273.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_xbqxr")
+
+[node name="ItemContainer2" type="Panel" parent="Background/StoreContainer"]
+layout_mode = 0
+offset_left = 363.0
+offset_top = 111.0
+offset_right = 636.0
+offset_bottom = 384.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ee4fp")
+
+[node name="Chest" type="Panel" parent="Background/StoreContainer/ItemContainer2"]
+self_modulate = Color(1, 1, 1, 0.85098)
+layout_mode = 0
+offset_right = 273.0
+offset_bottom = 273.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_0b0vx")
+
+[node name="ItemContainer3" type="Panel" parent="Background/StoreContainer"]
+layout_mode = 0
+offset_left = 681.0
+offset_top = 111.0
+offset_right = 954.0
+offset_bottom = 384.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ee4fp")
+
+[node name="Chest" type="Panel" parent="Background/StoreContainer/ItemContainer3"]
+self_modulate = Color(1, 1, 1, 0.85098)
+layout_mode = 0
+offset_right = 273.0
+offset_bottom = 273.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_6sn7x")
+
+[node name="CrystalAmountContainer" type="Panel" parent="Background/StoreContainer"]
+self_modulate = Color(1, 1, 1, 0.772549)
+offset_left = 69.0
+offset_top = 35.0
+offset_right = 211.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nxsnj")
+
+[node name="CrystalAmount" type="RichTextLabel" parent="Background/StoreContainer/CrystalAmountContainer"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 2.0
+offset_right = 63.0
+offset_bottom = 42.0
+theme_override_fonts/normal_font = ExtResource("2_phaf5")
+theme_override_font_sizes/normal_font_size = 38
+text = "0"
+
+[node name="CrystalBackground" type="Panel" parent="Background/StoreContainer"]
+offset_left = 26.0
+offset_top = 27.0
+offset_right = 87.0
+offset_bottom = 88.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_73m35")
+
+[node name="Crystal" type="TextureRect" parent="Background/StoreContainer"]
+self_modulate = Color(1, 1, 1, 0.713726)
+offset_left = 27.0
+offset_top = 33.0
+offset_right = 85.0
+offset_bottom = 91.0
+texture = ExtResource("6_nxsnj")
+
+[node name="PremiumCrystalAmountContainer" type="Panel" parent="Background/StoreContainer"]
+self_modulate = Color(1, 1, 1, 0.772549)
+offset_left = 271.0
+offset_top = 35.0
+offset_right = 413.0
+offset_bottom = 80.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nxsnj")
+
+[node name="CrystalAmount" type="RichTextLabel" parent="Background/StoreContainer/PremiumCrystalAmountContainer"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 2.0
+offset_right = 63.0
+offset_bottom = 42.0
+theme_override_fonts/normal_font = ExtResource("2_phaf5")
+theme_override_font_sizes/normal_font_size = 38
+text = "0"
+
+[node name="CrystalBackground2" type="Panel" parent="Background/StoreContainer"]
+offset_left = 228.0
+offset_top = 27.0
+offset_right = 289.0
+offset_bottom = 88.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_73m35")
+
+[node name="Crystal2" type="TextureRect" parent="Background/StoreContainer"]
+self_modulate = Color(1, 1, 1, 0.713726)
+offset_left = 229.0
+offset_top = 33.0
+offset_right = 287.0
+offset_bottom = 91.0
+texture = ExtResource("9_g8b4r")
+
+[node name="BackButton" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 541.0
+offset_right = 261.0
+offset_bottom = 797.0
+scale = Vector2(0.432994, 0.432994)
+texture = ExtResource("7_73m35")
+
+[node name="StoreText" type="RichTextLabel" parent="Background"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 8.0
+offset_right = 589.0
+offset_bottom = 135.0
+theme_override_fonts/normal_font = ExtResource("2_phaf5")
+theme_override_font_sizes/normal_font_size = 120
+text = "Store"
+
+[node name="ComingSoonPanel" type="Panel" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t2fin")
+
+[node name="Label" type="Label" parent="Background/ComingSoonPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -482.0
+offset_top = -71.0
+offset_right = 482.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_phaf5")
+theme_override_font_sizes/font_size = 94
+text = "Coming Soon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Background/ComingSoonPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = 62.0
+offset_right = 159.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_phaf5")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/focus = SubResource("StyleBoxFlat_s0bti")
+theme_override_styles/hover = SubResource("StyleBoxFlat_s0bti")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_s0bti")
+theme_override_styles/normal = SubResource("StyleBoxFlat_s0bti")
+text = "Back to Main Menu"
+
+[node name="Transition" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nxsnj")
+}
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Background/ComingSoonPanel/Button" to="." method="_on_button_pressed"]

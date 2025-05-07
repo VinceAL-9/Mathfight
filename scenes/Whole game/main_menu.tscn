@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://3cmbc03ti6xe"]
+[gd_scene load_steps=30 format=3 uid="uid://3cmbc03ti6xe"]
 
 [ext_resource type="Script" uid="uid://suong8djaq8e" path="res://scripts/Whole game/main_menu.gd" id="1_8ln24"]
 [ext_resource type="Texture2D" uid="uid://cp02anuuk7fj6" path="res://assets/images/preview.png" id="2_rtw2f"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://b4bhy5l20vtl" path="res://assets/ui_icons/mail.png" id="5_5dd4i"]
 [ext_resource type="Texture2D" uid="uid://y5nx0u36ai5d" path="res://assets/images/start-button-on-hover.png" id="5_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://drode5ae7xs17" path="res://assets/ui_icons/list_bulleted.png" id="6_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://dvicp3x5hvs48" path="res://assets/images/crystal.png" id="7_gp1oo"]
+[ext_resource type="Texture2D" uid="uid://6nhtxw8of0we" path="res://assets/images/crystalbutcolorful.png" id="8_6bll2"]
 [ext_resource type="FontFile" uid="uid://b2yytxp7gsmus" path="res://assets/upheavtt.ttf" id="9_3w3uy"]
 [ext_resource type="AudioStream" uid="uid://codinsjriyrkh" path="res://assets/AudioAssets/ButtonSfx.mp3" id="10_nyucq"]
 
@@ -31,6 +33,20 @@ corner_radius_top_left = 86
 corner_radius_top_right = 86
 corner_radius_bottom_right = 86
 corner_radius_bottom_left = 86
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bll2"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 0.8)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31o0v"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [sub_resource type="Animation" id="Animation_jk1qb"]
 length = 0.001
@@ -243,9 +259,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_kbped")
 [node name="SettingsButton" type="TextureButton" parent="Header"]
 layout_mode = 2
 offset_left = 951.0
-offset_top = 4.0
+offset_top = 8.0
 offset_right = 1207.0
-offset_bottom = 260.0
+offset_bottom = 264.0
 scale = Vector2(0.203823, 0.197153)
 texture_normal = ExtResource("4_jk1qb")
 texture_pressed = ExtResource("4_jk1qb")
@@ -255,9 +271,9 @@ texture_focused = ExtResource("4_jk1qb")
 [node name="NotificationsButton" type="TextureButton" parent="Header"]
 layout_mode = 2
 offset_left = 1015.0
-offset_top = 3.0
+offset_top = 7.0
 offset_right = 1284.0
-offset_bottom = 281.0
+offset_bottom = 285.0
 scale = Vector2(0.234381, 0.201728)
 texture_normal = ExtResource("5_5dd4i")
 texture_pressed = ExtResource("5_5dd4i")
@@ -266,10 +282,10 @@ texture_focused = ExtResource("5_5dd4i")
 
 [node name="TasksButton" type="TextureButton" parent="Header"]
 layout_mode = 2
-offset_left = 1081.0
-offset_top = -2.0
-offset_right = 1337.0
-offset_bottom = 254.0
+offset_left = 1080.0
+offset_top = 2.0
+offset_right = 1336.0
+offset_bottom = 258.0
 scale = Vector2(0.277361, 0.237346)
 texture_normal = ExtResource("6_lgwnu")
 texture_pressed = ExtResource("6_lgwnu")
@@ -284,6 +300,74 @@ offset_right = 338.0
 offset_bottom = 88.0
 theme_override_fonts/font = ExtResource("3_oa1go")
 theme_override_font_sizes/font_size = 30
+
+[node name="CrystalAmountContainer" type="Panel" parent="Header"]
+self_modulate = Color(1, 1, 1, 0.772549)
+layout_mode = 0
+offset_left = 595.0
+offset_top = 13.0
+offset_right = 737.0
+offset_bottom = 58.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6bll2")
+
+[node name="CrystalAmount" type="RichTextLabel" parent="Header/CrystalAmountContainer"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 2.0
+offset_right = 63.0
+offset_bottom = 42.0
+theme_override_fonts/normal_font = ExtResource("3_oa1go")
+theme_override_font_sizes/normal_font_size = 38
+text = "0"
+
+[node name="CrystalBackground" type="Panel" parent="Header"]
+offset_left = 552.0
+offset_top = 5.0
+offset_right = 613.0
+offset_bottom = 66.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_31o0v")
+
+[node name="Crystal" type="TextureRect" parent="Header"]
+self_modulate = Color(1, 1, 1, 0.713726)
+layout_mode = 0
+offset_left = 553.0
+offset_top = 11.0
+offset_right = 611.0
+offset_bottom = 69.0
+texture = ExtResource("7_gp1oo")
+
+[node name="PremiumCrystalAmountContainer" type="Panel" parent="Header"]
+self_modulate = Color(1, 1, 1, 0.772549)
+offset_left = 797.0
+offset_top = 13.0
+offset_right = 939.0
+offset_bottom = 58.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6bll2")
+
+[node name="CrystalAmount" type="RichTextLabel" parent="Header/PremiumCrystalAmountContainer"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 2.0
+offset_right = 63.0
+offset_bottom = 42.0
+theme_override_fonts/normal_font = ExtResource("3_oa1go")
+theme_override_font_sizes/normal_font_size = 38
+text = "0"
+
+[node name="CrystalBackground2" type="Panel" parent="Header"]
+offset_left = 754.0
+offset_top = 5.0
+offset_right = 815.0
+offset_bottom = 66.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_31o0v")
+
+[node name="Crystal2" type="TextureRect" parent="Header"]
+self_modulate = Color(1, 1, 1, 0.713726)
+offset_left = 755.0
+offset_top = 11.0
+offset_right = 813.0
+offset_bottom = 69.0
+texture = ExtResource("8_6bll2")
 
 [node name="Transition" type="AnimationPlayer" parent="."]
 libraries = {
