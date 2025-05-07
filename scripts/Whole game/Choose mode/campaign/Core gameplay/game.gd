@@ -71,6 +71,7 @@ func _on_generate_problem_timeout() -> void:
 			solve_timer.wait_time = 45
 	
 	level_generator.generate_problem()
+	print(level_generator.get_current_answer())
 	level_generator.get_node("ProblemLabel").visible = true # display problem and generate it 
 	has_answered = false # allow answering again for the new problem
 	solve_timer.start()
