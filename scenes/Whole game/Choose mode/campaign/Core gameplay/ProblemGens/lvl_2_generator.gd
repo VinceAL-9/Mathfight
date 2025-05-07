@@ -27,7 +27,7 @@ func random_inequality() -> String:
 	return inequality_signs[randi() % inequality_signs.size()]
 
 func generate_problem():
-	var problem_type = 5
+	var problem_type = random_number(1, 5)
 	var variable = random_variable()
 	print(problem_type)
 	match problem_type:
