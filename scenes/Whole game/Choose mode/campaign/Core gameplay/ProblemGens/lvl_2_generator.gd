@@ -29,7 +29,7 @@ func random_inequality() -> String:
 func generate_problem():
 	var problem_type = random_number(1, 5)
 	var variable = random_variable()
-
+	print(problem_type)
 	match problem_type:
 		1:
 			var sol = random_number(-8, 8, true)
@@ -53,7 +53,7 @@ func generate_problem():
 
 		3:
 			var sol = random_number(-6, 6, true)
-			var a = random_number(2, 8, true)
+			var a = random_number(2, 8, false)
 			var b = random_number(1, 10, true)
 			var sign_ = random_inequality()
 			var rhs = a * sol + b
