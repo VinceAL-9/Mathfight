@@ -45,7 +45,7 @@ func _ready() -> void: # executes once, at the start of the match
 		2: 
 			solve_timer.wait_time = 45
 		3:
-			solve_timer.wait_time = 45
+			solve_timer.wait_time = 40
 	
 	update_health_ui() # sets initial health display
 	
@@ -68,7 +68,7 @@ func _on_generate_problem_timeout() -> void:
 		2: 
 			solve_timer.wait_time = 45
 		3:
-			solve_timer.wait_time = 45
+			solve_timer.wait_time = 40
 	
 	level_generator.generate_problem()
 	print(level_generator.get_current_answer())

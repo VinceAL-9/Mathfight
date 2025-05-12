@@ -23,7 +23,7 @@ func _ready() -> void:
 			game.get_node("ProblemTimers/Timer for Solving").wait_time = 25
 		3:
 			game.level_generator = $ProbGenerators/Lvl3Generator
-			game.get_node("ProblemTimers/Timer for Solving").wait_time = 45
+			game.get_node("ProblemTimers/Timer for Solving").wait_time = 40
 	# set position of problem display afterwards
 	game.level_generator.position = Vector2(528, 134)
 
