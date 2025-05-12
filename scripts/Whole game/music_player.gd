@@ -1,14 +1,17 @@
 extends Node
 
-var rng := RandomNumberGenerator.new()
 @onready var main_menu_1: AudioStreamPlayer = $MainMenu1
 @onready var main_menu_2: AudioStreamPlayer = $MainMenu2
 @onready var main_menu_3: AudioStreamPlayer = $MainMenu3
+
+
 @onready var pregame: AudioStreamPlayer = $Pregame
 @onready var level_1: AudioStreamPlayer = $Level1
 @onready var level_2: AudioStreamPlayer = $Level2
 @onready var level_3: AudioStreamPlayer = $Level3
 @onready var match_results: AudioStreamPlayer = $MatchResults
+
+# keep track of the current music playing
 var current_music: AudioStreamPlayer
 
 func _ready() -> void:

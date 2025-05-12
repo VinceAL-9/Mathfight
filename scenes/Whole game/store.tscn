@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://b80kj2tskpa4o"]
 
 [ext_resource type="Texture2D" uid="uid://cfxdq71gavliu" path="res://assets/images/preview-modified.png" id="1_fu7b1"]
-[ext_resource type="Script" uid="uid://bkr1apbtooj25" path="res://scripts/Whole game/Choose mode/campaign/Core gameplay/store.gd" id="1_kov0v"]
+[ext_resource type="Script" uid="uid://bkr1apbtooj25" path="res://scripts/Whole game/store.gd" id="1_kov0v"]
 [ext_resource type="FontFile" uid="uid://dshtorx4qksxg" path="res://assets/fonts/upheavtt.ttf" id="2_phaf5"]
 [ext_resource type="Texture2D" uid="uid://cd1rcg1jxl0ji" path="res://assets/images/chest.png" id="2_s0bti"]
 [ext_resource type="Texture2D" uid="uid://m8ta83lkl70h" path="res://assets/images/chestbutwooden.png" id="3_kov0v"]

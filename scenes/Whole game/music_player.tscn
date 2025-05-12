@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpr3ip56unda2"]
+[gd_scene load_steps=9 format=3 uid="uid://cpr3ip56unda2"]
 
 [ext_resource type="Script" uid="uid://vrabdfu05t04" path="res://scripts/Whole game/music_player.gd" id="1_eq6mq"]
-[ext_resource type="AudioStream" uid="uid://btdxiyl0f4cpy" path="res://assets/AudioAssets/Music/Three Red Hearts - Connected.ogg" id="1_y6152"]
 [ext_resource type="AudioStream" uid="uid://do4igl6gqdi2t" path="res://assets/AudioAssets/Music/Three Red Hearts - Modern Bits.ogg" id="2_aftu4"]
 [ext_resource type="AudioStream" uid="uid://bp3gg6omqytqh" path="res://assets/AudioAssets/Music/Three Red Hearts - Go.ogg" id="2_vmgw6"]
 [ext_resource type="AudioStream" uid="uid://c2ycbharmajdm" path="res://assets/AudioAssets/Music/Battle_5.wav" id="3_dsxlg"]
@@ -15,7 +14,7 @@ script = ExtResource("1_eq6mq")
 
 [node name="MainMenu1" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("1_y6152")
+stream = ExtResource("2_aftu4")
 autoplay = true
 parameters/looping = true
 
