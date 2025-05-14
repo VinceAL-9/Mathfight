@@ -4,7 +4,7 @@ extends Control
 @onready var label = $VBoxContainer/MarginContainer/Label
 @onready var button_sfx: AudioStreamPlayer = $Button_SFX
 
-#Adds keyboard inputs for each button
+# Adds keyboard inputs for each button
 func _input(event):
 	if not typing_enabled:
 		return
@@ -13,11 +13,13 @@ func _input(event):
 	if event is InputEventKey and event.pressed:
 		var _key_char = event.as_text()
 
-		# Ignore Shift so that it doesnt output zero due to godot preocesses
+		# Ignore Shift so that it doesnt output zero due to godot preocesses. 
+		# This also makes symbols like ^, (, and, ) possible to output with Shift waiting until the required outputs are pressed 
 		if event.keycode == Key.KEY_SHIFT:
 			return
 
 		# Numbers 0–9
+		# prevents shift-activitated numbers (6, 9, 0) from incorrectly outputting their respective number
 		if event.keycode == Key.KEY_0 and not event.shift_pressed: key_pressed("0")
 		elif event.keycode == Key.KEY_1: key_pressed("1")
 		elif event.keycode == Key.KEY_2: key_pressed("2")
