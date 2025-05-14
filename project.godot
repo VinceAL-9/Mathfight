@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="Mathfight"
+config/description="Level up your skills and confidence in math with Mathfight!"
+config/version="1.0"
 run/main_scene="uid://bg8ls8rhycn7r"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cjswsidfopc0p"
 
 [audio]
 
